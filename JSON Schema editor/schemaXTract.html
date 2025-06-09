@@ -1,1 +1,1035 @@
-a
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Schema Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>JSON Schema Editor</h1>
+            <div class="controls">
+                <input type="file" id="jsonFile" accept=".json" class="file-input">
+                <label for="jsonFile" class="file-label">📁 Cargar JSON</label>
+                <button id="downloadBtn" class="btn-download" disabled>⬇ Descargar Selección</button>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar campos..." class="search-input">
+            </div>
+            
+            <div class="groups-container">
+                <div class="groups-header">Grupos:</div>
+                <div class="groups-list" id="groupsList"></div>
+                <button id="addGroupBtn" class="btn-add-group">+ Nuevo Grupo</button>
+            </div>
+            
+            <div class="filter-container">
+                <select id="groupFilter" class="group-filter">
+                    <option value="">🐾 Todos los grupos</option>
+                </select>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="fields-container" id="fieldsContainer">
+                <div class="empty-state">
+                    <div class="empty-icon">📄</div>
+                    <p>Carga un archivo JSON para comenzar</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="editorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Editar Campo</h3>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <textarea id="jsonEditor" class="json-editor" placeholder="Edita el fragmento JSON aquí..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="saveChanges" class="btn-save">💾 Guardar</button>
+                <button id="cancelChanges" class="btn-cancel">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #606060;
+    --accent: #4a9eff;
+    --accent-hover: #357abd;
+    --border: #333;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --danger: #ff6b6b;
+    --success: #51cf66;
+    --warning: #ffd43b;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a2e 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label, .btn-download {
+    padding: 10px 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.file-label:hover, .btn-download:hover:not(:disabled) {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.btn-download:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.groups-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.groups-header {
+    font-size: 14px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.groups-list {
+    display: flex;
+    gap: 8px;
+}
+
+.group-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.group-container:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent);
+}
+
+.group-container:hover .group-tag {
+    color: white;
+}
+
+.group-container:hover .group-download-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.group-tag {
+    padding: 6px 12px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    border: none;
+    background: transparent;
+}
+
+.group-tag.active {
+    background: var(--accent);
+    color: white;
+}
+
+.group-download-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 6px 8px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.group-container.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.group-container.selected .group-tag {
+    color: white;
+}
+
+.group-container.selected .group-download-btn {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.group-download-btn:hover {
+    background: var(--success);
+    color: white;
+}
+
+.btn-add-group {
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+    color: var(--text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-group:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.group-filter {
+    padding: 8px 12px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+    min-width: 200px;
+}
+
+.main-content {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    min-height: 500px;
+}
+
+.fields-container {
+    padding: 20px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.field-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.field-item:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
+}
+
+.field-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.field-info {
+    flex: 1;
+}
+
+.field-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.field-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.field-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.group-indicator {
+    padding: 4px 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.btn-edit, .btn-group {
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.btn-group:hover {
+    background: var(--warning);
+    color: var(--bg-primary);
+    border-color: var(--warning);
+}
+
+.field-content {
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-primary);
+    display: none;
+}
+
+.field-content.expanded {
+    display: block;
+}
+
+.json-preview {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 15px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    color: var(--text-secondary);
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 20px 40px var(--shadow);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.json-editor {
+    width: 100%;
+    height: 400px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 13px;
+    padding: 15px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.json-editor:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-tertiary);
+}
+
+.btn-save, .btn-cancel {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-save {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+.btn-save:hover {
+    background: #40c057;
+    transform: translateY(-1px);
+}
+
+.btn-cancel {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-cancel:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .toolbar {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .groups-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .field-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .field-actions {
+        align-self: stretch;
+        justify-content: space-between;
+    }
+}
+</style>
+
+<script>
+class JSONEditor {
+    constructor() {
+        this.jsonData = null;
+        this.groups = [];
+        this.currentEditingField = null;
+        this.selectedGroups = new Set();
+        
+        this.initializeElements();
+        this.attachEventListeners();
+        this.loadGroups();
+    }
+
+    initializeElements() {
+        this.elements = {
+            fileInput: document.getElementById('jsonFile'),
+            downloadBtn: document.getElementById('downloadBtn'),
+            searchInput: document.getElementById('searchInput'),
+            groupsList: document.getElementById('groupsList'),
+            addGroupBtn: document.getElementById('addGroupBtn'),
+            groupFilter: document.getElementById('groupFilter'),
+            fieldsContainer: document.getElementById('fieldsContainer'),
+            modal: document.getElementById('editorModal'),
+            modalTitle: document.getElementById('modalTitle'),
+            modalClose: document.getElementById('modalClose'),
+            jsonEditor: document.getElementById('jsonEditor'),
+            saveChanges: document.getElementById('saveChanges'),
+            cancelChanges: document.getElementById('cancelChanges')
+        };
+    }
+
+    attachEventListeners() {
+        this.elements.fileInput.addEventListener('change', (e) => this.handleFileUpload(e));
+        this.elements.downloadBtn.addEventListener('click', () => this.downloadFilteredJSON());
+        this.elements.searchInput.addEventListener('input', (e) => this.filterFields(e.target.value));
+        this.elements.addGroupBtn.addEventListener('click', () => this.addNewGroup());
+        this.elements.groupFilter.addEventListener('change', (e) => this.filterByGroup(e.target.value));
+        this.elements.modalClose.addEventListener('click', () => this.closeModal());
+        this.elements.saveChanges.addEventListener('click', () => this.saveFieldChanges());
+        this.elements.cancelChanges.addEventListener('click', () => this.closeModal());
+        
+        // Close modal on outside click
+        this.elements.modal.addEventListener('click', (e) => {
+            if (e.target === this.elements.modal) this.closeModal();
+        });
+    }
+
+    handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                this.jsonData = JSON.parse(e.target.result);
+                // Limpiar grupos y selecciones anteriores
+                this.groups = [];
+                this.selectedGroups.clear();
+                this.elements.groupFilter.value = '';
+                this.elements.searchInput.value = '';
+                // Detectar grupos existentes en el nuevo JSON
+                this.detectExistingGroups();
+                this.renderFields();
+                this.elements.downloadBtn.disabled = false;
+            } catch (error) {
+                alert('Error al parsear el archivo JSON: ' + error.message);
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    detectExistingGroups() {
+        if (!this.jsonData || !this.jsonData.properties) return;
+
+        const existingGroupIds = new Set();
+        const animals = ['🐱', '🐶', '🐺', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐸', '🐵', '🐰', '🦝', '🦔', '🐧', '🦉', '🦅', '🕊️'];
+        
+        // Recopilar todos los group_id existentes
+        Object.keys(this.jsonData.properties).forEach(fieldName => {
+            const fieldData = this.jsonData.properties[fieldName];
+            if (fieldData.group_id && typeof fieldData.group_id === 'string') {
+                existingGroupIds.add(fieldData.group_id);
+            }
+        });
+
+        let newGroupsCount = 0;
+        
+        // Crear grupos para los IDs que no existen aún
+        existingGroupIds.forEach(groupId => {
+            const existingGroup = this.groups.find(g => g.id === groupId);
+            if (!existingGroup) {
+                // Generar nombre del grupo basado en el ID o usar un nombre genérico
+                let groupName = groupId;
+                if (groupId.startsWith('grupo_')) {
+                    groupName = groupId.replace('grupo_', 'Grupo ');
+                } else {
+                    // Capitalizar la primera letra y reemplazar guiones bajos
+                    groupName = groupId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                }
+
+                const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+                
+                const newGroup = {
+                    id: groupId,
+                    name: groupName,
+                    icon: randomAnimal
+                };
+
+                this.groups.push(newGroup);
+                newGroupsCount++;
+            }
+        });
+
+        // Actualizar la UI con los grupos detectados
+        this.updateGroupsUI();
+        
+        // Mostrar notificación si se detectaron grupos
+        if (newGroupsCount > 0) {
+            this.showNotification(`✅ Detectados ${newGroupsCount} grupo(s) existente(s)`);
+        }
+    }
+
+    renderFields() {
+        if (!this.jsonData || !this.jsonData.properties) {
+            this.elements.fieldsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">❌</div>
+                    <p>JSON inválido o sin propiedades</p>
+                </div>
+            `;
+            return;
+        }
+
+        const fields = Object.keys(this.jsonData.properties);
+        this.elements.fieldsContainer.innerHTML = '';
+
+        fields.forEach(fieldName => {
+            const fieldData = this.jsonData.properties[fieldName];
+            const fieldElement = this.createFieldElement(fieldName, fieldData);
+            this.elements.fieldsContainer.appendChild(fieldElement);
+        });
+    }
+
+    createFieldElement(fieldName, fieldData) {
+        const fieldDiv = document.createElement('div');
+        fieldDiv.className = 'field-item';
+        fieldDiv.dataset.fieldName = fieldName;
+
+        const groupId = fieldData.group_id;
+        const group = this.groups.find(g => g.id === groupId);
+        const groupIcon = group ? group.icon : '';
+        const groupName = group ? group.name : '';
+
+        const description = fieldData.description || 'Sin descripción';
+        
+        fieldDiv.innerHTML = `
+            <div class="field-header" onclick="this.parentElement.querySelector('.field-content').classList.toggle('expanded')">
+                <div class="field-info">
+                    <div class="field-name">${fieldName}</div>
+                    <div class="field-description">${description}</div>
+                </div>
+                <div class="field-actions">
+                    ${groupId ? `<span class="group-indicator">${groupIcon} ${groupName}</span>` : ''}
+                    <button class="btn-group" onclick="event.stopPropagation(); window.jsonEditor.assignGroup('${fieldName}')">🏷️ Grupo</button>
+                    <button class="btn-edit" onclick="event.stopPropagation(); window.jsonEditor.editField('${fieldName}')">✏️ Editar</button>
+                </div>
+            </div>
+            <div class="field-content">
+                <div class="json-preview">${this.formatJSON(fieldData)}</div>
+            </div>
+        `;
+
+        return fieldDiv;
+    }
+
+    editField(fieldName) {
+        this.currentEditingField = fieldName;
+        const fieldData = this.jsonData.properties[fieldName];
+        
+        this.elements.modalTitle.textContent = `Editar: ${fieldName}`;
+        this.elements.jsonEditor.value = JSON.stringify(fieldData, null, 2);
+        this.elements.modal.classList.add('active');
+    }
+
+    saveFieldChanges() {
+        try {
+            const newData = JSON.parse(this.elements.jsonEditor.value);
+            this.jsonData.properties[this.currentEditingField] = newData;
+            this.renderFields();
+            this.closeModal();
+        } catch (error) {
+            alert('Error en el JSON: ' + error.message);
+        }
+    }
+
+    closeModal() {
+        this.elements.modal.classList.remove('active');
+        this.currentEditingField = null;
+    }
+
+    assignGroup(fieldName) {
+        if (this.groups.length === 0) {
+            alert('Primero crea al menos un grupo');
+            return;
+        }
+
+        const groupOptions = this.groups.map(g => `${g.id}: ${g.icon} ${g.name}`).join('\n');
+        const selectedGroup = prompt(`Selecciona un grupo (ID):\n${groupOptions}\n\nEscribe el ID del grupo:`);
+        
+        if (selectedGroup) {
+            const group = this.groups.find(g => g.id === selectedGroup);
+            if (group) {
+                this.jsonData.properties[fieldName].group_id = selectedGroup;
+                this.renderFields();
+            } else {
+                alert('Grupo no encontrado');
+            }
+        }
+    }
+
+    addNewGroup() {
+        const animals = ['🐱', '🐶', '🐺', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐸', '🐵', '🐰', '🦝', '🦔', '🐧', '🦉', '🦅', '🕊️'];
+        const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+        
+        const groupName = prompt('Nombre del nuevo grupo:');
+        if (!groupName) return;
+
+        // Generar un ID único que no colisione con los existentes
+        let groupId;
+        let counter = 1;
+        do {
+            groupId = `grupo_${this.groups.length + counter}`;
+            counter++;
+        } while (this.groups.find(g => g.id === groupId));
+
+        const newGroup = {
+            id: groupId,
+            name: groupName,
+            icon: randomAnimal
+        };
+
+        this.groups.push(newGroup);
+        this.saveGroups();
+        this.updateGroupsUI();
+    }
+
+    updateGroupsUI() {
+        // Update groups list
+        this.elements.groupsList.innerHTML = '';
+        this.groups.forEach(group => {
+            const groupContainer = document.createElement('div');
+            groupContainer.className = 'group-container';
+            
+            const groupTag = document.createElement('div');
+            groupTag.className = 'group-tag';
+            groupTag.textContent = `${group.icon} ${group.name}`;
+            groupTag.onclick = () => this.toggleGroupSelection(group.id, groupTag);
+            
+            const downloadBtn = document.createElement('button');
+            downloadBtn.className = 'group-download-btn';
+            downloadBtn.innerHTML = '⬇';
+            downloadBtn.title = `Descargar ${group.name}`;
+            downloadBtn.onclick = (e) => {
+                e.stopPropagation();
+                this.downloadIndividualGroup(group.id, group.name);
+            };
+            
+            groupContainer.appendChild(groupTag);
+            groupContainer.appendChild(downloadBtn);
+            this.elements.groupsList.appendChild(groupContainer);
+        });
+
+        // Update filter dropdown
+        this.elements.groupFilter.innerHTML = '<option value="">🐾 Todos los grupos</option>';
+        this.groups.forEach(group => {
+            const option = document.createElement('option');
+            option.value = group.id;
+            option.textContent = `${group.icon} ${group.name}`;
+            this.elements.groupFilter.appendChild(option);
+        });
+    }
+
+    toggleGroupSelection(groupId, element) {
+        const groupContainer = element.parentElement;
+        if (this.selectedGroups.has(groupId)) {
+            this.selectedGroups.delete(groupId);
+            element.classList.remove('active');
+            groupContainer.classList.remove('selected');
+        } else {
+            this.selectedGroups.add(groupId);
+            element.classList.add('active');
+            groupContainer.classList.add('selected');
+        }
+    }
+
+    filterFields(searchTerm) {
+        const fields = this.elements.fieldsContainer.querySelectorAll('.field-item');
+        fields.forEach(field => {
+            const fieldName = field.dataset.fieldName.toLowerCase();
+            const isVisible = fieldName.includes(searchTerm.toLowerCase());
+            field.style.display = isVisible ? 'block' : 'none';
+        });
+    }
+
+    filterByGroup(groupId) {
+        const fields = this.elements.fieldsContainer.querySelectorAll('.field-item');
+        fields.forEach(field => {
+            const fieldName = field.dataset.fieldName;
+            const fieldData = this.jsonData.properties[fieldName];
+            const fieldGroupId = fieldData.group_id;
+            
+            const isVisible = !groupId || fieldGroupId === groupId;
+            field.style.display = isVisible ? 'block' : 'none';
+        });
+    }
+
+    downloadIndividualGroup(groupId, groupName) {
+        if (!this.jsonData) return;
+
+        let filteredProperties = {};
+        
+        // Filtrar campos del grupo específico y remover group_id
+        Object.keys(this.jsonData.properties).forEach(fieldName => {
+            const fieldData = this.jsonData.properties[fieldName];
+            if (fieldData.group_id === groupId) {
+                // Crear una copia del campo sin el group_id
+                const cleanFieldData = { ...fieldData };
+                delete cleanFieldData.group_id;
+                filteredProperties[fieldName] = cleanFieldData;
+            }
+        });
+
+        if (Object.keys(filteredProperties).length === 0) {
+            this.showNotification(`⚠️ No hay campos en el grupo "${groupName}"`);
+            return;
+        }
+
+        const filteredJSON = {
+            ...this.jsonData,
+            properties: filteredProperties
+        };
+
+        const blob = new Blob([JSON.stringify(filteredJSON, null, 2)], {
+            type: 'application/json'
+        });
+        
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${groupName.toLowerCase().replace(/\s+/g, '_')}_schema.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        this.showNotification(`📥 Descargado: ${groupName} (${Object.keys(filteredProperties).length} campos)`);
+    }
+
+    downloadFilteredJSON() {
+        if (!this.jsonData) return;
+
+        let filteredProperties = {};
+        let downloadType = '';
+        
+        if (this.selectedGroups.size === 0) {
+            // Si no hay grupos seleccionados, descargar todo
+            filteredProperties = this.jsonData.properties;
+            downloadType = 'completo';
+        } else if (this.selectedGroups.size === 1) {
+            // Si solo hay un grupo seleccionado, descargar sin group_id
+            const groupId = Array.from(this.selectedGroups)[0];
+            const group = this.groups.find(g => g.id === groupId);
+            
+            Object.keys(this.jsonData.properties).forEach(fieldName => {
+                const fieldData = this.jsonData.properties[fieldName];
+                if (this.selectedGroups.has(fieldData.group_id)) {
+                    // Crear una copia del campo sin el group_id
+                    const cleanFieldData = { ...fieldData };
+                    delete cleanFieldData.group_id;
+                    filteredProperties[fieldName] = cleanFieldData;
+                }
+            });
+            downloadType = group ? group.name : 'grupo';
+        } else {
+            // Si hay múltiples grupos seleccionados, mantener group_id
+            Object.keys(this.jsonData.properties).forEach(fieldName => {
+                const fieldData = this.jsonData.properties[fieldName];
+                if (this.selectedGroups.has(fieldData.group_id)) {
+                    filteredProperties[fieldName] = fieldData;
+                }
+            });
+            downloadType = 'múltiples_grupos';
+        }
+
+        if (Object.keys(filteredProperties).length === 0) {
+            this.showNotification('⚠️ No hay campos para descargar');
+            return;
+        }
+
+        const filteredJSON = {
+            ...this.jsonData,
+            properties: filteredProperties
+        };
+
+        const blob = new Blob([JSON.stringify(filteredJSON, null, 2)], {
+            type: 'application/json'
+        });
+        
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${downloadType.toLowerCase().replace(/\s+/g, '_')}_schema.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        this.showNotification(`📥 Descargado: ${Object.keys(filteredProperties).length} campos`);
+    }
+
+    showNotification(message) {
+        // Crear elemento de notificación
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        
+        // Añadir al DOM
+        document.body.appendChild(notification);
+        
+        // Mostrar con animación
+        setTimeout(() => notification.classList.add('show'), 100);
+        
+        // Ocultar después de 3 segundos
+        setTimeout(() => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    formatJSON(obj) {
+        return JSON.stringify(obj, null, 2);
+    }
+
+    saveGroups() {
+        // En una aplicación real, esto se guardaría en localStorage o en el servidor
+        // Como no podemos usar localStorage, solo mantenemos en memoria
+    }
+
+    loadGroups() {
+        // En una aplicación real, esto cargaría desde localStorage o servidor
+        this.updateGroupsUI();
+    }
+}
+
+// Initialize the application
+window.jsonEditor = new JSONEditor();
+</script>
