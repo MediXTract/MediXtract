@@ -1,3 +1,21 @@
+/**
+ * TRIGGER CONFIGURATION INSTRUCTIONS:
+ * 
+ * To set up the trigger for this function:
+ * 1. Go to Extensions > Apps Script in your Google Spreadsheet
+ * 2. Click on the clock icon (Triggers) in the left sidebar
+ * 3. Click "+ Add Trigger" and configure as follows:
+ *    - Choose which function to run: highlightValidation
+ *    - Which runs at deployment: Head
+ *    - Select event source: From spreadsheet
+ *    - Select event type: On change
+ *    - Failure notification settings: Notify me daily (recommended)
+ * 4. Click "Save"
+ * 
+ * This will automatically run the validation highlighting whenever any cell
+ * in the spreadsheet is edited, including when id_neonet values are erased.
+ */
+
 function highlightValidation() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const outputSheet = ss.getSheetByName("Output");
