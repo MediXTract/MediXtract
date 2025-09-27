@@ -317,6 +317,7 @@ p {
 .mobile-nav.active .nav-link:nth-child(2) { animation-delay: 0.15s; opacity: 0; }
 .mobile-nav.active .nav-link:nth-child(3) { animation-delay: 0.2s; opacity: 0; }
 .mobile-nav.active .nav-link:nth-child(4) { animation-delay: 0.25s; opacity: 0; }
+.mobile-nav.active .nav-link:nth-child(5) { animation-delay: 0.3s; opacity: 0; }
 
 @keyframes slideInElegant {
     from {
@@ -662,27 +663,36 @@ p {
     font-weight: 700;
 }
 
+.vision p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile Accordion-style Advantages - 3 Columns */
 .checkmarks {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
     margin-top: 2rem;
     position: relative;
     z-index: 2;
 }
 
 .checkmark-item {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
     background: rgba(255, 255, 255, 0.9);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: var(--transition-normal);
     border: 1px solid rgba(67, 97, 238, 0.1);
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .checkmark-item::before {
@@ -691,36 +701,86 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, var(--primary), var(--primary-light));
 }
 
 .checkmark-item:active {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(67, 97, 238, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(67, 97, 238, 0.15);
     border-color: rgba(67, 97, 238, 0.2);
+}
+
+.checkmark-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkmark-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    min-height: 80px;
+    justify-content: center;
+    text-align: center;
 }
 
 .checkmark-icon {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1.2rem;
+    margin: 0 0 0.5rem 0;
     flex-shrink: 0;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    font-size: 0.7rem;
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.3);
 }
 
-.checkmark-item span {
+.checkmark-title {
     font-weight: 600;
     color: var(--text-dark);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.checkmark-toggle {
+    color: var(--primary);
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.checkmark-item.expanded .checkmark-toggle {
+    transform: rotate(180deg);
+}
+
+.checkmark-content {
+    padding: 0 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.checkmark-item.expanded .checkmark-content {
+    padding: 0 0.5rem 0.8rem;
+    max-height: 150px;
+    opacity: 1;
+}
+
+.checkmark-description {
+    color: var(--text-light);
+    font-size: 0.6rem;
+    line-height: 1.3;
+    margin: 0;
+    text-align: center;
 }
 
 /* Enhanced Features Section */
@@ -1392,14 +1452,6 @@ p {
     font-size: 0.85rem;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
-}
-
 /* Enhanced Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(25px); }
@@ -1448,14 +1500,6 @@ p {
     min-height: 48px;
 }
 
-/* Remove hover effects and replace with active states */
-.checkmark-item:hover,
-.feature-item:hover,
-.roadmap-content:hover,
-.methodology-card:hover {
-    transform: none;
-}
-
 /* Mobile-specific utilities */
 .mobile-only {
     display: block;
@@ -1478,6 +1522,8 @@ p {
     margin-bottom: 2rem;
     border-radius: 0;
     backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .methodology-card::before {
@@ -1490,11 +1536,82 @@ p {
     border-color: transparent;
 }
 
+.methodology-left-column {
+    order: 2;
+    flex: none;
+    margin-top: 1.5rem;
+}
+
 .methodology-icon {
     display: none;
 }
 
-.methodology-card h4 {
+.methodology-notes {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.methodology-notes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.methodology-notes-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.methodology-notes-header i {
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.methodology-notes-header span {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.methodology-notes p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.methodology-content {
+    order: 1;
+    flex: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    position: relative;
+    overflow: visible;
+}
+
+.methodology-content::before {
+    display: none;
+}
+
+.methodology-content h4 {
     color: var(--primary-dark);
     margin-bottom: 1rem;
     font-size: 1.3rem;
@@ -1503,7 +1620,7 @@ p {
     z-index: 2;
 }
 
-.methodology-card p {
+.methodology-content p {
     color: var(--text-light);
     line-height: 1.7;
     font-size: 1rem;
@@ -1515,6 +1632,149 @@ p {
 /* Budget section fallback for mobile */
 .budget-section {
     display: block;
+}
+
+/* Interface Walkdown Section - Mobile */
+.interface {
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.interface-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.interface-item {
+    background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(67, 97, 238, 0.08);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.interface-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.interface-item:active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.2);
+}
+
+.interface-step {
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    flex: 1;
+}
+
+.interface-toggle {
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.interface-item.expanded .interface-toggle {
+    transform: rotate(180deg);
+}
+
+.interface-image-placeholder {
+    display: none;
+}
+
+.interface-content {
+    padding: 0 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.interface-item.expanded .interface-content {
+    max-height: 600px;
+    opacity: 1;
+    padding: 0 1.2rem 1.2rem;
+}
+
+.interface-content img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1rem;
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.interface-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.interface-content p:last-child {
+    margin-bottom: 0;
+}
+
+.interface-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.interface-content li {
+    padding: 0.5rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.interface-content li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 /* Ensure methodology section shows properly on mobile */
