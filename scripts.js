@@ -1,5 +1,4 @@
 // Variables globales
-let currentLang = 'en';
 let isMobileMenuOpen = false;
 
 // Initialize when DOM is loaded
@@ -7,16 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     setupNavigation();
     createParticles();
     setupScrollEffects();
-    initializeLanguage();
     setupSmoothScrolling();
 });
 
 /**
- * Setup navigation functionality - CORREGIDO
+ * Setup navigation functionality
  */
 function setupNavigation() {
-    // NO agregar event listener aquí porque usamos onclick inline
-    
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         const mobileNav = document.getElementById('mobileNav');
@@ -37,16 +33,13 @@ function setupNavigation() {
 }
 
 /**
- * Toggle mobile menu - SIMPLIFICADO Y CORREGIDO
+ * Toggle mobile menu
  */
 function toggleMobileMenu() {
-    console.log('toggleMobileMenu called'); // Para debug
+    console.log('toggleMobileMenu called');
     
     const mobileNav = document.getElementById('mobileNav');
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    
-    console.log('mobileNav:', mobileNav); // Para debug
-    console.log('mobileToggle:', mobileToggle); // Para debug
     
     if (!mobileNav || !mobileToggle) {
         console.error('No se encontraron los elementos del menú móvil');
@@ -54,7 +47,6 @@ function toggleMobileMenu() {
     }
     
     isMobileMenuOpen = !isMobileMenuOpen;
-    console.log('isMobileMenuOpen:', isMobileMenuOpen); // Para debug
     
     if (isMobileMenuOpen) {
         mobileNav.classList.add('active');
@@ -68,10 +60,10 @@ function toggleMobileMenu() {
 }
 
 /**
- * Close mobile menu - SIMPLIFICADO
+ * Close mobile menu
  */
 function closeMobileMenu() {
-    console.log('closeMobileMenu called'); // Para debug
+    console.log('closeMobileMenu called');
     
     const mobileNav = document.getElementById('mobileNav');
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -90,77 +82,6 @@ function closeMobileMenu() {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (isMobileMenuOpen) closeMobileMenu();
-}
-
-/**
- * Switch language
- */
-function switchLanguage(lang) {
-    if (lang !== 'en' && lang !== 'de') return;
-    
-    currentLang = lang;
-    
-    // Update content visibility
-    document.querySelectorAll('.language-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    const contentElement = document.getElementById(lang + '-content');
-    if (contentElement) {
-        contentElement.classList.add('active');
-    }
-    
-    // Update language buttons
-    document.querySelectorAll('.navbar-lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        const btnText = btn.textContent.trim();
-        if ((lang === 'en' && btnText.includes('EN')) || 
-            (lang === 'de' && btnText.includes('DE'))) {
-            btn.classList.add('active');
-        }
-    });
-    
-    // Update translatable elements
-    document.querySelectorAll(`[data-${lang}]`).forEach(element => {
-        const translatedText = element.getAttribute(`data-${lang}`);
-        if (translatedText) {
-            element.textContent = translatedText;
-        }
-    });
-    
-    // Update document language
-    document.documentElement.lang = lang;
-    
-    // Close mobile menu and store preference
-    if (isMobileMenuOpen) setTimeout(closeMobileMenu, 100);
-    
-    try {
-        sessionStorage.setItem('medixtrack-lang', lang);
-    } catch (e) {
-        console.log('Could not store language preference');
-    }
-}
-
-/**
- * Initialize language from storage or browser
- */
-function initializeLanguage() {
-    let lang = 'en';
-    
-    try {
-        const storedLang = sessionStorage.getItem('medixtrack-lang');
-        if (storedLang && (storedLang === 'en' || storedLang === 'de')) {
-            lang = storedLang;
-        } else {
-            // Fallback to browser language
-            const browserLang = navigator.language || navigator.userLanguage || 'en';
-            lang = browserLang.toLowerCase().startsWith('de') ? 'de' : 'en';
-        }
-    } catch (e) {
-        console.log('Could not access language storage');
-    }
-    
-    switchLanguage(lang);
 }
 
 /**
@@ -211,14 +132,13 @@ function setupScrollEffects() {
  * Highlight active navigation section
  */
 function highlightActiveSection() {
-    const sections = ['vision', 'architecture', 'features', 'roadmap', 'budget', 'tech'];
-    const suffix = currentLang === 'de' ? '-de' : '';
+    const sections = ['vision', 'features', 'roadmap', 'budget'];
     const scrollPosition = window.scrollY + 200;
     
     let currentSection = null;
     
     sections.forEach(section => {
-        const element = document.getElementById(section + suffix);
+        const element = document.getElementById(section);
         if (element) {
             const rect = element.getBoundingClientRect();
             const sectionTop = rect.top + window.scrollY;
@@ -254,11 +174,7 @@ function setupSmoothScrolling() {
                 return;
             }
             
-            // Handle language-specific sections
-            let targetElement = document.getElementById(targetId);
-            if (currentLang === 'de' && !targetId.endsWith('-de')) {
-                targetElement = document.getElementById(targetId + '-de') || targetElement;
-            }
+            const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
                 const headerOffset = 100;
@@ -290,4 +206,3 @@ window.addEventListener('resize', function() {
 window.scrollToTop = scrollToTop;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
-window.switchLanguage = switchLanguage;
