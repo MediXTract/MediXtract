@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     createParticles();
     setupScrollEffects();
     setupSmoothScrolling();
+    setupAccordions();
+    setupInterfaceAccordions();
 });
 
 /**
@@ -132,7 +134,7 @@ function setupScrollEffects() {
  * Highlight active navigation section
  */
 function highlightActiveSection() {
-    const sections = ['vision', 'features', 'roadmap', 'budget'];
+    const sections = ['vision', 'features', 'roadmap', 'budget', 'interface', 'advantages'];
     const scrollPosition = window.scrollY + 200;
     
     let currentSection = null;
@@ -195,11 +197,133 @@ function setupSmoothScrolling() {
     });
 }
 
-// Handle window resize for particles
+/**
+ * Setup accordion functionality for mobile advantages
+ */
+function setupAccordions() {
+    // Only enable accordions on mobile (screen width <= 768px)
+    if (window.innerWidth > 768) return;
+    
+    const accordionItems = document.querySelectorAll('[data-accordion]');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.checkmark-header');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Toggle expanded state
+                const isExpanded = item.classList.contains('expanded');
+                
+                // Close all other accordions
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle current accordion
+                item.classList.toggle('expanded', !isExpanded);
+            });
+        }
+    });
+}
+
+/**
+ * Setup interface accordion functionality
+ */
+function setupInterfaceAccordions() {
+    const interfaceItems = document.querySelectorAll('[data-interface-accordion]');
+    
+    interfaceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Toggle expanded state
+            const isExpanded = item.classList.contains('expanded');
+            
+            // Close all other interface accordions
+            interfaceItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current interface accordion
+            item.classList.toggle('expanded', !isExpanded);
+        });
+    });
+}
+
+/**
+ * Setup accordion functionality for mobile advantages
+ */
+function setupAccordions() {
+    // Only enable accordions on mobile (screen width <= 768px)
+    if (window.innerWidth > 768) return;
+    
+    const accordionItems = document.querySelectorAll('[data-accordion]');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.checkmark-header');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Toggle expanded state
+                const isExpanded = item.classList.contains('expanded');
+                
+                // Close all other accordions
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle current accordion
+                item.classList.toggle('expanded', !isExpanded);
+            });
+        }
+    });
+}
+
+/**
+ * Setup interface accordion functionality
+ */
+function setupInterfaceAccordions() {
+    const interfaceItems = document.querySelectorAll('[data-interface-accordion]');
+    
+    interfaceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Toggle expanded state
+            const isExpanded = item.classList.contains('expanded');
+            
+            // Close all other interface accordions
+            interfaceItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current interface accordion
+            item.classList.toggle('expanded', !isExpanded);
+        });
+    });
+}
+
+// Handle window resize to enable/disable accordions
 window.addEventListener('resize', function() {
-    // Simple debounce
     clearTimeout(this.resizeTimeout);
-    this.resizeTimeout = setTimeout(createParticles, 250);
+    this.resizeTimeout = setTimeout(() => {
+        // Reset accordions when switching between mobile and desktop
+        const accordionItems = document.querySelectorAll('[data-accordion]');
+        accordionItems.forEach(item => {
+            if (window.innerWidth > 768) {
+                // Desktop: remove accordion classes
+                item.classList.remove('expanded');
+            }
+        });
+        
+        // Re-setup accordions if needed
+        setupAccordions();
+        createParticles();
+    }, 250);
 });
 
 // Expose functions globally for inline handlers
