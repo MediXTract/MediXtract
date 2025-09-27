@@ -507,10 +507,18 @@ p {
     font-weight: 700;
 }
 
+.vision p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
 .checkmarks {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     margin-top: 3rem;
     position: relative;
     z-index: 2;
@@ -518,7 +526,7 @@ p {
 
 .checkmark-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius-lg);
@@ -528,6 +536,7 @@ p {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    cursor: default;
 }
 
 .checkmark-item::before {
@@ -546,6 +555,14 @@ p {
     border-color: rgba(67, 97, 238, 0.2);
 }
 
+.checkmark-header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+}
+
 .checkmark-icon {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
@@ -555,16 +572,49 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1.5rem;
     flex-shrink: 0;
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    margin-right: 1.5rem;
+    margin-top: 0.1rem;
 }
 
-.checkmark-item span {
-    font-weight: 600;
+.checkmark-text-content {
+    flex: 1;
+}
+
+.checkmark-title {
+    font-weight: 700;
     color: var(--text-dark);
     font-size: 1.05rem;
+    display: inline;
+}
+
+.checkmark-title::after {
+    content: ": ";
+    font-weight: 700;
+}
+
+.checkmark-toggle {
+    display: none;
+}
+
+.checkmark-content {
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    display: inline;
+}
+
+.checkmark-description {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    display: inline;
 }
 
 /* Enhanced Features Section */
@@ -839,7 +889,7 @@ p {
     font-size: 1rem;
 }
 
-/* Enhanced Methodology Section */
+/* Enhanced Methodology Section - Updated for Two-Column Layout */
 .methodology-section {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
     padding: 5rem;
@@ -849,6 +899,11 @@ p {
     overflow: hidden;
     border: 1px solid rgba(67, 97, 238, 0.08);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.methodology-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .methodology-section::before {
@@ -875,15 +930,121 @@ p {
     border-radius: 0 0 100% 0;
 }
 
+.methodology-section h3 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    text-align: center;
+}
+
 .methodology-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
     position: relative;
     z-index: 2;
 }
 
 .methodology-card {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+}
+
+.methodology-card::before {
+    display: none;
+}
+
+.methodology-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.methodology-left-column {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    order: 2;
+}
+
+.methodology-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+    transition: var(--transition-normal);
+    margin-bottom: 1rem;
+}
+
+.methodology-notes {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.methodology-notes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.methodology-notes-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.methodology-notes-header i {
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.methodology-notes-header span {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.methodology-notes p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.methodology-content {
+    flex: 0 0 60%;
     background: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius-xl);
     padding: 3rem;
@@ -893,9 +1054,10 @@ p {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    order: 1;
 }
 
-.methodology-card::before {
+.methodology-content::before {
     content: '';
     position: absolute;
     top: 0;
@@ -905,32 +1067,17 @@ p {
     background: linear-gradient(90deg, var(--primary), var(--primary-light));
 }
 
-.methodology-card:hover {
+.methodology-card:hover .methodology-content {
     transform: translateY(-8px);
     box-shadow: 0 20px 60px rgba(67, 97, 238, 0.15);
     border-color: rgba(67, 97, 238, 0.2);
-}
-
-.methodology-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    color: white;
-    font-size: 1.8rem;
-    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
-    transition: var(--transition-normal);
 }
 
 .methodology-card:hover .methodology-icon {
     transform: scale(1.1) rotate(5deg);
 }
 
-.methodology-card h4 {
+.methodology-content h4 {
     color: var(--text-dark);
     margin-bottom: 2rem;
     font-size: 1.5rem;
@@ -938,14 +1085,14 @@ p {
     line-height: 1.3;
 }
 
-.methodology-card p {
+.methodology-content p {
     color: var(--text-light);
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
 
-.methodology-card p:last-child {
+.methodology-content p:last-child {
     margin-bottom: 0;
 }
 
@@ -1101,6 +1248,167 @@ p {
     position: relative;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(67, 97, 238, 0.3);
+}
+
+/* Interface Walkdown Section */
+.interface {
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.interface-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.interface-item {
+    background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(67, 97, 238, 0.08);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.interface-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.interface-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.2);
+}
+
+.interface-step {
+    padding: 1.5rem 1.5rem 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.3);
+}
+
+.step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.interface-image-placeholder {
+    flex: 1;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    margin: 0 1.5rem;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    position: relative;
+    border: 2px solid rgba(67, 97, 238, 0.1);
+    transition: var(--transition-normal);
+    overflow: hidden;
+}
+
+.interface-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+}
+
+.interface-image-placeholder i {
+    font-size: 2rem;
+    color: rgba(67, 97, 238, 0.4);
+}
+
+.interface-item:hover .interface-image-placeholder {
+    border-color: rgba(67, 97, 238, 0.3);
+    transform: scale(1.02);
+}
+
+.interface-content {
+    padding: 0 1.5rem 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.interface-item.expanded {
+    min-height: auto;
+}
+
+.interface-item.expanded .interface-content {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    background: rgba(67, 97, 238, 0.02);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+}
+
+.interface-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.interface-content p:last-child {
+    margin-bottom: 0;
+}
+
+.interface-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.interface-content li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.interface-content li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .cta-section::before {
@@ -1429,8 +1737,8 @@ p {
     }
     
     .checkmarks {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
     }
 }
 
