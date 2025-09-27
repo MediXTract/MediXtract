@@ -27,6 +27,8 @@
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#budget" class="nav-link">Methodology</a>
                 <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#interface" class="nav-link">Interface</a>
+                <a href="#advantages" class="nav-link">Advantages</a>
             </div>
 
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
@@ -44,6 +46,8 @@
             <a href="#features" class="nav-link" onclick="closeMobileMenu()">Features</a>
             <a href="#budget" class="nav-link" onclick="closeMobileMenu()">Methodology</a>
             <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()">Roadmap</a>
+            <a href="#interface" class="nav-link" onclick="closeMobileMenu()">Interface</a>
+            <a href="#advantages" class="nav-link" onclick="closeMobileMenu()">Advantages</a>
         </div>
     </div>
 
@@ -92,53 +96,6 @@
                 
                 The tool is built on the principle that successful automation in medical documentation depends not only on computational performance, but also on a careful understanding of each dataset's structure and clinical relevance. By integrating this knowledge into both the extraction logic and the reviewer-facing interface, MediXtract ensures that automation does not replace expert judgment but rather enhances it, allowing clinicians and researchers to work more efficiently with complex neonatal datasets.
                 
-            </div>
-            <p><strong>This system is designed to:</strong></p>
-            <div class="checkmarks">
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    <span>Speed and efficiency – accelerates data entry and saves time</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-sync-alt"></i></div>
-                    <span>Reproducibility – ensures consistent results across users and sessions</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-user-cog"></i></div>
-                    <span>Ergonomics – provides contextual information to support the reviewer</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                    <span>Conflict detection – facilitates identification of conflicting information in processed documents</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-history"></i></div>
-                    <span>Historical correction – enables the review and correction of legacy data</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-shield-alt"></i></div>
-                    <span>Error reduction – minimizes human mistakes during data entry</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-plus-square"></i></div>
-                    <span>New fields – allow the effortless and cost-effective addition of numerous new, relevant fields to the dataset</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-chart-line"></i></div>
-                    <span>Dataset improvement – helps researchers detect structural issues (e.g., single- vs. multiple-choice, obsolete fields)</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-brain"></i></div>
-                    <span>Continuous improvement – learns from expert feedback over time</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-dollar-sign"></i></div>
-                    <span>Cost savings – saves money through better use of time (reduces expert clinicians’ hours spent on data entry)</span>
-                </div>
-                <div class="checkmark-item">
-                    <div class="checkmark-icon"><i class="fas fa-microscope"></i></div>
-                    <span>Retrospective studies – methodological foundation (reproducibility, explainability, data quality control)</span>
-                </div>
             </div>
         </div>
     </section>
@@ -215,37 +172,70 @@
             
             <div class="methodology-grid">
                 <div class="methodology-card">
-                    <div class="methodology-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
                     </div>
-                    <h4>The problem with retrospective studies</h4>
-                    <p>Retrospective studies rely on pre-existing data sources – such as electronic health records, surgical logs, or patient questionnaires – that were not originally designed for scientific purposes. As a result, considerable effort is required for data cleaning, standardization, and validation. For large datasets, this process often involves many individuals manually entering structured data into registries, which introduces high error rates and inconsistent quality. The risk is further amplified by the fact that data entry often takes place outside normal working hours, under conditions of fatigue.</p>
+                    <div class="methodology-content">
+                        <h4>The problem with retrospective studies</h4>
+                        <p>Retrospective studies rely on pre-existing data sources — such as electronic health records, surgical logs, or patient questionnaires — that were not originally designed for scientific purposes. As a result, considerable effort is required for data cleaning, standardization, and validation. For large datasets, this process often involves many individuals manually entering structured data into registries, which introduces high error rates and inconsistent quality. The risk is further amplified by the fact that data entry often takes place outside normal working hours, under conditions of fatigue.</p>
+                    </div>
                 </div>
                 
                 <div class="methodology-card">
-                    <div class="methodology-icon">
-                        <i class="fas fa-lightbulb"></i>
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
                     </div>
-                    <h4>From problem to solution</h4>
-                    <p>MediXtract addresses these challenges by providing a unified methodological framework: all fields are processed consistently, following the same extraction rules. Moreover, we have developed tools that automatically detect ambiguous descriptions or poorly documented fields, allowing for systematic resolution rather than ad hoc corrections.</p>
-                    
-                    <p>Our concern goes beyond simply ensuring that the data entered into the registry is correct – we also aim to provide guarantees that this is verifiably the case. For this reason, an essential part of our methodology is the production of detailed documentation that systematically identifies and addresses: quality issues in previous registries, documentation gaps, structural problems in dataset design, and ambiguous descriptions requiring clarification.</p>
+                    <div class="methodology-content">
+                        <h4>From problem to solution</h4>
+                        <p>MediXtract addresses these challenges by providing a unified methodological framework: all fields are processed consistently, following the same extraction rules. Moreover, we have developed tools that automatically detect ambiguous descriptions or poorly documented fields, allowing for systematic resolution rather than ad hoc corrections.</p>
+                        
+                        <p>Our concern goes beyond simply ensuring that the data entered into the registry is correct — we also aim to provide guarantees that this is verifiably the case. For this reason, an essential part of our methodology is the production of detailed documentation that systematically identifies and addresses: quality issues in previous registries, documentation gaps, structural problems in dataset design, and ambiguous descriptions requiring clarification.</p>
 
-                    <p>To make this information as accessible as possible, we complement technical reports with a dataset dictionary search tool that goes far beyond basic field descriptions. It provides insights into the extraction process itself, enriched with notes and explanations, all within a user-friendly and customizable interface.</p>
+                        <p>To make this information as accessible as possible, we complement technical reports with a dataset dictionary search tool that goes far beyond basic field descriptions. It provides insights into the extraction process itself, enriched with notes and explanations, all within a user-friendly and customizable interface.</p>
 
-                    <p>In this way, we ensure reproducibility and transparency in how the data has been collected, which has a direct impact on the quality of research.</p>
+                        <p>In this way, we ensure reproducibility and transparency in how the data has been collected, which has a direct impact on the quality of research.</p>
+                    </div>
                 </div>
                 
                 <div class="methodology-card">
-                    <div class="methodology-icon">
-                        <i class="fas fa-microscope"></i>
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
                     </div>
-                    <h4>The NEC registry as our first use case</h4>
-                    <p>Necrotizing enterocolitis (NEC) is a severe gastrointestinal disease that primarily affects preterm infants. It is one of the leading causes of morbidity and mortality in this population, and survivors often face long-term neurodevelopmental and gastrointestinal complications. Despite decades of research, the pathophysiology of NEC and the factors driving disease severity remain incompletely understood, with retrospective studies highlighting heterogeneous risk factors such as low Apgar scores, congenital heart disease, and abnormal laboratory values.</p>
+                    <div class="methodology-content">
+                        <h4>The NEC registry as our first use case</h4>
+                        <p>Necrotizing enterocolitis (NEC) is a severe gastrointestinal disease that primarily affects preterm infants. It is one of the leading causes of morbidity and mortality in this population, and survivors often face long-term neurodevelopmental and gastrointestinal complications. Despite decades of research, the pathophysiology of NEC and the factors driving disease severity remain incompletely understood, with retrospective studies highlighting heterogeneous risk factors such as low Apgar scores, congenital heart disease, and abnormal laboratory values.</p>
 
-                    <p>Our work so far has focused on validating MediXtract against the NEC minimal dataset through a detailed comparison of automated extractions with existing manually curated records. We analyzed 159 variables spanning birth data, radiological findings, medication use, surgical interventions, and temporal calculations. By applying our methodology to neonatal records, we were able to systematically identify discrepancies in manually entered data, highlight ambiguous or incomplete documentation, and suggest clinically consistent corrections. This first implementation demonstrates how our framework can not only support more reliable NEC registries, but also set a methodological precedent for tackling similar challenges in other clinical domains.</p>
-                    
-                    <p>We are currently preparing a publication to showcase these results and make them available to the broader research community.</p>
+                        <p>Our work so far has focused on validating MediXtract against the NEC minimal dataset through a detailed comparison of automated extractions with existing manually curated records. We analyzed 159 variables spanning birth data, radiological findings, medication use, surgical interventions, and temporal calculations. By applying our methodology to neonatal records, we were able to systematically identify discrepancies in manually entered data, highlight ambiguous or incomplete documentation, and suggest clinically consistent corrections. This first implementation demonstrates how our framework can not only support more reliable NEC registries, but also set a methodological precedent for tackling similar challenges in other clinical domains.</p>
+                        
+                        <p>We are currently preparing a publication to showcase these results and make them available to the broader research community.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -306,6 +296,292 @@
             </div>
         </div>
     </section>
+
+    <!-- User Interface Walkdown Section -->
+    <section class="interface section" id="interface">
+        <div class="container">
+            <h3 class="section-title">User Interface Walkdown</h3>
+            <p class="section-subtitle">A comprehensive overview of the MediXtract interface, from authentication to database management.</p>
+            
+            <div class="interface-grid">
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Authentication Portal</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/01_Stage_01_Authentification_portal_ulf.png" alt="Authentication Portal" />
+                    </div>
+                    <div class="interface-content">
+                        <p>Sign-in page for team members to access the system using their assigned organization emails and passwords. This gateway protects everything that follows; once authenticated, users are routed to their role-appropriate workspace.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">User Portal (Dashboard)</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/02_Stage_02_User_Portal.png.png" alt="User Dashboard" />
+                    </div>
+                    <div class="interface-content">
+                        <p>Landing dashboard after login. User roles are already assigned to each team member, so available actions and data are tailored by role. The page provides a quick summary of your work (ongoing cases, completed cases, and the fields your team handles).</p>
+                        <p>From here you have two primary actions: <strong>Process a New Patient</strong> or <strong>View the Dataset/Database</strong>. A Recent Activity section lists projects you or the team worked on most recently for fast re-entry.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Patient Data Processing</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/03_Stage_03_Patient_Data_Processing_Upload_Document.png" alt="Patient Data Processing" />
+                    </div>
+                    <div class="interface-content">
+                        <p>Portal for submitting source documents for a patient record. You can upload or update files in common formats—TXT, PDF, and Word—which will be queued for analysis. This is the starting point for AI-assisted extraction.</p>
+                        <p>After a file is uploaded, the system shows a compact document summary: detected document type, title, and character count. It also provides an estimated processing time and indicates how many variables/fields will be evaluated.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Results Dashboard</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/05_Stage_04_Results_Dashboard_Processing_manual.png" alt="Results Dashboard" />
+                    </div>
+                    <div class="interface-content">
+                        <p>The Results Dashboard appears while processing is underway. A progress pop-up in the top-right lets you monitor how far along the AI is. At the same time, the manual input fields are already visible, so you can begin entering required data manually while the AI runs in the background.</p>
+                        <p>The dashboard remains interactive—manual fields can continue to be filled, so human input and AI extraction proceed in parallel to save time.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">5</div>
+                        <div class="step-title">AI Output & Review</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/08_Stage_04_Results_Dashboard_high_confidence.png" alt="AI Output & Review" />
+                    </div>
+                    <div class="interface-content">
+                        <p>Once processing finishes, the dashboard loads two AI-driven review groups into separate tabs: <strong>High-Confidence Extractions</strong> and <strong>To-Be-Double-Checked</strong>.</p>
+                        <p>This tab lists fields the AI extracts consistently and without inconsistencies across iterations. Because these values are highly stable, you can usually click the <strong>Accept All</strong> button with confidence. Each field has an information icon with field-level guidance.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">6</div>
+                        <div class="step-title">Critical Fields View</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/09_Stage_04_Results_Dashboard_critical.png" alt="Critical Fields View" />
+                    </div>
+                    <div class="interface-content">
+                        <p>When you choose to <strong>Review</strong> on any field box, a right-side panel opens showing <strong>Critical Fields</strong>—the AI-generated summary of the most complex or consequential fields. This view is designed to streamline reading and verification.</p>
+                        <p>A search bar lets you find terms across this AI summary so you can quickly validate specific details. You can also open the <strong>original document</strong> in a dedicated viewer for cross-checking extracted values directly against source text.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">7</div>
+                        <div class="step-title">Validation Complete</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/11_Stage_04_Results_Dashboard_Processing_ready_to_deliver.png" alt="Validation Complete" />
+                    </div>
+                    <div class="interface-content">
+                        <p>After you've confirmed and validated every field (or corrected any that needed adjustment), a confirmation pop-up appears indicating that all fields are validated. You can then send the results to the dataset (i.e., commit the verified values to the central database).</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">8</div>
+                        <div class="step-title">Patient Database</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/12_Stage_05_Patient_Database.png" alt="Patient Database" />
+                    </div>
+                    <div class="interface-content">
+                        <p>A database view—accessible from the User Portal—listing all patients analyzed by the AI. For each record you can view, edit, or download. Filters let you narrow by hospital and by status (e.g., still being edited, finished, delivered).</p>
+                        <p>You can also sort records by Date or Patient ID to quickly locate the cases you need.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item" data-interface-accordion>
+                    <div class="interface-step">
+                        <div class="step-number">9</div>
+                        <div class="step-title">Schema Field Editor</div>
+                        <div class="interface-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="interface-image-placeholder">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/00_Schema_Editor.png" alt="Schema Field Editor" />
+                    </div>
+                    <div class="interface-content">
+                        <p>A specialized <strong>Schema Field Editor</strong> web application that serves as the dataset dictionary and field management system for the NEC minimum dataset. This tool helps track potential errors, identify improvement opportunities, monitor changes, and streamline the editing process.</p>
+                        <p>The web app prompts you to scan a folder containing a <code>.json</code> file named <code>schema_vNNN.json</code> and provides quick access to field descriptions and filtering capabilities for comprehensive validation and quality assurance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Summary Section -->
+    <section class="advantages section" id="advantages">
+        <div class="container">
+            <h3 class="section-title">Key Advantages Summary</h3>
+            <p class="section-subtitle">MediXtract delivers comprehensive benefits that transform how clinical data extraction is performed, ensuring quality, efficiency, and reliability.</p>
+            
+            <div class="checkmarks">
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Speed and efficiency</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">accelerates data entry and saves time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-sync-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Reproducibility</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">ensures consistent results across users and sessions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-user-cog"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Ergonomics</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">provides contextual information to support the reviewer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Conflict detection</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">facilitates identification of conflicting information in processed documents</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-history"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Historical correction</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">enables the review and correction of legacy data</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Error reduction</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">minimizes human mistakes during data entry</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-plus-square"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">New fields</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">allow the effortless and cost-effective addition of numerous new, relevant fields to the dataset</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Dataset improvement</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">helps researchers detect structural issues (e.g., single- vs. multiple-choice, obsolete fields)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-brain"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Continuous improvement</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">learns from expert feedback over time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Cost savings</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">saves money through better use of time (reduces expert clinicians' hours spent on data entry)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Retrospective studies</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">methodological foundation (reproducibility, explainability, data quality control)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Call to Action Section -->
     <section class="cta-section" id="contact">
@@ -329,6 +605,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- Footer -->
@@ -352,10 +629,11 @@
                     <h5 class="footer-heading">Navigation</h5>
                     <ul class="footer-links">
                         <li><a href="#vision">Vision</a></li>
-                        <li><a href="#architecture">Architecture</a></li>
                         <li><a href="#features">Features</a></li>
+                        <li><a href="#budget">Methodology</a></li>
                         <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#budget">Budget</a></li>
+                        <li><a href="#interface">Interface</a></li>
+                        <li><a href="#advantages">Advantages</a></li>
                     </ul>
                 </div>
                 
