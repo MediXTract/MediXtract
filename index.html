@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 769px)">
+
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -21,17 +23,10 @@
             </div>
             
             <div class="navbar-nav">
-                <a href="#vision" class="nav-link" data-en="Vision" data-de="Vision">Vision</a>
-                <a href="#features" class="nav-link" data-en="Features" data-de="Funktionen">Features</a>
-                <a href="#budget" class="nav-link" data-en="Methodology" data-de="Methodology">Methodology</a>
-				<a href="#roadmap" class="nav-link" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
-            </div>
-
-            <div class="navbar-languages">
-                <button class="navbar-lang-btn active" onclick="switchLanguage('en')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" alt="English">
-                    EN
-                </button>
+                <a href="#vision" class="nav-link">Vision</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#budget" class="nav-link">Methodology</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
             </div>
 
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
@@ -45,17 +40,10 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
-            <a href="#vision" class="nav-link" onclick="closeMobileMenu()" data-en="Vision" data-de="Vision">Vision</a>
-            <a href="#features" class="nav-link" onclick="closeMobileMenu()" data-en="Features" data-de="Funktionen">Features</a>
-            <a href="#budget" class="nav-link" onclick="closeMobileMenu()" data-en="Methodology" data-de="Methodology">Methodology</a>
-			<a href="#roadmap" class="nav-link" onclick="closeMobileMenu()" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
-            
-            <div class="mobile-lang-buttons">
-                <button class="navbar-lang-btn active" onclick="switchLanguage('en'); closeMobileMenu();">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" alt="English">
-                    EN
-                </button>
-            </div>
+            <a href="#vision" class="nav-link" onclick="closeMobileMenu()">Vision</a>
+            <a href="#features" class="nav-link" onclick="closeMobileMenu()">Features</a>
+            <a href="#budget" class="nav-link" onclick="closeMobileMenu()">Methodology</a>
+            <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()">Roadmap</a>
         </div>
     </div>
 
@@ -68,21 +56,21 @@
         <div class="hero-content">
             <div class="hero-badge fade-in">
                 <i class="fas fa-bolt"></i>
-                <span data-en="Advanced Project Proposal" data-de="Fortgeschrittener Projektvorschlag">Advanced Project Proposal</span>
+                <span>Advanced Project Proposal</span>
             </div>
             
-            <h1 class="fade-in delay-1" data-en="Filling a Methodological Gap in Retrospective Studies" data-de="MediXtract">MediXtract</h1>
+            <h1 class="fade-in delay-1">MediXtract</h1>
             
-            <p class="hero-subtitle fade-in delay-2" data-en="Intelligent data extraction from unstructured clinical documents - saving time, reducing errors, and improving research quality." data-de="Intelligent data extraction from unstructured clinical documents - saving time, reducing errors, and improving research quality.">Intelligent data extraction from unstructured clinical documents - saving time, reducing errors, and improving research quality.</p>
+            <p class="hero-subtitle fade-in delay-2">Intelligent data extraction from unstructured clinical documents - saving time, reducing errors, and improving research quality.</p>
             
             <div class="btn-group fade-in delay-3">
                 <a href="#vision" class="btn btn-primary">
                     <i class="fas fa-eye"></i>
-                    <span data-en="Learn More" data-de="Mehr Erfahren">Learn More</span>
+                    <span>Learn More</span>
                 </a>
                 <a href="#contact" class="btn btn-outline">
                     <i class="fas fa-paper-plane"></i>
-                    <span data-en="Contact Us" data-de="Kontakt">Contact Us</span>
+                    <span>Contact Us</span>
                 </a>
             </div>
         </div>
@@ -94,219 +82,254 @@
         </div>
     </section>
 
-    <!-- English Content -->
-    <div id="en-content" class="language-content active">
-        <!-- Vision Section -->
-        <section class="vision section" id="vision">
-            <div class="container">
-                <h2>🌍 Overall Vision</h2>
-                <div class="vision-description">
-                    MediXtract is a clinical data extraction tool developed to streamline the review and structuring of neonatal medical records. The system is conceived not as a generic, one-size-fits-all program, but as a customized service that combines automated data extraction with an ergonomic user interface. This interface provides reviewers with the necessary clinical context to ensure that structured data entry remains both accurate and reproducible. In doing so, MediXtract prioritizes clarity, completeness, and traceability, while also supporting error detection and the synthesis of scattered information across medical records.<br><br>
-					
-					
-					The tool is built on the principle that successful automation in medical documentation depends not only on computational performance, but also on a careful understanding of each dataset’s structure and clinical relevance. By integrating this knowledge into both the extraction logic and the reviewer-facing interface, MediXtract ensures that automation does not replace expert judgment but rather enhances it, allowing clinicians and researchers to work more efficiently with complex neonatal datasets.
-					
-                </div>
-                <p><strong>This system is designed to:</strong></p>
-                <div class="checkmarks">
-                    <div class="checkmark-item">
-                        <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                        <span>Accelerate data entry</span>
-                    </div>
-                    <div class="checkmark-item">
-                        <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                        <span>Minimize human mistakes</span>
-                    </div>
-					<div class="checkmark-item">
-                        <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                        <span>Ensure consistent results</span>
-                    </div>
-					<div class="checkmark-item">
-                        <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                        <span>Improve continuously with expert feedback</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="features section" id="features">
-            <div class="container">
-                <h3 class="section-title">Features</h3>
-                <p class="section-subtitle">MediXtract accelerates and brings reliability to the process of converting scattered clinical information into structured data. It achieves this through:</p>
+    <!-- Vision Section -->
+    <section class="vision section" id="vision">
+        <div class="container">
+            <h2>🌟 Overall Vision</h2>
+            <div class="vision-description">
+                MediXtract is a clinical data extraction tool developed to streamline the review and structuring of neonatal medical records. The system is conceived not as a generic, one-size-fits-all program, but as a customized service that combines automated data extraction with an ergonomic user interface. This interface provides reviewers with the necessary clinical context to ensure that structured data entry remains both accurate and reproducible. In doing so, MediXtract prioritizes clarity, completeness, and traceability, while also supporting error detection and the synthesis of scattered information across medical records.<br><br>
                 
-                <div class="feature-grid">
-                    
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h4>The design of a customized extraction system, based on feedback from specialists</h4>
-						
-                        <p>Fields are grouped according to preprocessing needs, detailed extraction instructions are drafted, and tailored methods are developed to capture clinical context in complex scenarios. These methodological choices, however, cannot be made in isolation.</p>
-						
-						<p>Close collaboration with medical experts is therefore crucial, as many questions arise regarding the correct classification of borderline cases and the intended scope of specific fields.</p>
-						
-						<p>Through this iterative process:</p>
-						
-                        <ul>
-                            <li>We learn and adapt continuously from expert feedback</li>
-							<li>Refine prompts and models to improve accuracy</li>
-							<li>Gradually reduce the need for manual review</li>
-                        </ul>
-                    </div>
-					
-					<div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-check"></i>
-                        </div>
-                        <h4>An ergonomic interface for human reviewers, incorporating clinical context and data quality alerts</h4>
-						
-                        <p>Even when automated extraction reaches high levels of accuracy and is validated against historical and ongoing data, expert review remains indispensable before integrating new records into the dataset.</p>
-						
-						<p>To support this stage, we have created a dedicated user interface that streamlines the review process. Reviewers receive the automated output together with contextual information, alerts for contradictions or ambiguities, a summary of clinically relevant details, and a quality analysis of the extracted records.</p> 
-						
-                        <ul>
-                            <li>Users can review low-confidence or flagged outputs</li>
-                            <li>Provide corrections that are stored as new training examples</li>
-                            <li>Build a feedback loop for ongoing system enhancement</li>
-                        </ul>
-                    </div>
-					
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h4>Structured reports providing methodological support for research</h4>
-
-						<p>Retrospective studies often rely on datasets that were not originally designed for scientific purposes. This leads to inconsistent data quality, ambiguous field descriptions, and structural limitations in dataset design. Such shortcomings not only complicate analysis but also undermine the reliability of results, making systematic methodological support essential.</p>
-
-						<p>That is why, in addition to the extraction system and the reviewer interface, we produce structured reports specifically designed to support research. These reports highlight:</p>
-
-						<ul>
-						  <li>Data quality issues in previous registries</li>
-						  <li>Ambiguous descriptions requiring clarification</li>
-						  <li>Documentation gaps, contradictions, or inconsistencies</li>
-						  <li>Strategies for restructuring specific fields in a simple and automated way</li>
-						</ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Methodology Section -->
-        <section class="budget-section section" id="budget">
-
-                <h3>Filling a Methodological Gap in Research </h3>
-             
-				<div class="vision-description">
-				
-					<h4>The problem with retrospective studies:</h4>
-                    
-					<p>Retrospective studies rely on pre-existing data sources — such as electronic health records, surgical logs, or patient questionnaires — that were not originally designed for scientific purposes. As a result, considerable effort is required for data cleaning, standardization, and validation. For large datasets, this process often involves many individuals manually entering structured data into registries, which introduces high error rates and inconsistent quality. The risk is further amplified by the fact that data entry often takes place outside normal working hours, under conditions of fatigue.</p>
-					
-					<h4>From problem to solution:</h4>
-
-					<p>MediXtract addresses these challenges by providing a unified methodological framework: all fields are processed consistently, following the same extraction rules. Moreover, we have developed tools that automatically detect ambiguous descriptions or poorly documented fields, allowing for systematic resolution rather than ad hoc corrections.</p>
-					
-					<p>Our concern goes beyond simply ensuring that the data entered into the registry is correct — we also aim to provide guarantees that this is verifiably the case. For this reason, an essential part of our methodology is the production of detailed documentation that systematically identifies and addresses: quality issues in previous registries, documentation gaps, structural problems in dataset design, and ambiguous descriptions requiring clarification.</p>
-
-					<p>To make this information as accessible as possible, we complement technical reports with a dataset dictionary search tool that goes far beyond basic field descriptions. It provides insights into the extraction process itself, enriched with notes and explanations, all within a user-friendly and customizable interface.</p>
-
-					<p>In this way, we ensure reproducibility and transparency in how the data has been collected, which has a direct impact on the quality of research.</p>
-					
-					<h4>The NEC registry as our first use case:</h4>
-					
-					<p>Necrotizing enterocolitis (NEC) is a severe gastrointestinal disease that primarily affects preterm infants. It is one of the leading causes of morbidity and mortality in this population, and survivors often face long-term neurodevelopmental and gastrointestinal complications. Despite decades of research, the pathophysiology of NEC and the factors driving disease severity remain incompletely understood, with retrospective studies highlighting heterogeneous risk factors such as low Apgar scores, congenital heart disease, and abnormal laboratory values.</p>
-
-					<p>Our work so far has focused on validating MediXtract against the NEC minimal dataset through a detailed comparison of automated extractions with existing manually curated records. We analyzed 159 variables spanning birth data, radiological findings, medication use, surgical interventions, and temporal calculations. By applying our methodology to neonatal records, we were able to systematically identify discrepancies in manually entered data, highlight ambiguous or incomplete documentation, and suggest clinically consistent corrections. This first implementation demonstrates how our framework can not only support more reliable NEC registries, but also set a methodological precedent for tackling similar challenges in other clinical domains.</p>
-					
-					<p>We are currently preparing a publication to showcase these results and make them available to the broader research community.</p>
-					
-				
-                </div>
-        </section>		
-		
-
-        <!-- Roadmap Section -->
-        <section class="roadmap section" id="roadmap">
-            <div class="container">
-                <h3 class="section-title">Development Roadmap</h3>
-                <p class="section-subtitle">Our strategic plan for building and evolving the MediXtract system.</p>
                 
-                <div class="roadmap-container">
-                    <div class="roadmap-item">
-                        <div class="roadmap-dot"></div>
-                        <div class="roadmap-content">
-                            <div class="phase-name">Phase 1</div>
-                            <h4 class="roadmap-title">Prototype Development</h4>
-                            <p class="roadmap-desc">Build local prototype with basic document extraction, Excel export, and minimal UI. Focus on core functionality and validation with sample documents.</p>
-                        </div>
+                The tool is built on the principle that successful automation in medical documentation depends not only on computational performance, but also on a careful understanding of each dataset's structure and clinical relevance. By integrating this knowledge into both the extraction logic and the reviewer-facing interface, MediXtract ensures that automation does not replace expert judgment but rather enhances it, allowing clinicians and researchers to work more efficiently with complex neonatal datasets.
+                
+            </div>
+            <p><strong>This system is designed to:</strong></p>
+            <div class="checkmarks">
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span>Speed & efficiency – accelerates data entry and saves time</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-sync-alt"></i></div>
+                    <span>Reproducibility – ensures consistent results across users and sessions</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-user-cog"></i></div>
+                    <span>Ergonomics – provides contextual information to support the reviewer</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <span>Conflict detection – facilitates the identification of conflicting information in processed documents</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-history"></i></div>
+                    <span>Historical correction – enables the review and correction of legacy data</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-shield-alt"></i></div>
+                    <span>Error reduction – minimizes human mistakes during data entry</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-plus-square"></i></div>
+                    <span>New fields – allows the addition of new, relevant fields to the dataset</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-chart-line"></i></div>
+                    <span>Dataset improvement – helps researchers detect structural issues (e.g., single vs. multiple choice, obsolete fields)</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-brain"></i></div>
+                    <span>Improves over time through expert feedback</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <span>Saves MONEY through better use of time (reduces expert clinician hours spent in data entry)</span>
+                </div>
+                <div class="checkmark-item">
+                    <div class="checkmark-icon"><i class="fas fa-microscope"></i></div>
+                    <span>Retrospective studies – methodological foundation (reproducibility, explainability, data quality control)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <h3 class="section-title">Features</h3>
+            <p class="section-subtitle">MediXtract accelerates and brings reliability to the process of converting scattered clinical information into structured data. It achieves this through:</p>
+            
+            <div class="feature-grid">
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
                     </div>
+                    <h4>The design of a customized extraction system, based on feedback from specialists</h4>
                     
-                    <div class="roadmap-item">
-                        <div class="roadmap-dot"></div>
-                        <div class="roadmap-content">
-                            <div class="phase-name">Phase 2</div>
-                            <h4 class="roadmap-title">Feedback & Validation</h4>
-                            <p class="roadmap-desc">Add human validation interface, implement feedback loop, and develop basic error handling. Begin testing with real-world documents in controlled environments.</p>
-                        </div>
+                    <p>Fields are grouped according to preprocessing needs, detailed extraction instructions are drafted, and tailored methods are developed to capture clinical context in complex scenarios. These methodological choices, however, cannot be made in isolation.</p>
+                    
+                    <p>Close collaboration with medical experts is therefore crucial, as many questions arise regarding the correct classification of borderline cases and the intended scope of specific fields.</p>
+                    
+                    <p>Through this iterative process:</p>
+                    
+                    <ul>
+                        <li>We learn and adapt continuously from expert feedback</li>
+                        <li>Refine prompts and models to improve accuracy</li>
+                        <li>Gradually reduce the need for manual review</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
                     </div>
+                    <h4>An ergonomic interface for human reviewers, incorporating clinical context and data quality alerts</h4>
                     
-                    <div class="roadmap-item">
-                        <div class="roadmap-dot"></div>
-                        <div class="roadmap-content">
-                            <div class="phase-name">Phase 3</div>
-                            <h4 class="roadmap-title">Optimization</h4>
-                            <p class="roadmap-desc">Optimize costs, introduce caching strategies, monitor API/token use. Implement performance tracking and build dashboard for system metrics.</p>
-                        </div>
+                    <p>Even when automated extraction reaches high levels of accuracy and is validated against historical and ongoing data, expert review remains indispensable before integrating new records into the dataset.</p>
+                    
+                    <p>To support this stage, we have created a dedicated user interface that streamlines the review process. Reviewers receive the automated output together with contextual information, alerts for contradictions or ambiguities, a summary of clinically relevant details, and a quality analysis of the extracted records.</p>
+                    
+                    <ul>
+                        <li>Users can review low-confidence or flagged outputs</li>
+                        <li>Provide corrections that are stored as new training examples</li>
+                        <li>Build a feedback loop for ongoing system enhancement</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
+                    <h4>Structured reports providing methodological support for research</h4>
                     
-                    <div class="roadmap-item">
-                        <div class="roadmap-dot"></div>
-                        <div class="roadmap-content">
-                            <div class="phase-name">Phase 4</div>
-                            <h4 class="roadmap-title">Advanced Enhancement</h4>
-                            <p class="roadmap-desc">Explore fine-tuning or rule-based enhancements for edge cases. Improve accuracy for specialized medical terminology and complex document formats.</p>
-                        </div>
+                    <p>Retrospective studies often rely on datasets that were not originally designed for scientific purposes. This leads to inconsistent data quality, ambiguous field descriptions, and structural limitations in dataset design. Such shortcomings not only complicate analysis but also undermine the reliability of results, making systematic methodological support essential.</p>
+                    
+                    <p>That is why, in addition to the extraction system and the reviewer interface, we produce structured reports specifically designed to support research. These reports highlight:</p>
+                    
+                    <ul>
+                      <li>Data quality issues in previous registries</li>
+                      <li>Ambiguous descriptions requiring clarification</li>
+                      <li>Documentation gaps, contradictions, or inconsistencies</li>
+                      <li>Strategies for restructuring specific fields in a simple and automated way</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology-section section" id="budget">
+        <div class="container">
+            <h3 class="section-title">Filling a Methodological Gap in Research</h3>
+            
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
                     </div>
+                    <h4>The problem with retrospective studies</h4>
+                    <p>Retrospective studies rely on pre-existing data sources – such as electronic health records, surgical logs, or patient questionnaires – that were not originally designed for scientific purposes. As a result, considerable effort is required for data cleaning, standardization, and validation. For large datasets, this process often involves many individuals manually entering structured data into registries, which introduces high error rates and inconsistent quality. The risk is further amplified by the fact that data entry often takes place outside normal working hours, under conditions of fatigue.</p>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>From problem to solution</h4>
+                    <p>MediXtract addresses these challenges by providing a unified methodological framework: all fields are processed consistently, following the same extraction rules. Moreover, we have developed tools that automatically detect ambiguous descriptions or poorly documented fields, allowing for systematic resolution rather than ad hoc corrections.</p>
                     
-                    <div class="roadmap-item">
-                        <div class="roadmap-dot"></div>
-                        <div class="roadmap-content">
-                            <div class="phase-name">Phase 5</div>
-                            <h4 class="roadmap-title">Scaling (Optional)</h4>
-                            <p class="roadmap-desc">Scale up to centralized/cloud infrastructure if needed. Implement enterprise features for multi-user environments and integration with hospital systems.</p>
-                        </div>
+                    <p>Our concern goes beyond simply ensuring that the data entered into the registry is correct – we also aim to provide guarantees that this is verifiably the case. For this reason, an essential part of our methodology is the production of detailed documentation that systematically identifies and addresses: quality issues in previous registries, documentation gaps, structural problems in dataset design, and ambiguous descriptions requiring clarification.</p>
+
+                    <p>To make this information as accessible as possible, we complement technical reports with a dataset dictionary search tool that goes far beyond basic field descriptions. It provides insights into the extraction process itself, enriched with notes and explanations, all within a user-friendly and customizable interface.</p>
+
+                    <p>In this way, we ensure reproducibility and transparency in how the data has been collected, which has a direct impact on the quality of research.</p>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h4>The NEC registry as our first use case</h4>
+                    <p>Necrotizing enterocolitis (NEC) is a severe gastrointestinal disease that primarily affects preterm infants. It is one of the leading causes of morbidity and mortality in this population, and survivors often face long-term neurodevelopmental and gastrointestinal complications. Despite decades of research, the pathophysiology of NEC and the factors driving disease severity remain incompletely understood, with retrospective studies highlighting heterogeneous risk factors such as low Apgar scores, congenital heart disease, and abnormal laboratory values.</p>
+
+                    <p>Our work so far has focused on validating MediXtract against the NEC minimal dataset through a detailed comparison of automated extractions with existing manually curated records. We analyzed 159 variables spanning birth data, radiological findings, medication use, surgical interventions, and temporal calculations. By applying our methodology to neonatal records, we were able to systematically identify discrepancies in manually entered data, highlight ambiguous or incomplete documentation, and suggest clinically consistent corrections. This first implementation demonstrates how our framework can not only support more reliable NEC registries, but also set a methodological precedent for tackling similar challenges in other clinical domains.</p>
+                    
+                    <p>We are currently preparing a publication to showcase these results and make them available to the broader research community.</p>
+                </div>
+            </div>
+        </div>
+    </section>		
+    
+
+    <!-- Roadmap Section -->
+    <section class="roadmap section" id="roadmap">
+        <div class="container">
+            <h3 class="section-title">Development Roadmap</h3>
+            <p class="section-subtitle">Our strategic plan for building and evolving the MediXtract system.</p>
+            
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 1</div>
+                        <h4 class="roadmap-title">Prototype Development</h4>
+                        <p class="roadmap-desc">Build local prototype with basic document extraction, Excel export, and minimal UI. Focus on core functionality and validation with sample documents.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 2</div>
+                        <h4 class="roadmap-title">Feedback & Validation</h4>
+                        <p class="roadmap-desc">Add human validation interface, implement feedback loop, and develop basic error handling. Begin testing with real-world documents in controlled environments.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 3</div>
+                        <h4 class="roadmap-title">Optimization</h4>
+                        <p class="roadmap-desc">Optimize costs, introduce caching strategies, monitor API/token use. Implement performance tracking and build dashboard for system metrics.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 4</div>
+                        <h4 class="roadmap-title">Advanced Enhancement</h4>
+                        <p class="roadmap-desc">Explore fine-tuning or rule-based enhancements for edge cases. Improve accuracy for specialized medical terminology and complex document formats.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 5</div>
+                        <h4 class="roadmap-title">Scaling (Optional)</h4>
+                        <p class="roadmap-desc">Scale up to centralized/cloud infrastructure if needed. Implement enterprise features for multi-user environments and integration with hospital systems.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Call to Action Section -->
-        <section class="cta-section" id="contact">
-            <div class="container">
-                <div class="cta-background"></div>
-                <div class="cta-content">
-                    <h3 class="cta-title">Ready to Transform Patient Data Extraction?</h3>
-                    <p class="cta-subtitle">Get in touch with our team to discuss how MediXtract can help streamline your clinical data extraction.</p>
-                    <div class="demo-notice">
-                        <p><strong>Scheduled Demo for the 8th of June</strong></p>
-                    </div>
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-primary">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Schedule a Demo</span>
-                        </a>
-                        <a href="mailto:medixtract.developers@gmail.com" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i>
-                            <span>Contact Us</span>
-                        </a>
-                    </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-background"></div>
+            <div class="cta-content">
+                <h3 class="cta-title">Ready to Transform Patient Data Extraction?</h3>
+                <p class="cta-subtitle">Get in touch with our team to discuss how MediXtract can help streamline your clinical data extraction.</p>
+                <div class="demo-notice">
+                    <p><strong>Scheduled Demo for the 8th of June</strong></p>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule a Demo</span>
+                    </a>
+                    <a href="mailto:medixtract.developers@gmail.com" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -317,7 +340,7 @@
                         <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/LOGO_MediXtract_Circular.png" alt="MediXtract Logo">
                         <span>MediXtract</span>
                     </div>
-                    <p class="footer-about" data-en="Intelligent data extraction for healthcare professionals." data-de="Intelligente Datenextraktion für Gesundheitsfachleute.">Intelligent data extraction for healthcare professionals.</p>
+                    <p class="footer-about">Intelligent data extraction for healthcare professionals.</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:medixtract.developers@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
@@ -326,28 +349,28 @@
                 </div>
                 
                 <div>
-                    <h5 class="footer-heading" data-en="Navigation" data-de="Navigation">Navigation</h5>
+                    <h5 class="footer-heading">Navigation</h5>
                     <ul class="footer-links">
-                        <li><a href="#vision" data-en="Vision" data-de="Vision">Vision</a></li>
-                        <li><a href="#architecture" data-en="Architecture" data-de="Architektur">Architecture</a></li>
-                        <li><a href="#features" data-en="Features" data-de="Funktionen">Features</a></li>
-                        <li><a href="#roadmap" data-en="Roadmap" data-de="Fahrplan">Roadmap</a></li>
-                        <li><a href="#budget" data-en="Budget" data-de="Budget">Budget</a></li>
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#budget">Budget</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h5 class="footer-heading" data-en="Legal" data-de="Rechtliches">Legal</h5>
+                    <h5 class="footer-heading">Legal</h5>
                     <ul class="footer-links">
-                        <li><a href="#" data-en="Privacy Policy" data-de="Datenschutzrichtlinie">Privacy Policy</a></li>
-                        <li><a href="#" data-en="Terms of Service" data-de="Nutzungsbedingungen">Terms of Service</a></li>
-                        <li><a href="#" data-en="GDPR Compliance" data-de="DSGVO-Konformität">GDPR Compliance</a></li>
-                        <li><a href="#" data-en="Data Security" data-de="Datensicherheit">Data Security</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Data Security</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h5 class="footer-heading" data-en="Contact" data-de="Kontakt">Contact</h5>
+                    <h5 class="footer-heading">Contact</h5>
                     <div class="footer-contact">
                         <i class="fas fa-envelope"></i>
                         <p>tomasgonzalezbartomeu@gmail.com</p>
@@ -364,7 +387,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 MediXtract. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></p>
+                <p>&copy; 2025 MediXtract. All rights reserved.</p>
             </div>
         </div>
     </footer>
