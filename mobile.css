@@ -268,7 +268,7 @@ p {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, var(--primary), var(--primary-light));
+    background: linear-gradient(180deg, var(--primary-light), var(--primary));
     transform: scaleY(0);
     transition: transform 0.3s ease;
     transform-origin: bottom;
@@ -721,8 +721,8 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.8rem 0.5rem;
-    min-height: 80px;
+    padding: 0.8rem 0.5rem 0.1rem;
+    min-height: 50px;
     justify-content: center;
     text-align: center;
 }
@@ -745,10 +745,10 @@ p {
 .checkmark-title {
     font-weight: 600;
     color: var(--text-dark);
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     line-height: 1.2;
     text-align: center;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .checkmark-toggle {
@@ -777,7 +777,7 @@ p {
 
 .checkmark-description {
     color: var(--text-light);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     line-height: 1.3;
     margin: 0;
     text-align: center;
@@ -1794,6 +1794,117 @@ p {
     font-size: 0.8rem;
 }
 
+/* Schema Section Styles - Mobile */
+.schema-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(67, 97, 238, 0.08);
+}
+
+.schema-title {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.schema-description {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.schema-image {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.schema-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+}
+
+/* Client Collaboration Section Styles - Mobile */
+.client-collaboration {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.collaboration-main {
+    padding: 1.5rem;
+    background: rgba(67, 97, 238, 0.05);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--primary);
+}
+
+.collaboration-title {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.collaboration-description {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.collaboration-highlight {
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.collaboration-insights {
+    padding: 1.5rem;
+    background: rgba(67, 97, 238, 0.05);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.insight-item i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.insight-item span {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Future Enhancements Title */
+.future-enhancements-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
 /* Simple Lightbox Overlay - Mobile */
 .lightbox-overlay {
     display: none;
@@ -1941,7 +2052,6 @@ p {
 
 /* Scroll hint for mobile */
 .interface::after {
-    content: 'Swipe to explore →';
     position: absolute;
     bottom: 0;
     right: 1rem;
