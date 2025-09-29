@@ -1,0 +1,201 @@
+/* Enhanced Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+.delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+/* Touch improvements for mobile */
+.btn {
+    min-height: 54px;
+}
+
+.nav-link {
+    min-height: 56px;
+}
+
+.social-icon {
+    min-width: 48px;
+    min-height: 48px;
+}
+
+/* Mobile-specific utilities */
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+/* Simple Lightbox Overlay - Mobile */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-container {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    touch-action: manipulation;
+}
+
+.lightbox-close:active {
+    background: #f0f0f0;
+}
+
+.lightbox-zoom-controls {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    display: flex;
+    gap: 6px;
+    z-index: 10001;
+}
+
+.zoom-btn {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+}
+
+.zoom-btn:active {
+    background: #f0f0f0;
+    transform: scale(0.95);
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lightbox-image-container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    position: relative;
+    max-height: 80vh;
+    touch-action: pan-x pan-y;
+}
+
+.lightbox-image-container.dragging {
+    cursor: grabbing;
+}
+
+.lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.lightbox-caption {
+    padding: 12px;
+    text-align: center;
+    background: white;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+    line-height: 1.4;
+}
+
+/* Click cursor for lightbox images */
+.interface-image img[data-lightbox] {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.interface-image img[data-lightbox]:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+}

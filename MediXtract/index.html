@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>MediXtract | AI-Powered Patient Data Extraction</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Mobile CSS (screens <= 768px) -->
+    <link rel="stylesheet" href="css/mobile/base.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/navigation.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/hero.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/sections.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/interface.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/advantages.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/cta.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/footer.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/utilities.css" media="screen and (max-width: 768px)">
+    
+    <!-- Desktop CSS (screens >= 769px) -->
+    <link rel="stylesheet" href="css/desktop/base.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/navigation.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/hero.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/sections.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/interface.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/advantages.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/cta.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/footer.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/utilities.css" media="screen and (min-width: 769px)">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo" onclick="scrollToTop()">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/LOGO_MediXtract_Circular.png" alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </div>
+            
+            <div class="navbar-nav">
+                <a href="#vision" class="nav-link">Vision</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#budget" class="nav-link">Methodology</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#interface" class="nav-link">Interface</a>
+                <a href="#advantages" class="nav-link">Advantages</a>
+            </div>
+
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="#vision" class="nav-link" onclick="closeMobileMenu()">Vision</a>
+            <a href="#features" class="nav-link" onclick="closeMobileMenu()">Features</a>
+            <a href="#budget" class="nav-link" onclick="closeMobileMenu()">Methodology</a>
+            <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()">Roadmap</a>
+            <a href="#interface" class="nav-link" onclick="closeMobileMenu()">Interface</a>
+            <a href="#advantages" class="nav-link" onclick="closeMobileMenu()">Advantages</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles">
+            <!-- Particles will be added via JavaScript -->
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-bolt"></i>
+                <span>Transforming Medical Research</span>
+            </div>
+            
+            <h1 class="fade-in delay-1">MediXtract</h1>
+            
+            <p class="hero-subtitle fade-in delay-2">Intelligent data extraction from unstructured clinical documents - saving time, reducing errors, and improving research quality.</p>
+            
+            <div class="btn-group fade-in delay-3">
+                <a href="#vision" class="btn btn-primary">
+                    <i class="fas fa-eye"></i>
+                    <span>Learn More</span>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Contact Us</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="curve-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision section" id="vision">
+        <div class="container">
+            <h2>🌟 Overall Vision</h2>
+            <div class="vision-description">
+                MediXtract is a clinical data extraction tool developed to streamline the review and structuring of neonatal medical records. The system is conceived not as a generic, one-size-fits-all program, but as a customized service that combines automated data extraction with an ergonomic user interface. This interface provides reviewers with the necessary clinical context to ensure that structured data entry remains both accurate and reproducible. In doing so, MediXtract prioritizes clarity, completeness, and traceability, while also supporting error detection and the synthesis of scattered information across medical records.<br><br>
+                
+                
+                The tool is built on the principle that successful automation in medical documentation depends not only on computational performance, but also on a careful understanding of each dataset's structure and clinical relevance. By integrating this knowledge into both the extraction logic and the reviewer-facing interface, MediXtract ensures that automation does not replace expert judgment but rather enhances it, allowing clinicians and researchers to work more efficiently with complex neonatal datasets.
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <h3 class="section-title">Features</h3>
+            <p class="section-subtitle">MediXtract accelerates and brings reliability to the process of converting scattered clinical information into structured data. It achieves this through:</p>
+            
+            <div class="feature-grid">
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>The design of a customized extraction system, based on feedback from specialists</h4>
+                    
+                    <p>Fields are grouped according to preprocessing needs, detailed extraction instructions are drafted, and tailored methods are developed to capture clinical context in complex scenarios. These methodological choices, however, cannot be made in isolation.</p>
+                    
+                    <p>Close collaboration with medical experts is therefore crucial, as many questions arise regarding the correct classification of borderline cases and the intended scope of specific fields.</p>
+                    
+                    <p>Through this iterative process:</p>
+                    
+                    <ul>
+                        <li>We learn and adapt continuously from expert feedback</li>
+                        <li>Refine prompts and models to improve accuracy</li>
+                        <li>Gradually reduce the need for manual review</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h4>An ergonomic interface for human reviewers, incorporating clinical context and data quality alerts</h4>
+                    
+                    <p>Even when automated extraction reaches high levels of accuracy and is validated against historical and ongoing data, expert review remains indispensable before integrating new records into the dataset.</p>
+                    
+                    <p>To support this stage, we have created a dedicated user interface that streamlines the review process. Reviewers receive the automated output together with contextual information, alerts for contradictions or ambiguities, a summary of clinically relevant details, and a quality analysis of the extracted records.</p>
+                    
+                    <ul>
+                        <li>Users can review low-confidence or flagged outputs</li>
+                        <li>Provide corrections that are stored as new training examples</li>
+                        <li>Build a feedback loop for ongoing system enhancement</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Structured reports providing methodological support for research</h4>
+                    
+                    <p>Retrospective studies often rely on datasets that were not originally designed for scientific purposes. This leads to inconsistent data quality, ambiguous field descriptions, and structural limitations in dataset design. Such shortcomings not only complicate analysis but also undermine the reliability of results, making systematic methodological support essential.</p>
+                    
+                    <p>That is why, in addition to the extraction system and the reviewer interface, we produce structured reports specifically designed to support research. These reports highlight:</p>
+                    
+                    <ul>
+                      <li>Data quality issues in previous registries</li>
+                      <li>Ambiguous descriptions requiring clarification</li>
+                      <li>Documentation gaps, contradictions, or inconsistencies</li>
+                      <li>Strategies for restructuring specific fields in a simple and automated way</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology-section section" id="budget">
+        <div class="container">
+            <h3 class="section-title">Filling a Methodological Gap in Research</h3>
+            
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
+                    </div>
+                    <div class="methodology-content">
+                        <h4>The problem with retrospective studies</h4>
+                        <p>Retrospective studies rely on pre-existing data sources – such as electronic health records, surgical logs, or patient questionnaires – that were not originally designed for scientific purposes. As a result, considerable effort is required for data cleaning, standardization, and validation. For large datasets, this process often involves many individuals manually entering structured data into registries, which introduces high error rates and inconsistent quality. The risk is further amplified by the fact that data entry often takes place outside normal working hours, under conditions of fatigue.</p>
+                    </div>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
+                    </div>
+                    <div class="methodology-content">
+                        <h4>From problem to solution</h4>
+                        <p>MediXtract addresses these challenges by providing a unified methodological framework: all fields are processed consistently, following the same extraction rules. Moreover, we have developed tools that automatically detect ambiguous descriptions or poorly documented fields, allowing for systematic resolution rather than ad hoc corrections.</p>
+                        
+                        <p>Our concern goes beyond simply ensuring that the data entered into the registry is correct – we also aim to provide guarantees that this is verifiably the case. For this reason, an essential part of our methodology is the production of detailed documentation that systematically identifies and addresses: quality issues in previous registries, documentation gaps, structural problems in dataset design, and ambiguous descriptions requiring clarification.</p>
+
+                        <p>To make this information as accessible as possible, we complement technical reports with a dataset dictionary search tool that goes far beyond basic field descriptions. It provides insights into the extraction process itself, enriched with notes and explanations, all within a user-friendly and customizable interface.</p>
+
+                        <p>In this way, we ensure reproducibility and transparency in how the data has been collected, which has a direct impact on the quality of research.</p>
+                    </div>
+                </div>
+                
+                <div class="methodology-card">
+                    <div class="methodology-left-column">
+                        <div class="methodology-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="methodology-notes">
+                            <div class="methodology-notes-header">
+                                <i class="fas fa-bookmark"></i>
+                                <span>References</span>
+                            </div>
+                            <p>Future references and citations will be added here to support the methodological framework</p>
+                        </div>
+                    </div>
+                    <div class="methodology-content">
+                        <h4>The NEC registry as our first use case</h4>
+                        <p>Necrotizing enterocolitis (NEC) is a severe gastrointestinal disease that primarily affects preterm infants. It is one of the leading causes of morbidity and mortality in this population, and survivors often face long-term neurodevelopmental and gastrointestinal complications. Despite decades of research, the pathophysiology of NEC and the factors driving disease severity remain incompletely understood, with retrospective studies highlighting heterogeneous risk factors such as low Apgar scores, congenital heart disease, and abnormal laboratory values.</p>
+
+                        <p>Our work so far has focused on validating MediXtract against the NEC minimal dataset through a detailed comparison of automated extractions with existing manually curated records. We analyzed 159 variables spanning birth data, radiological findings, medication use, surgical interventions, and temporal calculations. By applying our methodology to neonatal records, we were able to systematically identify discrepancies in manually entered data, highlight ambiguous or incomplete documentation, and suggest clinically consistent corrections. This first implementation demonstrates how our framework can not only support more reliable NEC registries, but also set a methodological precedent for tackling similar challenges in other clinical domains.</p>
+                        
+                        <p>We are currently preparing a publication to showcase these results and make them available to the broader research community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>		
+    
+
+    <!-- Roadmap Section -->
+    <section class="roadmap section" id="roadmap">
+        <div class="container">
+            <h3 class="section-title">Development Roadmap</h3>
+            <p class="section-subtitle">Our strategic plan for building and evolving the MediXtract system.</p>
+            
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 1</div>
+                        <h4 class="roadmap-title">Prototype Development</h4>
+                        <p class="roadmap-desc">Build local prototype with basic document extraction, Excel export, and minimal UI. Focus on core functionality and validation with sample documents.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 2</div>
+                        <h4 class="roadmap-title">Feedback & Validation</h4>
+                        <p class="roadmap-desc">Add human validation interface, implement feedback loop, and develop basic error handling. Begin testing with real-world documents in controlled environments.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 3</div>
+                        <h4 class="roadmap-title">Optimization</h4>
+                        <p class="roadmap-desc">Optimize costs, introduce caching strategies, monitor API/token use. Implement performance tracking and build dashboard for system metrics.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 4</div>
+                        <h4 class="roadmap-title">Advanced Enhancement</h4>
+                        <p class="roadmap-desc">Explore fine-tuning or rule-based enhancements for edge cases. Improve accuracy for specialized medical terminology and complex document formats.</p>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <div class="phase-name">Phase 5</div>
+                        <h4 class="roadmap-title">Scaling (Optional)</h4>
+                        <p class="roadmap-desc">Scale up to centralized/cloud infrastructure if needed. Implement enterprise features for multi-user environments and integration with hospital systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Interface Walkdown Section -->
+    <section class="interface section" id="interface">
+        <div class="container">
+            <h3 class="section-title">User Interface Design</h3>
+            <p class="section-subtitle">A comprehensive overview of the MediXtract interface workflow, from authentication to database management.</p>
+            
+            <div class="interface-grid">
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Authentication Portal</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/01_Stage_01_Authentification_portal.png" alt="Authentication Portal" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Sign-in page for team members to access the system using their assigned organization emails and passwords. This gateway protects everything that follows; once authenticated, users are routed to their role-appropriate workspace.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">User Portal (Dashboard)</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/02_Stage_02_User_Portal.png" alt="User Portal Dashboard" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Landing dashboard after login. User roles are already <strong>assigned</strong> to each team member, so available actions and data are tailored by role. The page provides a quick summary of your work (ongoing cases, completed cases, and the fields your team handles). From here you have two primary actions: <strong>Process a New Patient</strong> or <strong>View the Dataset/Database</strong>. A <strong>Recent Activity</strong> section lists projects you or the team worked on most recently for fast re-entry.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Patient Data Processing</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/03_Stage_03_Patient_Data_Processing_Upload_Document.png" alt="Patient Data Processing" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Portal for submitting source documents for a patient record. You can <strong>upload or update</strong> files in common formats—<strong>TXT, PDF, and Word</strong>—which will be queued for analysis. This is the starting point for AI-assisted extraction.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Document Intake Summary</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/04_Stage_03_Patient_Data_Processing_Uploaded_Document.png" alt="Document Intake Summary" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>After a file is uploaded, the system shows a compact <strong>document summary</strong>: detected document type, title, and character count. It also provides an <strong>estimated processing time</strong>. A <strong>Processing Summary</strong> indicates how many variables/fields will be evaluated and derives an overall time estimate from that scope. When ready, you can start the <strong>AI Processing</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Results Dashboard</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/05_Stage_04_Results_Dashboard_Processing_manual.png" alt="Results Dashboard" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>The <strong>Results Dashboard</strong> appears while processing is underway. A <strong>progress pop-up</strong> in the <strong>top-right</strong> lets you monitor how far along the AI is. At the same time, the <strong>manual input fields</strong> are already visible, so you can begin entering required data manually while the AI runs in the background.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">6</div>
+                        <div class="step-title">AI Processing In Progress</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/06_Stage_04_Results_Dashboard_Processing_manual_popup.png" alt="AI Processing In Progress" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Processing status shows roughly <strong>50% complete</strong>. The dashboard remains interactive—manual fields can continue to be filled, so human input and AI extraction proceed in parallel to save time.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">7</div>
+                        <div class="step-title">AI Processing Complete</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/07_Stage_04_Results_Dashboard_Recieved_from_backend.png" alt="AI Processing Complete" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Once processing finishes, the dashboard loads two AI-driven review groups into separate tabs: <strong>High-Confidence Extractions</strong> and <strong>To-Be-Double-Checked</strong>. Manual-required inputs are shown as <strong>confirmed</strong> (after review by the associate researcher). A previously unavailable control becomes active: the <strong>Critical Fields</strong> button.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">8</div>
+                        <div class="step-title">High-Confidence Extractions</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/08_Stage_04_Results_Dashboard_high_confidence.png" alt="High-Confidence Extractions" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>This tab lists fields the AI extracts <strong>consistently and without (or with almost no) inconsistencies</strong> across iterations. Because these values are highly stable, you can usually click the blue <strong>Accept All</strong> button with confidence. Each field has an <strong>information (i) icon</strong>—hover to see field-level guidance. Inside each field card you see the <strong>AI-predicted value</strong>; from here you can <strong>accept</strong> it immediately or open it for <strong>review</strong> if you want to inspect details first. The <strong>Critical Fields</strong> button is also available from here to open the AI's focused summary.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">9</div>
+                        <div class="step-title">Critical Fields Review</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/09_Stage_04_Results_Dashboard_critical.png" alt="Critical Fields Review" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>When you choose to <strong>Review</strong> on any field box, a <strong>right-side panel</strong> opens showing <strong>Critical Fields</strong>—the AI-generated summary of the most complex or consequential fields. This view is designed to <strong>streamline reading and verification</strong>. A <strong>search bar</strong> lets you find terms across this AI summary so you can quickly validate specific details.</p>
+                        <p><strong>Future Enhancements:</strong></p>
+                        <ul>
+                            <li>We plan to provide a <strong>short explanation of the AI's reasoning</strong> for each answer, so the reviewer understands <em>why</em> the AI produced that particular output. This will increase transparency and confidence in the results.</li>
+                            <li>When opening the Review panel, the system will also <strong>automatically redirect you to the relevant part of the original document</strong> where the information is located, saving time and ensuring reviewers always see context immediately.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">10</div>
+                        <div class="step-title">Original Document Viewer</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/10_Stage_04_Results_Dashboard_original.png" alt="Original Document Viewer" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>Alternatively, you can open the <strong>original document</strong> in a dedicated viewer. This view also includes a <strong>search bar</strong>, allowing you to <strong>cross-check</strong> the extracted values directly against source text. Together with the Critical Fields panel, this enables fast, precise verification from both synthesized and original contexts.</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">11</div>
+                        <div class="step-title">Validation Complete</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/11_Stage_04_Results_Dashboard_Processing_ready_to_deliver.png" alt="Validation Complete" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>After you've <strong>confirmed and validated</strong> every field (or corrected any that needed adjustment), a <strong>confirmation pop-up</strong> appears indicating that <strong>all fields are validated</strong>. You can then <strong>send the results to the dataset</strong> (i.e., commit the verified values to the central database).</p>
+                    </div>
+                </div>
+
+                <div class="interface-item">
+                    <div class="interface-step">
+                        <div class="step-number">12</div>
+                        <div class="step-title">Patient Database</div>
+                    </div>
+                    <div class="interface-image">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/12_Stage_05_Patient_Database.png" alt="Patient Database" loading="lazy" data-lightbox>
+                    </div>
+                    <div class="interface-content">
+                        <p>A database view—accessible from the User Portal—listing <strong>all patients analyzed by the AI</strong>. For each record you can <strong>view</strong>, <strong>edit</strong>, or <strong>download</strong>. <strong>Filters</strong> let you narrow by <strong>Hospital</strong> and by <strong>Status</strong> (e.g., still being edited, finished, delivered). You can also <strong>sort</strong> records by <strong>Date</strong> or <strong>Patient ID</strong> to quickly locate the cases you need.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schema Field Editor Section -->
+            <div class="schema-section">
+                <h4 class="schema-title">Other tools: Access to the Dataset Dictionary</h4>
+                
+                <p class="schema-description">To support the comprehensive validation and quality assurance processes, we developed a specialized <strong>Schema Field Editor web application</strong> that serves as the dataset dictionary and field management system. This tool enables systematic review, editing, and maintenance of dataset field definitions, providing comprehensive search and filtering capabilities for managing complex medical datasets with consistent quality control.</p>
+                
+                <p class="schema-description">Originally created as an analytical tool for dataset examination, we are now migrating this application to serve as a comprehensive dataset control center. The enhanced version will provide real-time monitoring of variable performance, detailed classification systems for different data types, metadata management for each field, and advanced analytics to track data quality metrics over time. This evolution will transform it from a static dictionary into a dynamic management platform that offers insights into variable usage patterns, identifies potential data inconsistencies, and provides automated recommendations for dataset optimization and standardization.</p>
+                
+                <div class="schema-image">
+                    <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/UI/00_Schema_Editor.png" alt="Schema Field Editor Web App" data-lightbox>
+                </div>
+            </div>
+
+            <!-- Client Collaboration Section -->
+            <div class="client-collaboration">
+                <div class="collaboration-main">
+                    <h4 class="collaboration-title">Client Collaboration and Customization</h4>
+                    
+                    <p class="collaboration-description">We encourage you to explore the visual design, navigation flow, and proposed feature set to provide feedback.</p>
+                    
+                    <p class="collaboration-highlight">Your feedback will directly inform the development of the interface to ensure optimal alignment with your requirements.</p>
+                </div>
+                
+                <div class="collaboration-insights">
+                    <div class="insight-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Customization preferences</span>
+                    </div>
+                    <div class="insight-item">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Additional features that enhance user adoption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Summary Section -->
+    <section class="advantages section" id="advantages">
+        <div class="container">
+            <h3 class="section-title">Key Advantages Summary</h3>
+            <p class="section-subtitle">MediXtract delivers comprehensive benefits that transform how clinical data extraction is performed, ensuring quality, efficiency, and reliability.</p>
+            
+            <div class="checkmarks">
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Speed and efficiency</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Accelerates data entry and saves time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-sync-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Reproducibility</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Ensures consistent results across users and sessions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-user-cog"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Ergonomics</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Provides contextual information to support the reviewer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Conflict detection</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Facilitates identification of conflicting information in processed documents</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-history"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Historical correction</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Enables the review and correction of legacy data</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Error reduction</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Minimizes human mistakes during data entry</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-plus-square"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">New fields</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Allows the effortless and cost-effective addition of numerous new, relevant fields to the dataset</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Dataset improvement</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Helps researchers detect structural issues (e.g., single- vs. multiple-choice, obsolete fields)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-brain"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Continuous improvement</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Learns from expert feedback over time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Cost savings</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Saves money through better use of time (reduces expert clinicians' hours spent on data entry)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkmark-item" data-accordion>
+                    <div class="checkmark-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="checkmark-text-content">
+                        <div class="checkmark-header">
+                            <div class="checkmark-title">Retrospective studies</div>
+                            <div class="checkmark-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="checkmark-content">
+                            <div class="checkmark-description">Methodological foundation (reproducibility, explainability, data quality control)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-background"></div>
+            <div class="cta-content">
+                <h3 class="cta-title">Ready to Transform Patient Data Extraction?</h3>
+                <p class="cta-subtitle">Get in touch with our team to discuss how MediXtract can help streamline your clinical data extraction.</p>
+                <div class="demo-notice">
+                    <p><strong>Request Your Personal Demo</strong></p>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule a Demo</span>
+                    </a>
+                    <a href="mailto:medixtract.developers@gmail.com" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        <span>Send us an Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/LOGO_MediXtract_Circular.png" alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data extraction for healthcare professionals.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:medixtract.developers@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/MediXTract" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#budget">Methodology</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#interface">Interface</a></li>
+                        <li><a href="#advantages">Advantages</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="footer-heading">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Data Security</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <p>tomasgonzalezbartomeu@gmail.com</p>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <p>escatnadal.joan@gmail.com</p>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediXtract. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <div class="lightbox-container">
+            <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-zoom-controls">
+                <button class="zoom-btn" id="zoomIn" title="Zoom In">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="zoom-btn" id="zoomOut" title="Zoom Out">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="zoom-btn" id="zoomReset" title="Reset Zoom">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+            </div>
+            <div class="lightbox-content">
+                <div class="lightbox-image-container" id="lightboxImageContainer">
+                    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+                </div>
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

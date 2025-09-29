@@ -1,0 +1,102 @@
+/* Advantages Section - Checkmarks */
+.checkmarks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.checkmark-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.checkmark-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.checkmark-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.2);
+}
+
+.checkmark-header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+}
+
+.checkmark-icon {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    margin-right: 1.5rem;
+    margin-top: 0.1rem;
+}
+
+.checkmark-text-content {
+    flex: 1;
+}
+
+.checkmark-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    display: inline;
+}
+
+.checkmark-title::after {
+    content: ": ";
+    font-weight: 700;
+}
+
+.checkmark-toggle {
+    display: none;
+}
+
+.checkmark-content {
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    display: inline;
+}
+
+.checkmark-description {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    display: inline;
+}
