@@ -239,24 +239,17 @@ function setupAccordions() {
     const accordionItems = document.querySelectorAll('[data-accordion]');
     
     accordionItems.forEach(item => {
-        const header = item.querySelector('.checkmark-header');
-        
-        if (header) {
-            header.addEventListener('click', function() {
-                // Toggle expanded state
-                const isExpanded = item.classList.contains('expanded');
-                
-                // Close all other accordions
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('expanded');
-                    }
-                });
-                
-                // Toggle current accordion
-                item.classList.toggle('expanded', !isExpanded);
-            });
-        }
+        // Make the entire item clickable
+        item.addEventListener('click', function(e) {
+            // Prevent double triggering
+            e.stopPropagation();
+            
+            // Toggle expanded state
+            const isExpanded = item.classList.contains('expanded');
+            
+            // Toggle current accordion (don't close others)
+            item.classList.toggle('expanded', !isExpanded);
+        });
     });
 }
 

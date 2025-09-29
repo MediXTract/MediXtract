@@ -6,13 +6,14 @@
     margin-top: 2rem;
     position: relative;
     z-index: 2;
+    align-items: stretch;
 }
 
 .checkmark-item {
     background: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius-md);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    transition: var(--transition-normal);
+    transition: all 0.3s ease;
     border: 1px solid rgba(67, 97, 238, 0.1);
     backdrop-filter: blur(10px);
     position: relative;
@@ -20,6 +21,7 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    min-height: 120px;
 }
 
 .checkmark-item::before {
@@ -38,6 +40,10 @@
     border-color: rgba(67, 97, 238, 0.2);
 }
 
+.checkmark-item.expanded {
+    min-height: auto;
+}
+
 .checkmark-text-content {
     flex: 1;
     display: flex;
@@ -48,10 +54,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.8rem 0.5rem 0.1rem;
-    min-height: 50px;
-    justify-content: center;
+    padding: 0.8rem 0.5rem 0.3rem;
+    justify-content: flex-start;
     text-align: center;
+    flex: 1;
 }
 
 .checkmark-icon {
@@ -75,13 +81,17 @@
     font-size: 0.8rem;
     line-height: 1.2;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 .checkmark-toggle {
     color: var(--primary);
     font-size: 0.7rem;
     transition: transform 0.3s ease;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .checkmark-item.expanded .checkmark-toggle {
@@ -97,8 +107,8 @@
 }
 
 .checkmark-item.expanded .checkmark-content {
-    padding: 0 0.5rem 0.8rem;
-    max-height: 150px;
+    padding: 0 0.5rem 0.3rem;
+    max-height: 200px;
     opacity: 1;
 }
 
