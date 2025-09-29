@@ -229,37 +229,6 @@ function setupAccordions() {
 }
 
 /**
- * Setup accordion functionality for mobile advantages
- */
-function setupAccordions() {
-    // Only enable accordions on mobile (screen width <= 768px)
-    if (window.innerWidth > 768) return;
-    
-    const accordionItems = document.querySelectorAll('[data-accordion]');
-    
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.checkmark-header');
-        
-        if (header) {
-            header.addEventListener('click', function() {
-                // Toggle expanded state
-                const isExpanded = item.classList.contains('expanded');
-                
-                // Close all other accordions
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('expanded');
-                    }
-                });
-                
-                // Toggle current accordion
-                item.classList.toggle('expanded', !isExpanded);
-            });
-        }
-    });
-}
-
-/**
  * Setup lightbox functionality with zoom support for interface images
  */
 function setupLightbox() {
@@ -390,6 +359,36 @@ function setupLightbox() {
         let initialZoom = 1;
         let touches = {};
         let pinchCenter = { x: 0, y: 0 };
+        
+        // Double-tap zoom functionality for mobile
+        let lastTap = 0;
+        
+        lightboxImageContainer.addEventListener('touchend', function(e) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            // Check if this is a double tap (less than 300ms between taps)
+            if (tapLength < 300 && tapLength > 0 && e.touches.length === 0) {
+                // Double tap detected
+                e.preventDefault();
+                
+                if (currentZoom === 1) {
+                    // Zoom in to 2.5x centered
+                    const rect = lightboxImageContainer.getBoundingClientRect();
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    zoomToPointWithValue(centerX, centerY, 2.5);
+                } else {
+                    // Zoom out to original size (centered)
+                    resetZoom();
+                }
+                
+                lastTap = 0; // Reset to prevent triple-tap issues
+            } else {
+                // Single tap - set up for potential double tap
+                lastTap = currentTime;
+            }
+        });
         
         lightboxImageContainer.addEventListener('touchstart', function(e) {
             if (e.touches.length === 2) {
