@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupScrollEffects();
     setupSmoothScrolling();
     setupAccordions();
-    setupRoadmapAccordions();
     setupLightbox();
 });
 
@@ -199,6 +198,38 @@ function setupSmoothScrolling() {
 }
 
 /**
+ * Toggle roadmap details expansion
+ */
+function toggleRoadmapDetails(button) {
+    const roadmapContent = button.closest('.roadmap-content');
+    const toggleText = button.querySelector('.toggle-text');
+    const isExpanded = roadmapContent.classList.contains('expanded');
+    
+    if (isExpanded) {
+        // Collapse
+        roadmapContent.classList.remove('expanded');
+        toggleText.textContent = 'Read More';
+    } else {
+        // Expand
+        roadmapContent.classList.add('expanded');
+        toggleText.textContent = 'Read';
+        
+        // Smooth scroll to keep the content in view
+        setTimeout(() => {
+            const rect = roadmapContent.getBoundingClientRect();
+            const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
+            
+            if (!isInViewport) {
+                roadmapContent.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }
+        }, 100);
+    }
+}
+
+/**
  * Setup accordion functionality for mobile advantages
  */
 function setupAccordions() {
@@ -225,64 +256,6 @@ function setupAccordions() {
                 // Toggle current accordion
                 item.classList.toggle('expanded', !isExpanded);
             });
-        }
-    });
-}
-
-/**
- * Setup roadmap accordion functionality - FIXED VERSION
- */
-function setupRoadmapAccordions() {
-    const roadmapItems = document.querySelectorAll('[data-roadmap-accordion]');
-    
-    console.log('Setting up roadmap accordions, found:', roadmapItems.length);
-    
-    roadmapItems.forEach((item, index) => {
-        const expandBtn = item.querySelector('.roadmap-expand-btn');
-        const expandText = expandBtn ? expandBtn.querySelector('.expand-text') : null;
-        
-        console.log(`Roadmap item ${index}:`, {
-            hasExpandBtn: !!expandBtn,
-            hasExpandText: !!expandText
-        });
-        
-        if (expandBtn && expandText) {
-            // Set initial text
-            expandText.textContent = 'Read More';
-            
-            expandBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                console.log('Roadmap button clicked for item', index);
-                
-                // Toggle expanded state
-                const wasExpanded = item.classList.contains('expanded');
-                item.classList.toggle('expanded');
-                
-                // Update button text
-                if (item.classList.contains('expanded')) {
-                    expandText.textContent = 'Read Less';
-                    console.log('Expanded item', index);
-                } else {
-                    expandText.textContent = 'Read More';
-                    console.log('Collapsed item', index);
-                }
-                
-                // Smooth scroll to keep the button in view after expansion
-                if (item.classList.contains('expanded')) {
-                    setTimeout(() => {
-                        const rect = expandBtn.getBoundingClientRect();
-                        const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-                        
-                        if (!isInView) {
-                            expandBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }
-                    }, 100);
-                }
-            });
-        } else {
-            console.warn(`Roadmap item ${index} missing button or text span`);
         }
     });
 }
@@ -638,7 +611,6 @@ window.addEventListener('resize', function() {
         
         // Re-setup accordions if needed
         setupAccordions();
-        setupRoadmapAccordions();
         createParticles();
     }, 250);
 });
@@ -647,3 +619,4 @@ window.addEventListener('resize', function() {
 window.scrollToTop = scrollToTop;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
+window.toggleRoadmapDetails = toggleRoadmapDetails;

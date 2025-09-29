@@ -227,11 +227,18 @@
     position: relative;
     padding: 0;
     margin-bottom: 4rem;
+    z-index: 1;
 }
 
 .roadmap-item:not(:first-child) {
     margin-top: -10rem;
 }
+
+.roadmap-item:nth-child(1) { z-index: 5; }
+.roadmap-item:nth-child(2) { z-index: 4; }
+.roadmap-item:nth-child(3) { z-index: 3; }
+.roadmap-item:nth-child(4) { z-index: 2; }
+.roadmap-item:nth-child(5) { z-index: 1; }
 
 .roadmap-content {
     position: relative;
@@ -259,11 +266,6 @@
 .roadmap-content:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 25px 80px rgba(67, 97, 238, 0.2);
-}
-
-/* Prevent hover animation when hovering over the button */
-.roadmap-content:has(.roadmap-expand-btn:hover) {
-    transform: none;
 }
 
 .roadmap-item:nth-child(odd) .roadmap-content {
@@ -347,107 +349,72 @@
     font-size: 1rem;
 }
 
-/* Roadmap Accordion Styles */
+/* Roadmap expandable content styles */
 .roadmap-summary {
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    display: block;
 }
 
-.roadmap-expand-btn {
+.roadmap-extended {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.4s ease,
+                margin-top 0.4s ease;
+    margin-top: 0;
+}
+
+.roadmap-extended p {
+    margin-bottom: 1rem;
+}
+
+.roadmap-extended p:last-child {
+    margin-bottom: 0;
+}
+
+.roadmap-content.expanded .roadmap-extended {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+.roadmap-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 1.5rem;
     padding: 0.75rem 1.5rem;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
     border: none;
     border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 600;
-    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 1rem;
     box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
 }
 
-.roadmap-expand-btn:hover {
+.roadmap-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
-.roadmap-expand-btn i {
+.roadmap-toggle i {
     transition: transform 0.3s ease;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
-.roadmap-content.expanded .roadmap-expand-btn i {
+.roadmap-content.expanded .roadmap-toggle i {
     transform: rotate(180deg);
 }
 
-/* Fix for clickable area - prevent child elements from blocking clicks */
-.roadmap-expand-btn .expand-text,
-.roadmap-expand-btn i {
-    pointer-events: none;
+.roadmap-content.expanded .roadmap-toggle .toggle-text::after {
+    content: ' Less';
 }
 
-.roadmap-details {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.roadmap-content.expanded .roadmap-details {
-    max-height: 2000px;
-    opacity: 1;
-    margin-top: 1rem;
-}
-
-.roadmap-details p {
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-}
-
-.roadmap-details p:last-child {
-    margin-bottom: 0;
-}
-
-.roadmap-details ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 1rem 0 1.5rem 0;
-}
-
-.roadmap-details li {
-    padding: 0.75rem 0;
-    padding-left: 2rem;
-    position: relative;
-    color: var(--text-light);
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.roadmap-details li:last-child {
-    border-bottom: none;
-}
-
-.roadmap-details li::before {
-    content: "•";
-    position: absolute;
-    left: 0.5rem;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.roadmap-details strong {
-    color: var(--text-dark);
-    font-weight: 700;
+.roadmap-toggle .toggle-text::after {
+    content: '';
 }
 
 /* Enhanced Methodology Section - Updated for Two-Column Layout */

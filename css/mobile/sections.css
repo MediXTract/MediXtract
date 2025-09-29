@@ -255,12 +255,6 @@
     box-shadow: 0 20px 60px rgba(67, 97, 238, 0.2);
 }
 
-/* Prevent active animation when hovering/tapping the button */
-.roadmap-content:has(.roadmap-expand-btn:hover),
-.roadmap-content:has(.roadmap-expand-btn:active) {
-    transform: none;
-}
-
 .roadmap-content::after {
     content: '';
     position: absolute;
@@ -321,109 +315,74 @@
     font-size: 0.95rem;
 }
 
-/* Roadmap Accordion Styles - Mobile */
+/* Roadmap expandable content styles - Mobile */
 .roadmap-summary {
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
+    display: block;
 }
 
-.roadmap-expand-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.3rem;
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-    touch-action: manipulation;
-}
-
-.roadmap-expand-btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-}
-
-.roadmap-expand-btn i {
-    transition: transform 0.3s ease;
-    font-size: 0.75rem;
-}
-
-.roadmap-content.expanded .roadmap-expand-btn i {
-    transform: rotate(180deg);
-}
-
-/* Fix for clickable area - prevent child elements from blocking clicks */
-.roadmap-expand-btn .expand-text,
-.roadmap-expand-btn i {
-    pointer-events: none;
-}
-
-.roadmap-details {
+.roadmap-extended {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.4s ease,
+                margin-top 0.4s ease;
+    margin-top: 0;
 }
 
-.roadmap-content.expanded .roadmap-details {
+.roadmap-extended p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.roadmap-extended p:last-child {
+    margin-bottom: 0;
+}
+
+.roadmap-content.expanded .roadmap-extended {
     max-height: 3000px;
     opacity: 1;
     margin-top: 1rem;
 }
 
-.roadmap-details p {
-    color: var(--text-light);
-    line-height: 1.7;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
+.roadmap-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    touch-action: manipulation;
 }
 
-.roadmap-details p:last-child {
-    margin-bottom: 0;
+.roadmap-toggle:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
 }
 
-.roadmap-details ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 1rem 0 1.2rem 0;
+.roadmap-toggle i {
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
 }
 
-.roadmap-details li {
-    padding: 0.6rem 0;
-    padding-left: 1.8rem;
-    position: relative;
-    color: var(--text-light);
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 0.9rem;
+.roadmap-content.expanded .roadmap-toggle i {
+    transform: rotate(180deg);
 }
 
-.roadmap-details li:last-child {
-    border-bottom: none;
+.roadmap-content.expanded .roadmap-toggle .toggle-text::after {
+    content: ' Less';
 }
 
-.roadmap-details li::before {
-    content: "•";
-    position: absolute;
-    left: 0.5rem;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.roadmap-details strong {
-    color: var(--text-dark);
-    font-weight: 700;
+.roadmap-toggle .toggle-text::after {
+    content: '';
 }
 
 /* Methodology Section - Keep as simple text for mobile */
