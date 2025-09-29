@@ -352,6 +352,17 @@
 /* Roadmap expandable content styles */
 .roadmap-summary {
     display: block;
+    opacity: 1;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease;
+}
+
+.roadmap-content.expanded .roadmap-summary {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
 }
 
 .roadmap-extended {
@@ -393,6 +404,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    position: relative;
+    z-index: 10;
 }
 
 .roadmap-toggle:hover {
