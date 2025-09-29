@@ -296,13 +296,17 @@
                         </div>
                         <div class="roadmap-extended">
                             <p class="roadmap-desc">The first deliverable is a comprehensive report, built from the first batch of variables processed. It contains three main components:</p>
-                            <p class="roadmap-desc"><strong>Structural Review:</strong> Proposals to make the dataset clearer and more structured, including splitting variables for better coverage, merging or removing redundant ones, and clarifying ambiguous field descriptions.</p>
-                            <p class="roadmap-desc"><strong>Extraction Blueprint:</strong> The initial design of the extraction engine, including preprocessing steps, tailored methods to capture clinical context, and detailed instructions for reliable automation.</p>
-                            <p class="roadmap-desc"><strong>Data Quality Assessment:</strong> Highlights of systematic issues observed in the first batch of variables, such as temporal inconsistencies, diagnostic ambiguities, missing values, or classification errors.</p>
+                            <ul class="roadmap-list">
+                                <li><strong>Structural Review:</strong> Proposals to make the dataset clearer and more structured, including splitting variables for better coverage, merging or removing redundant ones, and clarifying ambiguous field descriptions.</li>
+                                <li><strong>Extraction Blueprint:</strong> The initial design of the extraction engine, including preprocessing steps, tailored methods to capture clinical context, and detailed instructions for reliable automation.</li>
+                                <li><strong>Data Quality Assessment:</strong> Highlights of systematic issues observed in the first batch of variables, such as temporal inconsistencies, diagnostic ambiguities, missing values, or classification errors.</li>
+                            </ul>
                             <p class="roadmap-desc">At the same time, the first batch of variables are classified into three groups:</p>
-                            <p class="roadmap-desc"><strong>Manual-entry:</strong> variables that cannot be extracted automatically or semi-automatically, and therefore always require full human input.</p>
-                            <p class="roadmap-desc"><strong>Double-check:</strong> variables where AI predictions showed inconsistencies. These are flagged in the report, with clarification requests for experts. Once feedback is received, they are expected to move into the high-confidence group in the next cycle.</p>
-                            <p class="roadmap-desc"><strong>High-confidence:</strong> variables validated as consistently accurate and safe for immediate automation.</p>
+                            <ul class="roadmap-list">
+                                <li><strong>Manual-entry:</strong> variables that cannot be extracted automatically or semi-automatically, and therefore always require full human input.</li>
+                                <li><strong>Double-check:</strong> variables where AI predictions showed inconsistencies. These are flagged in the report, with clarification requests for experts. Once feedback is received, they are expected to move into the high-confidence group in the next cycle.</li>
+                                <li><strong>High-confidence:</strong> variables validated as consistently accurate and safe for immediate automation.</li>
+                            </ul>
                             <p class="roadmap-desc">From this point forward, the tool becomes operational: high-confidence variables run automatically, double-check variables appear in the validation tab, and manual-entry variables remain outside automation.</p>
                         </div>
                         <button class="roadmap-toggle" onclick="toggleRoadmapDetails(this)">
@@ -322,9 +326,11 @@
                         </div>
                         <div class="roadmap-extended">
                             <p class="roadmap-desc">With the foundation established, we enter a cycle of expansion and refinement. Each new report mirrors the format of the first but expands in scope:</p>
-                            <p class="roadmap-desc"><strong>Structural Review:</strong> Reassesses the dataset, confirming whether earlier proposals were implemented and highlighting new structural adjustments suggested by the latest variables.</p>
-                            <p class="roadmap-desc"><strong>Extraction Blueprint:</strong> Documents the updates made to the extraction engine, incorporating the clarifications and feedback received from the prior report.</p>
-                            <p class="roadmap-desc"><strong>Data Quality Assessment:</strong> Evaluates the full dataset processed so far (e.g., 200 variables in cycle two, 300 in cycle three), showing improvements achieved on previous fields and performance metrics for the new batch. It also lists new questions, though these tend to decrease over time.</p>
+                            <ul class="roadmap-list">
+                                <li><strong>Structural Review:</strong> Reassesses the dataset, confirming whether earlier proposals were implemented and highlighting new structural adjustments suggested by the latest variables.</li>
+                                <li><strong>Extraction Blueprint:</strong> Documents the updates made to the extraction engine, incorporating the clarifications and feedback received from the prior report.</li>
+                                <li><strong>Data Quality Assessment:</strong> Evaluates the full dataset processed so far (e.g., 200 variables in cycle two, 300 in cycle three), showing improvements achieved on previous fields and performance metrics for the new batch. It also lists new questions, though these tend to decrease over time.</li>
+                            </ul>
                             <p class="roadmap-desc">Each report therefore includes both the corrections from the last cycle and the results of the new variables. This cumulative approach ensures that with every iteration, the dataset grows in size, the engine grows in accuracy, and the volume of unresolved issues shrinks.</p>
                         </div>
                         <button class="roadmap-toggle" onclick="toggleRoadmapDetails(this)">
@@ -345,9 +351,11 @@
                         <div class="roadmap-extended">
                             <p class="roadmap-desc">The process continues in circles (weekly, bi-weekly, or monthly, depending on the chosen cadence). Each circle adds 100 new variables, integrates expert feedback, and produces a cumulative report covering the entire dataset processed to date.</p>
                             <p class="roadmap-desc">Over successive circles:</p>
-                            <p class="roadmap-desc"><strong>The manual-entry group</strong> is reduced to the unavoidable minimum.</p>
-                            <p class="roadmap-desc"><strong>The double-check group</strong> shrinks as more variables are clarified and validated.</p>
-                            <p class="roadmap-desc"><strong>The high-confidence group</strong> grows steadily, absorbing the majority of fields into automation.</p>
+                            <ul class="roadmap-list">
+                                <li><strong>The manual-entry group</strong> is reduced to the unavoidable minimum.</li>
+                                <li><strong>The double-check group</strong> shrinks as more variables are clarified and validated.</li>
+                                <li><strong>The high-confidence group</strong> grows steadily, absorbing the majority of fields into automation.</li>
+                            </ul>
                             <p class="roadmap-desc">By the end of this phase, after the necessary circles, all variables will have been processed. The dataset reaches a stable state in which automation dominates, and only a small fraction of fields remain for manual entry or occasional validation.</p>
                         </div>
                         <button class="roadmap-toggle" onclick="toggleRoadmapDetails(this)">
@@ -367,8 +375,10 @@
                         </div>
                         <div class="roadmap-extended">
                             <p class="roadmap-desc">Once all variables are processed, we perform a rotational audit to confirm system stability and dataset reliability.</p>
-                            <p class="roadmap-desc"><strong>Rotational Audit:</strong> A random sample (e.g., 20% of the dataset) is directly compared against the original patient history to ensure transparency and accuracy.</p>
-                            <p class="roadmap-desc"><strong>Comprehensive Performance Report:</strong> A full report is delivered summarizing final results: automation rates, residual manual-entry fields, performance metrics across the dataset, and documentation of all improvements made along the way.</p>
+                            <ul class="roadmap-list">
+                                <li><strong>Rotational Audit:</strong> A random sample (e.g., 20% of the dataset) is directly compared against the original patient history to ensure transparency and accuracy.</li>
+                                <li><strong>Comprehensive Performance Report:</strong> A full report is delivered summarizing final results: automation rates, residual manual-entry fields, performance metrics across the dataset, and documentation of all improvements made along the way.</li>
+                            </ul>
                             <p class="roadmap-desc">This phase ensures that the pipeline has not only reached completion but has been thoroughly validated for long-term reproducibility and trust.</p>
                         </div>
                         <button class="roadmap-toggle" onclick="toggleRoadmapDetails(this)">
