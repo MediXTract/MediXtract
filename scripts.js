@@ -1,4 +1,4 @@
-// Variables globales
+// Global variables
 let isMobileMenuOpen = false;
 
 // Initialize when DOM is loaded
@@ -230,27 +230,37 @@ function toggleRoadmapDetails(button) {
 }
 
 /**
+ * Handle accordion click events
+ */
+function handleAccordionClick(e) {
+    // Only work on mobile
+    if (window.innerWidth > 768) return;
+    
+    const accordionItem = e.target.closest('[data-accordion]');
+    if (!accordionItem) return;
+    
+    e.stopPropagation();
+    
+    // Toggle expanded state
+    const isExpanded = accordionItem.classList.contains('expanded');
+    accordionItem.classList.toggle('expanded', !isExpanded);
+}
+
+/**
  * Setup accordion functionality for mobile advantages
  */
 function setupAccordions() {
     // Only enable accordions on mobile (screen width <= 768px)
     if (window.innerWidth > 768) return;
     
-    const accordionItems = document.querySelectorAll('[data-accordion]');
+    const checkmarksContainer = document.querySelector('.checkmarks');
+    if (!checkmarksContainer) return;
     
-    accordionItems.forEach(item => {
-        // Make the entire item clickable
-        item.addEventListener('click', function(e) {
-            // Prevent double triggering
-            e.stopPropagation();
-            
-            // Toggle expanded state
-            const isExpanded = item.classList.contains('expanded');
-            
-            // Toggle current accordion (don't close others)
-            item.classList.toggle('expanded', !isExpanded);
-        });
-    });
+    // Remove existing listener to prevent duplicates
+    checkmarksContainer.removeEventListener('click', handleAccordionClick);
+    
+    // Add single delegated listener on parent
+    checkmarksContainer.addEventListener('click', handleAccordionClick);
 }
 
 /**
