@@ -1,0 +1,232 @@
+/* Methodology Section - Keep as simple text for mobile */
+.methodology-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius-xl);
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(67, 97, 238, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.methodology-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.methodology-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    opacity: 0.05;
+    border-radius: 100% 0 0 0;
+}
+
+.methodology-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    opacity: 0.05;
+    border-radius: 0 0 100% 0;
+}
+
+.methodology-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    text-align: center;
+}
+
+.methodology-section h4 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin: 2rem 0 1rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.methodology-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.methodology-section .vision-description {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hide methodology grid on mobile - use simple layout */
+.methodology-grid {
+    display: block;
+}
+
+.methodology-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    border-radius: 0;
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.methodology-card::before {
+    display: none;
+}
+
+.methodology-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.methodology-left-column {
+    order: 2;
+    flex: none;
+    margin-top: 1.5rem;
+}
+
+.methodology-icon {
+    display: none;
+}
+
+.methodology-notes {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.methodology-notes:active {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(86, 11, 173, 0.15);
+    border-color: rgba(86, 11, 173, 0.2);
+}
+
+.methodology-notes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.methodology-notes-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.methodology-notes-header i {
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.methodology-notes-header span {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.methodology-notes p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.methodology-notes p:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.methodology-notes p strong {
+    color: var(--text-dark);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.methodology-notes a {
+    color: var(--primary);
+    text-decoration: none;
+    word-break: break-all;
+    transition: var(--transition-fast);
+}
+
+.methodology-notes a:active {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.methodology-content sup {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.75em;
+    margin-left: 2px;
+}
+
+.methodology-content {
+    order: 1;
+    flex: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    position: relative;
+    overflow: visible;
+}
+
+.methodology-content::before {
+    display: none;
+}
+
+.methodology-content h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.methodology-content p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}

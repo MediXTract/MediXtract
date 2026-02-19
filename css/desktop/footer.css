@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(86, 11, 173, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -36,11 +36,11 @@
     align-items: start;
 }
 
-.footer-grid > div:first-child {
+.footer-grid>div:first-child {
     max-width: 350px;
 }
 
-.footer-grid > div:last-child {
+.footer-grid>div:last-child {
     max-width: 280px;
 }
 
@@ -182,11 +182,19 @@
 }
 
 .footer-contact p,
-.footer-contact span {
+.footer-contact span,
+.footer-contact a {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.4;
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.footer-contact a:hover {
+    color: white;
+    text-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
 }
 
 .footer-bottom {

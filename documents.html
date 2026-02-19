@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>Documents & Insights | MediXtract</title>
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Mobile CSS (screens <= 768px) -->
+    <link rel="stylesheet" href="css/mobile/base.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/navigation.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/sections.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/footer.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/utilities.css" media="screen and (max-width: 768px)">
+
+    <!-- Desktop CSS (screens >= 769px) -->
+    <link rel="stylesheet" href="css/desktop/base.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/navigation.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/sections.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/footer.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/utilities.css" media="screen and (min-width: 769px)">
+
+    <style>
+        :root {
+            --drive-bg: #f8f9fa;
+            --card-border: #dadce0;
+            --card-hover: #f1f3f4;
+            --drive-primary: #1a73e8;
+        }
+
+        .document-center {
+            padding: 120px 20px 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .drive-header {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .drive-header h1 {
+            font-size: 1.75rem;
+            color: #3c4043;
+            font-weight: 500;
+        }
+
+        .document-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-card {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.2s, background-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-card:hover {
+            background-color: var(--card-hover);
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+        }
+
+        .doc-preview {
+            height: 160px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-preview::after {
+            content: "";
+            width: 80px;
+            height: 110px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+            padding: 12px 10px;
+            gap: 6px;
+        }
+
+        /* Create simulated content lines inside the ::after element */
+        .doc-preview::before {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: #e8eaed;
+            top: 40px;
+            box-shadow:
+                0 8px 0 #e8eaed,
+                0 16px 0 #e8eaed,
+                0 24px 0 #e8eaed,
+                0 32px 0 #e8eaed;
+            z-index: 1;
+        }
+
+        .doc-preview .preview-icon {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .doc-preview i {
+            font-size: 2.5rem;
+            color: var(--drive-primary);
+            opacity: 0.8;
+        }
+
+        /* Simulated page lines */
+        .doc-preview .page-line {
+            width: 100%;
+            height: 4px;
+            background: #e8eaed;
+            border-radius: 2px;
+        }
+
+        .doc-preview .page-line.short {
+            width: 60%;
+        }
+
+        .doc-info {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .doc-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .doc-title-group i {
+            font-size: 1.1rem;
+            color: var(--drive-primary);
+        }
+
+        .doc-title {
+            font-size: 0.875rem;
+            color: #3c4043;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #5f6368;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-icon:hover {
+            background: rgba(95, 99, 104, 0.1);
+            color: #202124;
+        }
+
+        /* Modal Overlay Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 2000;
+            padding: 40px 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            border-radius: 8px;
+            box-shadow: 0 24px 38px rgba(0, 0, 0, 0.14);
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+            margin-bottom: 40px;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 12px 24px;
+            border-bottom: 1px solid #dadce0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            border-radius: 8px 8px 0 0;
+            z-index: 10;
+        }
+
+        .modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .modal-header-left i {
+            font-size: 1.25rem;
+            color: var(--drive-primary);
+            flex-shrink: 0;
+        }
+
+        .modal-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3c4043;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .modal-body {
+            padding: 40px 60px;
+            line-height: 1.6;
+            color: #3c4043;
+        }
+
+        .modal-body section {
+            margin-bottom: 40px;
+        }
+
+        .modal-body h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #202124;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #5f6368;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: #f1f3f4;
+        }
+
+        .modal-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .document-center {
+                padding: 100px 15px 40px;
+            }
+
+            .modal-body {
+                padding: 30px 20px;
+            }
+
+            .document-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: #f8f9fa;">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                    alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </a>
+
+            <div class="navbar-nav">
+                <a href="index.html#intro" class="nav-link">Service</a>
+                <a href="index.html#problem" class="nav-link">Problem</a>
+                <a href="index.html#solution" class="nav-link">Solution</a>
+                <a href="index.html#roadmap" class="nav-link">Collaboration</a>
+                <a href="team.html" class="nav-link">Team</a>
+                <a href="documents.html" class="nav-link active">Documents</a>
+            </div>
+
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="index.html#intro" class="nav-link" onclick="closeMobileMenu()">Service</a>
+            <a href="index.html#problem" class="nav-link" onclick="closeMobileMenu()">Problem</a>
+            <a href="index.html#solution" class="nav-link" onclick="closeMobileMenu()">Solution</a>
+            <a href="index.html#roadmap" class="nav-link" onclick="closeMobileMenu()">Collaboration</a>
+            <a href="team.html" class="nav-link" onclick="closeMobileMenu()">Team</a>
+            <a href="documents.html" class="nav-link" onclick="closeMobileMenu()">Documents</a>
+        </div>
+    </div>
+
+    <main class="document-center">
+        <div class="drive-header">
+            <h1>Documents & Insights</h1>
+            <div class="back-home">
+                <a href="index.html" class="btn-back" style="margin-bottom: 0;"><i class="fas fa-arrow-left"></i>
+                    Home</a>
+            </div>
+        </div>
+
+        <div class="document-grid">
+            <!-- Card 1: Methodological Whitepaper -->
+            <div class="doc-card" onclick="openDoc('whitepaper')">
+                <div class="doc-preview">
+                    <span class="preview-icon"><i class="fas fa-file-alt"></i></span>
+                </div>
+                <div class="doc-info">
+                    <div class="doc-title-group">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="doc-title">Methodological Whitepaper.pdf</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn-icon" onclick="event.stopPropagation(); downloadDoc('whitepaper')">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Pilot Study Results -->
+            <div class="doc-card" onclick="openDoc('pilot-results')">
+                <div class="doc-preview">
+                    <span class="preview-icon"><i class="fas fa-chart-bar"></i></span>
+                </div>
+                <div class="doc-info">
+                    <div class="doc-title-group">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="doc-title">Pilot Study Results 2024.pdf</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn-icon" onclick="event.stopPropagation(); downloadDoc('pilot-results')">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Technical Specifications -->
+            <div class="doc-card" onclick="openDoc('tech-specs')">
+                <div class="doc-preview">
+                    <span class="preview-icon"><i class="fas fa-microchip"></i></span>
+                </div>
+                <div class="doc-info">
+                    <div class="doc-title-group">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="doc-title">Technical Specifications.pdf</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn-icon" onclick="event.stopPropagation(); downloadDoc('tech-specs')">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: UI Walkthrough -->
+            <div class="doc-card" onclick="openDoc('ui-walkthrough')">
+                <div class="doc-preview">
+                    <span class="preview-icon"><i class="fas fa-window-maximize"></i></span>
+                </div>
+                <div class="doc-info">
+                    <div class="doc-title-group">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="doc-title">Interface Walkthrough.pdf</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn-icon" onclick="event.stopPropagation(); downloadDoc('ui-walkthrough')">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Overlay for Document Display -->
+    <div class="modal-overlay" id="docModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3 id="modalTitle">Document Name</h3>
+                </div>
+                <div class="modal-toolbar">
+                    <button class="btn-icon" onclick="downloadCurrent()"><i class="fas fa-download"></i></button>
+                    <button class="modal-close" onclick="closeDoc()"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Content Data (Hidden) -->
+    <template id="whitepaper-data">
+        <section id="whitepaper-intro">
+            <h4>1. Overall Vision: Enhancing Expert Judgment</h4>
+            <p>MediXtract is developed to solve the fundamental inefficiency in reviewing and structuring medical
+                records. The system is conceived not as a generic, one-size-fits-all software product, but as a
+                customized engineering service that combines automated data abstraction with a proprietary ergonomic
+                interface.</p>
+            <ul>
+                <li><strong>Traceability:</strong> Every structured data point must be directly traceable back to its
+                    origin in the clinical documentation.</li>
+                <li><strong>Completeness:</strong> The system synthesizes scattered information across diverse medical
+                    records to ensure no clinical event is overlooked.</li>
+                <li><strong>Human-Centric Automation:</strong> Automation is used not to replace expert judgment, but to
+                    enhance it. By providing reviewers with synthesized clinical context and quality alerts, MediXtract
+                    allows clinicians to focus on expert interpretation rather than manual transcription.</li>
+            </ul>
+        </section>
+
+        <section id="whitepaper-features">
+            <h4>2. Service Features & Capabilities</h4>
+            <p>MediXtract brings reliability to the conversion of unstructured clinical text into research-ready
+                datasets through three pillars:</p>
+            <h5>2.1 Customized Abstraction Engineering</h5>
+            <p>We design bespoke abstraction logic based on continuous feedback from clinical specialists.</p>
+            <ul>
+                <li><strong>Variable Grouping:</strong> Fields are categorized according to preprocessing requirements.
+                </li>
+                <li><strong>Specialized Prompting:</strong> Tailored methods are developed to capture complex clinical
+                    contexts that off-the-shelf LLMs traditionally miss.</li>
+                <li><strong>Iterative Refinement:</strong> Prompting logic is refined cycle-by-cycle based on "Ground
+                    Truth" comparisons provided by the hospital's experts.</li>
+            </ul>
+            <h5>2.2 Ergonomic Reviewer Interface</h5>
+            <p>Even high-accuracy automation requires validation. Our dedicated interface streamlines this necessity:
+                Confidence Scoring, Contextual Alerts, and Synthesis Summary.</p>
+            <h5>2.3 Methodological Research Support</h5>
+            <p>We produce structured reports that act as a quality audit, highlighting inconsistencies in historical
+                registries and documentation gaps.</p>
+        </section>
+
+        <section id="whitepaper-methodology">
+            <h4>3. Methodology: Filling the Gap in Retrospective Research</h4>
+            <h5>3.1 The Problem with Manual Abstraction</h5>
+            <p>Retrospective studies rely on pre-existing data not originally designed for research, leading to
+                fatigue-driven error and standardization debt.</p>
+            <h5>3.2 Evidence-Based Results: The Pilot Studies</h5>
+            <p>Tested across <strong>3 University Hospitals</strong> analyzing <strong>20 complex patient
+                    records</strong>:</p>
+            <ul>
+                <li><strong>20% Error Capture:</strong> One in five data points entered manually was objectively
+                    incorrect.</li>
+                <li><strong>10% Ambiguity Resolution:</strong> Technical logic resolved poorly documented
+                    contradictions.</li>
+            </ul>
+            <h5>3.3 Use Case: The NEC Minimal Dataset</h5>
+            <p>In our validation against the Neonatal Necrotizing Enterocolitis (NEC) registry, we analyzed <strong>159
+                    variables</strong>. By applying MediXtract, we systematically identified discrepancies in manually
+                entered data and established a methodological precedent for tackling high-complexity neonatal
+                documentation.</p>
+        </section>
+
+        <section id="whitepaper-roadmap">
+            <h4>4. The Collaboration Roadmap: Strategic Implementation</h4>
+            <p>We engage through a structured 4-phase roadmap: Blueprint, Iterative Expansion, Stabilization Circles,
+                and Rotational Audit.</p>
+        </section>
+
+        <section>
+            <h4>5. User Interface Workflow (Detailed Walkthrough)</h4>
+            <p>The MediXtract interface is a 12-stage workflow designed for maximum auditing efficiency, from
+                Authentication and Data Intake to results Validation and the Patient Database management hub.</p>
+        </section>
+
+        <section>
+            <h4>6. The Dataset Control Center: Schema Field Editor</h4>
+            <p>A dynamic dataset dictionary allowing for real-time monitoring of variable performance, classification of
+                data types, and automated recommendations for optimization.</p>
+        </section>
+
+        <section>
+            <h4>7. Strategic Advantages Summary</h4>
+            <ul>
+                <li><strong>Economic Impact:</strong> Significant cost savings by reducing high-cost clinician hours.
+                </li>
+                <li><strong>Reproducibility:</strong> Consistent results across different reviewers and time periods.
+                </li>
+                <li><strong>Historical Correction:</strong> Audit and correct decades of legacy data.</li>
+            </ul>
+        </section>
+    </template>
+
+    <template id="pilot-results-data">
+        <section>
+            <h4>Pilot Study Results: 3 University Hospitals</h4>
+            <p>Our methodology was recently tested across 3 University Hospitals analyzing 20 complex patient records.
+                The results demonstrated the critical need for high-precision extraction:</p>
+            <ul>
+                <li><strong>20% Error Capture:</strong> One in five data points entered manually in the original
+                    registries was objectively incorrect.</li>
+                <li><strong>10% Ambiguity Resolution:</strong> Technical logic solved poorly documented fields and
+                    resolved clinical contradictions.</li>
+            </ul>
+            <p>The pilot achieved a 30% absolute improvement in final dataset accuracy compared to manual-only methods.
+            </p>
+        </section>
+    </template>
+
+    <template id="tech-specs-data">
+        <section>
+            <h4>Technical Specifications Overview</h4>
+            <p>MediXtract utilizes a multi-layered LLM architecture optimized for medical entity recognition and
+                temporal logic.</p>
+            <ul>
+                <li><strong>Input Formats:</strong> PDF, TXT, DOCX, and scanned imagery via OCR.</li>
+                <li><strong>Security:</strong> All processing is performed within hospital-grade encrypted environments
+                    (GDPR compliant).</li>
+                <li><strong>API Support:</strong> REST interface for seamless EHR integration.</li>
+            </ul>
+        </section>
+    </template>
+
+    <template id="ui-walkthrough-data">
+        <section>
+            <h4>12-Stage Interface Walkthrough</h4>
+            <p>The MediXtract interface is designed for maximum auditing efficiency through 12 specific stages:</p>
+            <ol>
+                <li><strong>Authentication:</strong> Secure workspace routing.</li>
+                <li><strong>User Dashboard:</strong> Tailored activity overview.</li>
+                <li><strong>Data Intake:</strong> Source document upload.</li>
+                <li><strong>Intake Summary:</strong> Processing estimates.</li>
+                <li><strong>Results Dashboard:</strong> Human-AI collaborative refinement.</li>
+                <li><strong>Validation Center:</strong> Expert acceptance loop.</li>
+                <li><strong>Traceable Viewer:</strong> Direct source-document mapping.</li>
+            </ol>
+        </section>
+    </template>
+
+    <script>
+        let currentDocId = '';
+
+        function openDoc(id) {
+            const modal = document.getElementById('docModal');
+            const body = document.getElementById('modalBody');
+            const title = document.getElementById('modalTitle');
+            const template = document.getElementById(id + '-data');
+
+            if (template) {
+                currentDocId = id;
+                title.innerText = document.querySelector(`[onclick="openDoc('${id}')"] .doc-title`).innerText;
+                body.innerHTML = template.innerHTML;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                return true;
+            }
+            return false;
+        }
+
+        // Handle deep linking from URL hash
+        function handleDeepLink() {
+            const hash = window.location.hash.substring(1);
+            if (!hash) return;
+
+            // Map of section IDs to their parent document template IDs
+            const sectionMap = {
+                'intro': 'whitepaper',
+                'problem': 'whitepaper',
+                'solution': 'whitepaper',
+                'roadmap': 'whitepaper',
+                'whitepaper-intro': 'whitepaper',
+                'whitepaper-features': 'whitepaper',
+                'whitepaper-methodology': 'whitepaper',
+                'whitepaper-roadmap': 'whitepaper'
+            };
+
+            const docId = sectionMap[hash] || hash;
+            if (openDoc(docId)) {
+                // If it was a deep link to a specific section, scroll to it inside the modal
+                if (sectionMap[hash]) {
+                    setTimeout(() => {
+                        const section = document.getElementById(hash === 'intro' ? 'whitepaper-intro' :
+                            hash === 'problem' ? 'whitepaper-methodology' :
+                                hash === 'solution' ? 'whitepaper-features' :
+                                    hash === 'roadmap' ? 'whitepaper-roadmap' : hash);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 500); // Wait for modal animation
+                }
+            }
+        }
+
+        window.addEventListener('load', handleDeepLink);
+        window.addEventListener('hashchange', handleDeepLink);
+
+        function closeDoc() {
+            document.getElementById('docModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on clicking overlay
+        window.onclick = function (event) {
+            const modal = document.getElementById('docModal');
+            if (event.target == modal) {
+                closeDoc();
+            }
+        }
+
+        function downloadDoc(id) {
+            const title = document.querySelector(`[onclick="openDoc('${id}')"] .doc-title`).innerText;
+            const content = document.getElementById(id + '-data').innerHTML;
+
+            // Generate a simple text-based download for demo purposes
+            const element = document.createElement('a');
+            const file = new Blob([content.replace(/<[^>]*>/g, '\n')], { type: 'text/plain' });
+            element.href = URL.createObjectURL(file);
+            element.download = title.replace('.pdf', '.txt');
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        function downloadCurrent() {
+            if (currentDocId) downloadDoc(currentDocId);
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                            alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data abstraction for healthcare professionals.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222"
+                            class="social-icon" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:medixtract.developers@gmail.com" class="social-icon"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/MediXTract" class="social-icon" target="_blank" rel="noopener"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#intro">Service</a></li>
+                        <li><a href="index.html#problem">Problem</a></li>
+                        <li><a href="index.html#solution">Solution</a></li>
+                        <li><a href="index.html#roadmap">Collaboration</a></li>
+                        <li><a href="documents.html">Documents</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="documents.html">Privacy Policy</a></li>
+                        <li><a href="documents.html">Terms of Service</a></li>
+                        <li><a href="documents.html">GDPR Compliance</a></li>
+                        <li><a href="documents.html">Data Security</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <p>medixtract.developers@gmail.com</p>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-users"></i>
+                        <a href="team.html">Meet the Team</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediXtract. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

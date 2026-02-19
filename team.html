@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>The Founders | MediXtract</title>
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Mobile CSS (screens <= 768px) -->
+    <link rel="stylesheet" href="css/mobile/base.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/navigation.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/sections.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/footer.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="css/mobile/utilities.css" media="screen and (max-width: 768px)">
+
+    <!-- Desktop CSS (screens >= 769px) -->
+    <link rel="stylesheet" href="css/desktop/base.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/navigation.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/sections.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/footer.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/desktop/utilities.css" media="screen and (min-width: 769px)">
+
+    <style>
+        .founder-profile {
+            padding: 120px 20px 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .founder-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .founder-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(67, 97, 238, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .founder-img-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
+            background: #f8f9fa;
+        }
+
+        .founder-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-role {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .founder-bio {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .founder-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: #f1f4ff;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .founder-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                    alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </a>
+
+            <div class="navbar-nav">
+                <a href="index.html#intro" class="nav-link">Service</a>
+                <a href="index.html#problem" class="nav-link">Problem</a>
+                <a href="index.html#solution" class="nav-link">Solution</a>
+                <a href="index.html#roadmap" class="nav-link">Collaboration</a>
+                <a href="team.html" class="nav-link active">Team</a>
+                <a href="documents.html" class="nav-link">Documents</a>
+            </div>
+
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="index.html#intro" class="nav-link" onclick="closeMobileMenu()">Service</a>
+            <a href="index.html#problem" class="nav-link" onclick="closeMobileMenu()">Problem</a>
+            <a href="index.html#solution" class="nav-link" onclick="closeMobileMenu()">Solution</a>
+            <a href="index.html#roadmap" class="nav-link" onclick="closeMobileMenu()">Collaboration</a>
+            <a href="team.html" class="nav-link" onclick="closeMobileMenu()">Team</a>
+            <a href="documents.html" class="nav-link" onclick="closeMobileMenu()">Documents</a>
+        </div>
+    </div>
+
+    <main class="founder-profile">
+        <div class="founder-header">
+            <h1>The Founding Team</h1>
+            <p class="section-narrative" style="text-align: center;">Combining engineering excellence with clinical
+                vision to bridge the gap in medical data abstraction.</p>
+        </div>
+
+        <div class="founder-grid">
+            <!-- Tomás -->
+            <div class="founder-card">
+                <div class="founder-img-wrapper">
+                    <img src="images/team/rounded-porfile_photo-Tomas.png" alt="Tomás González Bartomeu">
+                </div>
+                <h2 class="founder-name">Tomás González Bartomeu</h2>
+                <p class="founder-role">Co-Founder & Lead Engineer</p>
+                <p class="founder-bio">
+                    Specialist in building high-precision extraction engines and human-in-the-loop interfaces. Focused
+                    on the technical architecture and AI implementation that transforms complex medical records into
+                    structured clinical data.
+                </p>
+                <div class="founder-social">
+                    <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222"
+                        class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:tomasgonzalezbartomeu@gmail.com" class="social-link"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/PoltorProgrammer" class="social-link" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a href="assets/vcf/tomas_gonzalez.vcf" class="social-link" download title="Download VCard"><i
+                            class="fas fa-address-card"></i></a>
+                </div>
+            </div>
+
+            <!-- Joan -->
+            <div class="founder-card">
+                <div class="founder-img-wrapper">
+                    <img src="images/team/rounded-porfile_photo-Joan.png" alt="Joan Escat Nadal">
+                </div>
+                <h2 class="founder-name">Joan Escat Nadal</h2>
+                <p class="founder-role">Co-Founder & Clinical Advisor</p>
+                <p class="founder-bio">
+                    Dedicated to bridging the gap between raw clinical documentation and research-ready datasets. Expert
+                    in clinical variable categorization and ensuring the extraction engine meets physician-grade
+                    reliability standards.
+                </p>
+                <div class="founder-social">
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:escatnadal.joan@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/EscatGit" class="social-link" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a href="assets/vcf/joan_escat.vcf" class="social-link" download title="Download VCard"><i
+                            class="fas fa-address-card"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 6rem;">
+            <a href="index.html#contact" class="btn btn-action" style="padding: 1rem 3rem;">Work With Us</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                            alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data abstraction for healthcare professionals.</p>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#intro">Service</a></li>
+                        <li><a href="index.html#problem">Problem</a></li>
+                        <li><a href="index.html#solution">Solution</a></li>
+                        <li><a href="index.html#roadmap">Collaboration</a></li>
+                        <li><a href="documents.html">Documents</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="documents.html">Privacy Policy</a></li>
+                        <li><a href="documents.html">Terms of Service</a></li>
+                        <li><a href="documents.html">GDPR Compliance</a></li>
+                        <li><a href="documents.html">Data Security</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <p>medixtract.developers@gmail.com</p>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-users"></i>
+                        <a href="team.html">Meet the Team</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediXtract. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

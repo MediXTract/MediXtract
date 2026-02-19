@@ -1,0 +1,80 @@
+/* Problem Section Visualization - Mobile Fix */
+.crisis-visualization {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Create a 2-column grid layout for the boxes */
+.crisis-graphic-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-items: center;
+}
+
+/* Make image span full width at top */
+.burnout-doctor-wrapper {
+    grid-column: 1 / -1;
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+    order: -1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(239, 71, 111, 0.2);
+    border: 4px solid white;
+}
+
+/* Reset any floating positioning for mobile and style for 2-col grid */
+.floating-crisis-box {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    background: white;
+    padding: 0.6rem 0.8rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: none;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    min-height: 44px;
+}
+
+.floating-crisis-box i {
+    color: var(--danger);
+    font-size: 0.9rem;
+    min-width: 16px;
+}
+
+/* Legacy floating crisis box removal just in case */
+.floating-crisis-box:nth-child(n) {
+    display: flex;
+    /* Ensure they are visible in grid flow */
+}
+
+/* Order the image first - ensuring it stays at top in grid too */
+.burnout-doctor-wrapper {
+    order: -1;
+}
+
+.burnout-doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

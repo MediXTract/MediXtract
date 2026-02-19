@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(86, 11, 173, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -37,7 +37,7 @@
     margin-bottom: 2.5rem;
 }
 
-.footer-grid > div {
+.footer-grid>div {
     width: 100%;
     max-width: 300px;
 }
@@ -172,7 +172,7 @@
     gap: 1rem;
 }
 
-.footer-contact > div {
+.footer-contact>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -185,10 +185,13 @@
 }
 
 .footer-contact p,
-.footer-contact span {
+.footer-contact span,
+.footer-contact a {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition-normal);
 }
 
 .footer-bottom {

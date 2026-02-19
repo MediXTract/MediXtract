@@ -1,0 +1,207 @@
+/* Crisis Visualization Graphic */
+.crisis-visualization {
+    margin: 6rem auto;
+    max-width: var(--container-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    overflow: visible;
+}
+
+.crisis-graphic-container {
+    position: relative;
+    flex: 2;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 4rem;
+}
+
+.burnout-doctor-wrapper {
+    position: relative;
+    width: 450px;
+    height: auto;
+    z-index: 5;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    overflow: visible;
+}
+
+.burnout-doctor-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: saturate(0.9) contrast(1.05);
+    transition: var(--transition-slow);
+}
+
+.burnout-doctor-wrapper:hover .burnout-doctor-img {
+    transform: scale(1.05);
+}
+
+.doctor-overlay-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(231, 76, 60, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+    animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.floating-crisis-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    border: 1px solid rgba(231, 76, 60, 0.1);
+    z-index: 10;
+    animation: floatAir 5s infinite ease-in-out;
+    white-space: nowrap;
+}
+
+.floating-crisis-box i {
+    font-size: 1.4rem;
+    color: #e74c3c;
+}
+
+/* Semicircle Positioning */
+.box-1 {
+    bottom: 320px;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.box-2 {
+    bottom: 440px;
+    left: 22%;
+    animation-delay: 0.5s;
+}
+
+.box-3 {
+    bottom: 520px;
+    left: 42%;
+    animation-delay: 1s;
+}
+
+.box-4 {
+    bottom: 410px;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.box-5 {
+    bottom: 320px;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.box-6 {
+    bottom: 220px;
+    left: 12%;
+    animation-delay: 2.5s;
+}
+
+.box-7 {
+    bottom: 220px;
+    right: 5%;
+    animation-delay: 3s;
+}
+
+@keyframes floatAir {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    33% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+    66% {
+        transform: translateY(10px) rotate(-2deg);
+    }
+}
+
+.floating-crisis-box:hover {
+    background: #fff;
+    border-color: #e74c3c;
+    transform: scale(1.1) translateY(-10px);
+    z-index: 20;
+    animation-play-state: paused;
+}
+
+@media (max-width: 1024px) {
+    .crisis-visualization {
+        height: 800px;
+        padding-bottom: 50px;
+    }
+
+    .floating-crisis-box {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .burnout-doctor-wrapper {
+        width: 320px;
+    }
+
+    .box-1 {
+        bottom: 300px;
+        left: 0;
+    }
+
+    .box-2 {
+        bottom: 400px;
+        left: 10%;
+    }
+
+    .box-3 {
+        bottom: 480px;
+        left: 35%;
+    }
+
+    .box-4 {
+        bottom: 400px;
+        right: 10%;
+    }
+
+    .box-5 {
+        bottom: 300px;
+        right: 0;
+    }
+
+    .box-6 {
+        bottom: 200px;
+        left: -10%;
+    }
+}

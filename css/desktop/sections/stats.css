@@ -1,0 +1,140 @@
+/* Pilot Stats Card & Donut Chart */
+.pilot-stats-card {
+    position: relative;
+    top: 0;
+    right: 0;
+    flex: 1;
+    min-width: 320px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius-xl);
+    padding: 3rem 2.5rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    z-index: 25;
+    animation: fadeInSlide 1s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.stats-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.stats-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.stats-donut-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.stats-donut {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: relative;
+    background: conic-gradient(var(--success) 0% 70%,
+            var(--danger) 70% 90%,
+            #95a5a6 90% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.stats-donut::after {
+    content: '';
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.donut-hole {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.donut-total {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.donut-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.stats-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.legend-color.correct {
+    background: var(--success);
+}
+
+.legend-color.error {
+    background: var(--danger);
+}
+
+.legend-color.ambiguity {
+    background: #95a5a6;
+}
+
+.legend-label strong {
+    color: var(--text-dark);
+}
+
+@media (max-width: 1200px) {
+    .pilot-stats-card {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}

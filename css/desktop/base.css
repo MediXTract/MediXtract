@@ -45,7 +45,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 1rem;
@@ -106,6 +111,26 @@ p {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     margin: 2rem auto 0;
     border-radius: 2px;
+}
+
+.section-intro {
+    text-align: center;
+    margin: -3rem auto 1rem;
+    max-width: 800px;
+    color: var(--primary);
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.section-narrative {
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 auto 3rem;
+    max-width: 900px;
+    color: var(--text-light);
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
 .section-subtitle {
