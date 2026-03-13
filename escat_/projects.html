@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Projects — MediXtract</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"><style>
+:root{--bg:#fff;--bg-soft:#f7f8fc;--border:#e2e5f0;--bg2:#b8e8d4;--text:#111827;--mid:#4b5563;--muted:#9ca3af;--g:#0a7c52;--gd:#0d6644;--mono:'IBM Plex Mono',monospace;--serif:'Playfair Display',serif;--sans:'Outfit',sans-serif;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(10,124,82,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(10,124,82,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 52px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:var(--serif);font-weight:700;font-size:21px;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--g);font-style:italic;}
+.nav-links{display:flex;gap:34px;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:13.5px;color:var(--mid);text-decoration:none;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:1px;background:var(--g);transition:right .25s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-links a:hover::after,.nav-links a.active::after{right:0;}
+.nav-cta{font-family:var(--sans);font-size:13px;font-weight:500;color:#fff;background:var(--g);border:none;padding:9px 22px;border-radius:2px;cursor:pointer;transition:background .2s;}
+.nav-cta:hover{background:var(--gd);}
+.container{max-width:1120px;margin:0 auto;padding:0 52px;}
+.btn-p{font-family:var(--sans);font-weight:500;font-size:13.5px;color:#fff;background:var(--text);border:none;padding:12px 24px;border-radius:2px;cursor:pointer;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+.btn-p:hover{background:var(--g);transform:translateY(-1px);}
+.btn-o{font-family:var(--sans);font-weight:400;font-size:13.5px;color:var(--mid);background:transparent;border:1px solid var(--border);padding:12px 24px;border-radius:2px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+.btn-o:hover{border-color:var(--g);color:var(--g);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--g);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--g);}
+.page-hero{padding:140px 0 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);z-index:1;}
+.hero-title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.08;color:var(--text);margin-bottom:20px;animation:fadeUp .7s ease both;}
+.hero-title em{font-style:italic;color:var(--g);}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.8;color:var(--mid);max-width:660px;animation:fadeUp .7s .1s ease both;}
+footer{background:#0d1117;border-top:1px solid #1a1f2e;padding:56px 52px 32px;}
+.fi{max-width:1120px;margin:0 auto;}
+.ft{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px;}
+.fb-name{font-family:var(--serif);font-weight:700;font-size:20px;color:#f5f0e8;margin-bottom:8px;}
+.fb-name span{color:#7ed4b0;font-style:italic;}
+.fb-desc{font-family:var(--sans);font-weight:300;font-size:13px;color:#444;max-width:220px;line-height:1.6;}
+.fc h4{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#444;text-transform:uppercase;margin-bottom:16px;}
+.fc a{display:block;font-family:var(--sans);font-size:13px;color:#6b7280;text-decoration:none;margin-bottom:10px;transition:color .2s;}
+.fc a:hover{color:#f5f0e8;}
+.fb{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.fc2{font-family:var(--mono);font-size:11px;color:#333;letter-spacing:.05em;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+@media(max-width:920px){nav{padding:0 24px;}.nav-links{display:none;}.container{padding:0 24px;}footer{padding:48px 24px 24px;}}
+
+.proj-page{padding:80px 0 120px;position:relative;z-index:1;}
+.proj-main{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:80px;}
+.proj-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--g);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.proj-tag::before{content:'';width:22px;height:1px;background:var(--g);}
+.proj-status{display:inline-flex;align-items:center;gap:8px;background:var(--bg-soft);border:1px solid var(--bg2);border-radius:2px;padding:6px 14px;font-family:var(--mono);font-size:11px;color:var(--g);margin-bottom:24px;}
+.proj-dot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:pulse 2s infinite;}
+.proj-name{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.5vw,44px);line-height:1.15;color:var(--text);margin-bottom:24px;}
+.proj-name em{font-style:italic;color:var(--g);}
+.proj-desc{font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.85;color:var(--mid);margin-bottom:18px;}
+.proj-cta{margin-top:8px;}
+.proj-meta{background:var(--bg-soft);border:1px solid var(--border);border-radius:3px;overflow:hidden;}
+.proj-row{display:flex;border-bottom:1px solid var(--border);}
+.proj-row:last-child{border-bottom:none;}
+.proj-rl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;padding:18px 20px;width:120px;flex-shrink:0;background:var(--bg);border-right:1px solid var(--border);display:flex;align-items:center;}
+.proj-rv{font-family:var(--sans);font-weight:300;font-size:14px;color:var(--mid);padding:18px 22px;line-height:1.55;display:flex;align-items:center;}
+.future{padding-top:60px;border-top:1px solid var(--border);}
+.future-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:10px;}
+.future-label::before{content:'';width:22px;height:1px;background:var(--border);}
+.future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.future-card{background:var(--bg-soft);border:1px dashed var(--border);border-radius:3px;padding:36px 28px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;}
+.future-top{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;}
+.future-bottom{font-family:var(--serif);font-weight:300;font-size:18px;color:var(--muted);font-style:italic;}
+@media(max-width:920px){.proj-main{grid-template-columns:1fr;gap:40px;}.future-grid{grid-template-columns:1fr;}}
+</style></head><body><div class="grid-bg"></div><nav>
+  <a href="index.html" class="nav-logo">Medi<span>Xtract</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="who-we-are.html">Who we are</a></li>
+    <li><a href="how-we-work.html">How we work</a></li>
+  </ul>
+  <button class="nav-cta">Get in Touch</button>
+</nav>
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Projects</div>
+    <h1 class="hero-title">Clinical <em>deployments</em></h1>
+    <p class="hero-sub">Real-world partnerships where we put our technology to work alongside clinicians and researchers to build registries that advance medical knowledge.</p>
+  </div>
+</section>
+<section class="proj-page">
+  <div class="container">
+
+    <div class="proj-main reveal">
+      <div>
+        <div class="proj-tag">Pilot Project · Active</div>
+        <div class="proj-status"><span class="proj-dot"></span>Currently in development</div>
+        <h2 class="proj-name">NEC Registry — <em>Inselspital Bern</em> &amp; University of Bern</h2>
+        <p class="proj-desc">Necrotizing enterocolitis (NEC) is a devastating gastrointestinal emergency affecting premature newborns, with significant mortality and long-term morbidity. Despite its severity, structured large-scale registry data on NEC remains scarce — clinical documentation is fragmented across unstructured neonatal records.</p>
+        <p class="proj-desc">In collaboration with the neonatology departments at Inselspital Bern and the University of Bern, MediXtract is building the first automated NEC registry pipeline — extracting structured clinical variables from neonatal records to create a research-ready dataset advancing understanding of NEC risk factors, treatment outcomes, and prevention strategies.</p>
+        <p class="proj-desc">The project follows our full co-development methodology: registry variables are defined jointly with neonatologists using Registry Manager, extraction is performed by MediXtract App, and data quality is governed end-to-end by DLP — with all processing bound to the Zurich region under Swiss nFADP and GDPR.</p>
+        <a href="contact.html" class="btn-p proj-cta">Get in Touch about this Project →</a>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-row"><span class="proj-rl">Disease</span><span class="proj-rv">Necrotizing Enterocolitis (NEC)</span></div>
+        <div class="proj-row"><span class="proj-rl">Population</span><span class="proj-rv">Premature and term neonates in critical care</span></div>
+        <div class="proj-row"><span class="proj-rl">Partners</span><span class="proj-rv">Inselspital Bern · University of Bern</span></div>
+        <div class="proj-row"><span class="proj-rl">Data source</span><span class="proj-rv">Unstructured neonatal records &amp; discharge letters</span></div>
+        <div class="proj-row"><span class="proj-rl">Languages</span><span class="proj-rv">German · French</span></div>
+        <div class="proj-row"><span class="proj-rl">Variables</span><span class="proj-rv">850 target variables · 159 already treated</span></div>
+        <div class="proj-row"><span class="proj-rl">Tools</span><span class="proj-rv">Registry Manager · MediXtract App · DLP</span></div>
+        <div class="proj-row"><span class="proj-rl">Output</span><span class="proj-rv">Structured, validated research-ready NEC registry</span></div>
+        <div class="proj-row"><span class="proj-rl">Status</span><span class="proj-rv">Active — pilot phase in progress</span></div>
+      </div>
+    </div>
+
+    <div class="future reveal">
+      <div class="future-label">Future Projects</div>
+      <div class="future-grid">
+        <div class="future-card"><div class="future-top">Coming soon</div><div class="future-bottom">Next collaboration<br>in development</div></div>
+        <div class="future-card"><div class="future-top">Coming soon</div><div class="future-bottom">Next collaboration<br>in development</div></div>
+        <div class="future-card"><div class="future-top">Partner with us</div><div class="future-bottom">Your institution<br>could be next</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer><div class="fi">
+  <div class="ft">
+    <div><div class="fb-name">Medi<span>Xtract</span></div><p class="fb-desc">Transforming unstructured clinical data into research-ready registries.</p></div>
+    <div class="fc"><h4>Navigate</h4><a href="index.html">Home</a><a href="services.html">Services</a><a href="solutions.html">Solutions</a><a href="projects.html">Projects</a></div>
+    <div class="fc"><h4>Company</h4><a href="who-we-are.html">Who we are</a><a href="how-we-work.html">How we work</a><a href="contact.html">Contact</a></div>
+    <div class="fc"><h4>Partners</h4><a href="https://www.insel.ch" target="_blank">Inselspital Bern</a><a href="https://www.unibe.ch" target="_blank">University of Bern</a><a href="https://www.lmu.de" target="_blank">LMU Munich</a><a href="https://www.plus.ac.at" target="_blank">University of Salzburg</a></div>
+  </div>
+  <div class="fb"><span class="fc2">© 2025 MediXtract. All rights reserved.</span><span class="fc2">Responsible Research &amp; Innovation</span></div>
+</div></footer><script>
+const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*60);}),{threshold:.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script></body></html>
