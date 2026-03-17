@@ -3,8 +3,8 @@
     position: relative;
     padding: 10rem 0 6rem;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(71, 101, 115, 0.07) 0%, rgba(164, 65, 37, 0.04) 100%), 
-                url('../../images/illustrations/wallpapers/01-section-home-background.png');
+    background: linear-gradient(135deg, rgba(71, 101, 115, 0.07) 0%, rgba(164, 65, 37, 0.04) 100%),
+        url('../../images/illustrations/wallpapers/01-section-home-background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -51,7 +51,7 @@
 .particle {
     position: absolute;
     display: block;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -59,11 +59,25 @@
 }
 
 @keyframes floating {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(120px, 60px) rotate(90deg); }
-    50% { transform: translate(60px, 120px) rotate(180deg); }
-    75% { transform: translate(-60px, 100px) rotate(270deg); }
-    100% { transform: translate(0, 0) rotate(360deg); }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(120px, 60px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(60px, 120px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(-60px, 100px) rotate(270deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
 }
 
 .hero-content {
@@ -114,13 +128,21 @@
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 2.5rem; /* Increased from 2rem */
+    margin-bottom: 2.5rem;
+    /* Increased from 2rem */
     line-height: 1.25;
     max-width: 1000px;
     font-weight: 800;
@@ -232,7 +254,8 @@
 
 .curve-divider .shape-fill {
     fill: var(--bg-light);
-    opacity: 0.6; /* Made semitransparent */
+    opacity: 0.6;
+    /* Made semitransparent */
 }
 
 /* Hero Responsiveness */
