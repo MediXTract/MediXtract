@@ -1,0 +1,77 @@
+:root {
+    /* --- Core UI Selection (Practical Use) --- */
+    --primary: #476573;
+    /* Deep Slate Blue (Trust & Rigor) */
+    --primary-light: #6f959e;
+    /* Soft Teal (Watery Depth) */
+    --primary-dark: #223440;
+    /* Deep Marine (Professional Anchor) */
+    --secondary: #a44125;
+    /* Rust Red (Clinical Importance/Action) */
+    --accent: #bedde2;
+    /* Zebrafish Chartreuse (Biological Vitality) */
+
+    /* Text Colors */
+    --text-dark: #223440;
+    /* Using Deep Marine for readability */
+    --text-light: #654c3b;
+    /* Earthy brown for subtext */
+    --text-white: #ffffff;
+
+    /* Background Colors */
+    --bg-light: #bedde2;
+    /* Oxygenated blue base (Page Background) */
+    --bg-white: #ffffff;
+    /* Pure white for foreground "bubbles" */
+    --bg-accent: #fdfdfd;
+    /* Lightest tint for contrast sections */
+    --bg-dark: #223440;
+
+    /* Status Colors (Mapped from the new palette) */
+    --success: #788911;
+    --warning: #ff814e;
+    --danger: #4b1c14;
+
+    /* --- Extended Color Library (Future Utility/Data Viz) --- */
+    --lib-black: #000000;
+    --lib-white: #ffffff;
+    --lib-green-vibrant: #b2be16;
+    --lib-slate: #476573;
+    --lib-taupe: #b8ada3;
+    --lib-rust: #a44125;
+    --lib-orange: #ff814e;
+    --lib-green-deep: #3e5600;
+    --lib-yellow-soft: #e5e857;
+    --lib-olive: #938b5d;
+    --lib-peach: #fed9b2;
+    --lib-pale-blue: #bedde2;
+    --lib-green-mid: #788911;
+    --lib-navy-deep: #223440;
+    --lib-teal: #6f959e;
+    --lib-brown-dark: #654c3b;
+    --lib-coral-soft: #f9a686;
+    --lib-maroon-deep: #4b1c14;
+    --lib-terracotta: #c3674d;
+    --lib-sage: #bdb864;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(34, 52, 64, 0.05);
+    --shadow-md: 0 4px 6px rgba(34, 52, 64, 0.1);
+    --shadow-lg: 0 10px 15px rgba(34, 52, 64, 0.1);
+    --shadow-xl: 0 20px 25px rgba(34, 52, 64, 0.15);
+
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+
+    /* Border Radii */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 50px;
+    /* Enhanced for the "Bubble" concept */
+
+    /* Layout */
+    --container-width: 1100px;
+}

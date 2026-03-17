@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>MediXtract | AI-Powered Patient Data Abstraction</title>
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/variables.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="assets/css/desktop/base.css">
+    <link rel="stylesheet" href="assets/css/desktop/navigation.css">
+    <link rel="stylesheet" href="assets/css/desktop/hero.css">
+    <link rel="stylesheet" href="assets/css/desktop/sections.css">
+    <link rel="stylesheet" href="assets/css/desktop/home.css">
+    <link rel="stylesheet" href="assets/css/desktop/cta.css">
+    <link rel="stylesheet" href="assets/css/desktop/footer.css">
+    <link rel="stylesheet" href="assets/css/desktop/utilities.css">
+    <link rel="stylesheet" href="assets/css/desktop/architecture-interactive.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                    alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </a>
+
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="pages/solutions.html" class="nav-link">Solutions</a>
+                <a href="pages/methodology.html" class="nav-link">Methodology</a>
+                <a href="pages/documentation.html" class="nav-link">Documentation</a>
+                <a href="pages/contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="pages/solutions.html" class="nav-link">Solutions</a>
+            <a href="pages/methodology.html" class="nav-link">Methodology</a>
+            <a href="pages/documentation.html" class="nav-link">Documentation</a>
+            <a href="pages/contact.html" class="nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles">
+            <!-- Particles will be added via JavaScript -->
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-bolt"></i>
+                <span>Transforming Medical Research</span>
+            </div>
+
+            <h1 class="fade-in delay-1">MediXtract</h1>
+
+            <p class="hero-subtitle fade-in delay-2">Transforming fragmented medical records into structured,
+                high-quality registries through expert-validated AI extraction.</p>
+
+            <div class="btn-group fade-in delay-3">
+                <a href="pages/solutions.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Explore our Tools</span>
+                </a>
+                <a href="pages/contact.html" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Us</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="curve-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Partners Bar -->
+    <section class="partners-bar">
+        <div class="container">
+            <div class="partners-container">
+                <div class="partner-logo"><img src="assets/images/logos/institutions/logo-bern-inselspital.png"
+                        alt="Inselspital Bern"></div>
+                <div class="partner-logo"><img src="assets/images/logos/institutions/logo-bern-universitat.png"
+                        alt="University of Bern"></div>
+                <div class="partner-logo"><img src="assets/images/logos/institutions/logo-munich-LMU.png"
+                        alt="LMU Munich"></div>
+                <div class="partner-logo"><img src="assets/images/logos/institutions/logo-salzburg-uniklinikum.png"
+                        alt="Uniklinikum Salzburg"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="problem-section section" id="problem">
+        <div class="container section-grid">
+            <div class="section-content">
+                <h2 class="section-title">Introduction: The Clinical Burden</h2>
+                <h3 class="section-subtitle">The weights of unstructured data.</h3>
+                <p>Clinical expertise is often trapped in text. Up to 80% of valuable patient data is stored in
+                    unstructured formats—discharge letters, surgical reports, and clinical notes.</p>
+                <p><strong>What this means:</strong> For clinicians and researchers, extracting this data manually is an
+                    overwhelming burden that requires years of tedious work. This fragmentation results in "data silos"
+                    where critical information remains inaccessible, slowing down life-saving research and limiting the
+                    potential for large-scale clinical insights.</p>
+                <a href="pages/methodology.html" class="btn btn-outline small">
+                    <span>Learn more about our methodology</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="section-image">
+                <img src="assets/images/illustrations/images/burnout-doctor-poly.png" alt="Clinical Burden" class="illustration-only">
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section section" id="solution">
+        <div class="container">
+            <div class="solution-ecosystem section-grid">
+                <div class="section-image">
+                    <!-- Hub-and-Spoke Architecture Box -->
+                    <div class="architecture-container">
+                        <div class="arch-stage mode-hub">
+                            <!-- Navigation Arrows (Dynamic) -->
+                            <button class="arch-nav nav-up visible"><i class="fas fa-chevron-right"></i></button>
+                            <button class="arch-nav nav-down visible"><i class="fas fa-chevron-right"></i></button>
+                            <button class="arch-nav nav-left visible"><i class="fas fa-chevron-right"></i></button>
+                            <button class="arch-nav nav-right visible"><i class="fas fa-chevron-right"></i></button>
+
+                            <!-- Hub: Orchestrator -->
+                            <div class="arch-box orchestrator active" data-type="orchestrator">
+                                <i class="fas fa-microchip"></i>
+                                <h4>Core Orchestrator</h4>
+                                <p>The central system managing data flow and logic execution.</p>
+                            </div>
+
+                            <!-- Spoke Top: The Architect -->
+                            <div class="arch-box architect to-top" data-type="architect">
+                                <i class="fas fa-compass-drafting"></i>
+                                <h4>The Architect</h4>
+                                <p>Registry design, variable mapping & logic definition.</p>
+                            </div>
+
+                            <!-- Spoke Left: The Extractor (Editor) -->
+                            <div class="arch-box extractor to-left" data-type="extractor">
+                                <i class="fas fa-file-medical"></i>
+                                <h4>The Extractor</h4>
+                                <p>Human-validated AI extraction interface for clinicians.</p>
+                            </div>
+
+                            <!-- Spoke Right: Vertex AI -->
+                            <div class="arch-box vertex to-right" data-type="vertex">
+                                <i class="fas fa-cloud"></i>
+                                <h4>Vertex AI</h4>
+                                <p>Secure enterprise AI infrastructure and patient data protection.</p>
+                            </div>
+
+                            <!-- Spoke Bottom: The Advisory -->
+                            <div class="arch-box advisory to-bottom" data-type="advisory">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4>The Advisory</h4>
+                                <p>Specialist support for auditing and clinical workflows.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
+                        <h2 class="section-title">The Solution: Bridging the Gap between Data and Science</h2>
+                        <p class="section-subtitle">Intelligent systems that live where your data resides.</p>
+                    </div>
+                    <p>We deploy a custom-built intelligence layer directly within your hospital’s secure
+                        infrastructure. This system acts as a resident engine that transforms raw, unstructured clinical
+                        records into high-fidelity research registries—ensuring that clinical knowledge is unlocked
+                        while your data never leaves your control.</p>
+                    <p>By combining medical expertise with auditable AI, we create a transparent pipeline where every
+                        extracted value is anchored in clinical evidence and every decision is verifiable by clinical
+                        staff.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="ecosystem-section section" id="ecosystem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">MediXtract Ecosystem</h2>
+                <p class="section-subtitle">A unified ecosystem of tools and expertise</p>
+                <p>To put our resident extraction intelligence into action, we provide a proprietary suite of tools
+                    designed to handle every stage of the clinical data journey.</p>
+            </div>
+
+            <div class="ecosystem-tools">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h4>The Architect</h4>
+                    <p>A collaborative space where clinicians and engineers co-design registry logic, resolve clinical
+                        ambiguities, and establish the "ground truth."</p>
+                    <a href="pages/solutions.html#architect" class="tool-link">Learn more</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-microscope"></i></div>
+                    <h4>The Extractor</h4>
+                    <p>The day-to-day interface for data abstraction, offering AI-assisted visualization and
+                        source-context links for rapid validation.</p>
+                    <a href="pages/solutions.html#extractor" class="tool-link">Learn more</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-hand-holding-medical"></i></div>
+                    <h4>The Advisory</h4>
+                    <p>Bespoke development and strategic support to build, maintain, and audit complex medical
+                        workflows.</p>
+                    <a href="pages/solutions.html#advisory" class="tool-link">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study-section section" id="case-study">
+        <div class="container section-grid">
+            <div class="section-content">
+                <h2 class="section-title">Case Study: The NEC Registry</h2>
+                <h3 class="section-subtitle">Scaling rare disease research with Inselspital Bern.</h3>
+                <p>Necrotising enterocolitis (NEC) is a devastating emergency for premature newborns. Together with the
+                    University of Bern, we are building the first automated pipeline to extract over 850 variables from
+                    fragmented neonatal records.</p>
+                <ul class="check-list">
+                    <li><strong>Status:</strong> Active — Pilot phase in progress.</li>
+                    <li><strong>Impact:</strong> Transforming years of manual abstraction into a scalable,
+                        research-ready dataset.</li>
+                </ul>
+                <div class="btn-group">
+                    <a href="pages/documentation.html" class="btn btn-primary">
+                        <span>View Documentation</span>
+                    </a>
+                </div>
+            </div>
+            <div class="section-image">
+                <img src="assets/images/logos/institutions/logo-IRNEC.png" alt="IRNEC Logo" style="box-shadow: none; filter: drop-shadow(0 10px 20px rgba(34, 52, 64, 0.1));">
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text-side">
+                    <h2 class="cta-title">Ready to transform patient data abstraction?</h2>
+                    <p class="cta-subtitle">Connect with our team to start building your high-fidelity research
+                        registry.</p>
+                </div>
+                <div class="cta-button-side">
+                    <a href="pages/contact.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Contact Our Team</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                            alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data abstraction for healthcare professionals.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/MediXTract" class="social-icon" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:medixtract.developers@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222" class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/solutions.html">Solutions</a></li>
+                        <li><a href="pages/methodology.html">Methodology</a></li>
+                        <li><a href="pages/documentation.html">Documentation</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:medixtract.developers@gmail.com">medixtract.developers@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:tomasgonzalezbartomeu@gmail.com">tomasgonzalezbartomeu@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:escatnadal.joan@gmail.com">escatnadal.joan@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MediXtract. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/architecture.js"></script>
+</body>
+
+</html>

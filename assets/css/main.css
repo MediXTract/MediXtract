@@ -1,0 +1,105 @@
+/* ==========================================================================
+   01. CSS Variables / Design Tokens
+   ========================================================================== */
+   :root {
+    /* Color Palette - HSL based for easier modification if needed */
+    --clr-base-white: #ffffff;
+    --clr-base-pastel: #fafbff;
+    --clr-soft-blue: #e0f2fe;
+    --clr-soft-blue-dark: #f8fafc;
+    
+    /* Bioluminescent Spectrum */
+    --clr-primary-blue: #4361ee;
+    --clr-deep-purple: #3a0ca3;
+    --clr-void-indigo: #240046;
+    --clr-glow: rgba(139, 92, 246, 0.5);
+    
+    /* Glass / Water variables */
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-bg-darker: rgba(67, 97, 238, 0.05); /* Oxygenated pastel base */
+    --glass-border-light: rgba(255, 255, 255, 0.2);
+    --glass-border-blue: rgba(67, 97, 238, 0.08);
+    
+    /* Typography */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Geometry */
+    --border-radius-xl: 50px;
+    --border-radius-md: 25px;
+}
+
+/* ==========================================================================
+   02. CSS Reset & Global Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--clr-primary-blue);
+    background-color: var(--clr-base-pastel);
+    background-image: linear-gradient(135deg, var(--clr-base-pastel) 0%, var(--clr-soft-blue) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Base typography elements injected by markdown */
+h1, h2, h3, h4 {
+    color: var(--clr-void-indigo);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--clr-primary-blue), var(--clr-deep-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--glass-border-blue);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+a {
+    color: var(--clr-primary-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--clr-deep-purple);
+    text-shadow: 0 0 8px rgba(67, 97, 238, 0.3);
+}
+
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border-blue), transparent);
+    margin: 2rem 0;
+}

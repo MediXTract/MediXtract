@@ -1,0 +1,168 @@
+/* ==========================================================================
+   01. Application Layout & Containers
+   ========================================================================== */
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10; /* Above background particles */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header / Navigation --- */
+.glass-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--glass-border-light);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clr-primary-blue);
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+}
+
+.main-nav a {
+    color: var(--clr-primary-blue);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.main-nav a.active {
+    color: var(--clr-deep-purple);
+    font-weight: 600;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--clr-glow);
+    box-shadow: 0 0 8px var(--clr-glow);
+}
+
+/* --- Main Content Area --- */
+#app {
+    flex: 1;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    max-width: 800px; /* Keep reading lines comfortable */
+}
+
+/* The Bubble Container for main content */
+.bubble-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--glass-border-light);
+    padding: 4rem;
+    box-shadow: 0 8px 32px 0 rgba(67, 97, 238, 0.05);
+}
+
+/* --- Dynamic Markdown Elements --- */
+/* Target elements within the #app container injected by JS */
+
+#app h1 {
+    margin-bottom: 2rem;
+}
+
+#app h2 {
+    margin-top: 3rem;
+    color: var(--clr-primary-blue);
+}
+
+#app h3 {
+    margin-top: 2rem;
+    color: var(--clr-deep-purple);
+}
+
+/* Markdown Lists as "Stripe" items */
+#app ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+#app ul li {
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--clr-primary-blue);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+#app ul li::before {
+    content: '•';
+    color: var(--clr-primary-blue);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+#app ul li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Strong text highlighting */
+#app strong {
+    color: var(--clr-deep-purple);
+    font-weight: 600;
+}
+
+/* Links as Buttons where appropriate (naive styling applied to root links) */
+#app a[href^="#/"] {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin: 1rem 0.5rem 1rem 0;
+    background: linear-gradient(135deg, var(--clr-base-white), var(--clr-soft-blue));
+    color: var(--clr-primary-blue);
+    border-radius: var(--border-radius-xl);
+    font-weight: 600;
+    border: 1px solid rgba(67, 97, 238, 0.2);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.1);
+    transition: all 0.3s ease;
+}
+
+#app a[href^="#/"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.2);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent), var(--clr-base-white);
+}
+
+/* --- The Mascot Container --- */
+#mascot-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 200px;
+    height: 200px;
+    z-index: 50;
+    pointer-events: none; /* Let clicks pass through if overlapping, unless interactive */
+}

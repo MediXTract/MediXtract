@@ -1,0 +1,607 @@
+/* Methodology Page Specific Styles */
+
+/* Methodology Page Cover */
+.methodology-cover {
+    width: 100%;
+    height: 70vh;
+    background: url('../../images/illustrations/wallpapers/03-section-methodology-background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-top: var(--header-height, 80px);
+}
+
+.methodology-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(128, 0, 128, 0.15);
+    /* Subtle overlay for text readability */
+    z-index: 1;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 10;
+}
+
+.methodology-cover h1 {
+    font-size: 5rem;
+    color: white;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.5rem;
+}
+
+.methodology-cover .hero-subtitle {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 600;
+    line-height: 1.4;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+}
+
+/* Methodology Intro Section */
+.methodology-intro .section-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Text left, Image right */
+    gap: 6rem;
+    align-items: center;
+    /* Vertically center content */
+}
+
+.methodology-intro .section-image img {
+    max-width: 400px;
+    height: auto;
+    margin-right: 0;
+    margin-left: auto;
+    /* Push to the right edge of its grid cell */
+    display: block;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+
+@media (max-width: 992px) {
+    .methodology-intro .section-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .methodology-intro .section-image img {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
+
+
+
+
+/* Roadmap Styles (Moved from common sections for specific page loading) */
+.roadmap-timeline {
+    background: white;
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: 4rem;
+}
+
+.section-subtitle {
+    color: var(--text-dark) !important;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-top: 0.5rem;
+}
+
+.timeline-container {
+    position: relative;
+    margin-left: 0;
+    width: 100%;
+}
+
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    /* Positioned to center the loop around the dots */
+    top: -30px;
+    bottom: -30px;
+    /* Extended to wrap the bottom of the last item */
+    width: 60px;
+    /* Wider, 'elongated portrait' loop */
+    border: 2px solid var(--primary);
+    border-radius: 40px;
+    background: transparent;
+    z-index: 1;
+    opacity: 0.3;
+    /* Clean line without the glow to match the 2D minimalist style better */
+    pointer-events: none;
+}
+
+/* Timeline Directional Arrows */
+.timeline-arrows {
+    position: absolute;
+    top: -30px;
+    /* Synchronized with the loop top */
+    bottom: -30px;
+    /* Synchronized with the loop bottom */
+    left: 10px;
+    width: 60px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.timeline-arrow {
+    position: absolute;
+    font-size: 1.2rem;
+    /* Increased size */
+    color: var(--primary);
+    opacity: 0.8;
+    /* Slightly more visible */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-arrow.down {
+    right: 0;
+    transform: translateX(50%);
+    /* Precisely centered on the right line */
+}
+
+.timeline-arrow.up {
+    left: 0;
+    transform: translateX(-50%);
+    /* Precisely centered on the left line */
+}
+
+/* Position arrows in the gaps between the 4 phases */
+.arrow-gap-1 {
+    top: 12%;
+}
+
+/* Between 01 and 02 */
+.arrow-gap-2 {
+    top: 38%;
+}
+
+/* Between 02 and 03 */
+.arrow-gap-3 {
+    top: 62%;
+}
+
+/* Between 03 and 04 */
+
+
+
+.timeline-item {
+    position: relative;
+    padding-left: 100px;
+    margin-bottom: 5rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 28px;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 4px solid var(--primary);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(67, 97, 238, 0.3);
+}
+
+.timeline-content {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-normal);
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+}
+
+
+.timeline-main {
+    flex: 1;
+}
+
+@media (max-width: 992px) {
+    .timeline-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .roadmap-chips {
+        width: 100%;
+        flex-direction: row;
+        /* Let them flow naturally on mobile */
+    }
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-lg);
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-phase {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.timeline-content h4 {
+    margin-bottom: 0;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.roadmap-desc {
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+
+/* Expandable logic for roadmap details */
+.roadmap-extended {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.timeline-content.expanded .roadmap-extended {
+    max-height: 1000px;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.roadmap-toggle {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.roadmap-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.timeline-content.expanded .roadmap-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Reference Box */
+.reference-box {
+    background: #f8fafc;
+    border-left: 4px solid var(--primary);
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+}
+
+.reference-box i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+.reference-box p {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Methodology Chips */
+.roadmap-chips {
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically on the right */
+    gap: 1rem;
+    width: 280px;
+    /* Fixed width for the chips column */
+    flex-shrink: 0;
+}
+
+.methodology-chip {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    /* Changed from var(--accent) to white */
+    color: var(--text-dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--accent);
+    /* Using the zebrafish blue as a border color */
+    transition: var(--transition-fast);
+}
+
+.methodology-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+
+.methodology-chip .chip-label {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 0.75rem;
+    color: var(--primary);
+    font-size: 0.75rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding-right: 0.75rem;
+}
+
+.methodology-chip .chip-content {
+    color: var(--text-dark);
+}
+
+/* Scaling Cycle Styles */
+
+.scaling-cycle {
+    background: var(--bg-light);
+}
+
+.scaling-cycle .section-subtitle {
+    color: var(--text-dark) !important;
+}
+
+.cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.cycle-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cycle-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.cycle-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.cycle-number .hours {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.cycle-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.cycle-card p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Guiding Principles Section */
+.principles {
+    background: white;
+}
+
+.principles .feature-card {
+    background: var(--primary);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+}
+
+.principles .feature-card:hover {
+    background: var(--primary-dark);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(34, 52, 64, 0.2);
+}
+
+.principles .feature-card h4 {
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.principles .feature-card p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}
+
+.principles .card-icon {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+.feature-cards-container {
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(71, 101, 115, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: white;
+    border-color: var(--primary-light);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 20px rgba(71, 101, 115, 0.2);
+    flex-shrink: 0;
+}
+
+.feature-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Grid adjustment for items in 2x2 layout */
+.extractor-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+
+@media (max-width: 1200px) {
+    .principles .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .cycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .methodology-cover {
+        height: 60vh;
+    }
+
+    .methodology-cover h1 {
+        font-size: 3rem;
+    }
+
+    .methodology-cover .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1.5rem;
+    }
+
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-dot {
+        left: 8px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .cycle-grid,
+    .principles .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}

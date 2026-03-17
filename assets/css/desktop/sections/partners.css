@@ -1,0 +1,122 @@
+.partners-bar {
+    padding: 3rem 0;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.partners-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* Force one line */
+    gap: 5rem;
+    perspective: 1000px;
+}
+
+.partner-logo {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: none;
+    /* Removed grayscale */
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.partner-logo.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.partner-logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: transparent;
+    transition: all 0.4s ease;
+}
+
+.partner-logo a:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #f8faff;
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.08);
+}
+
+.partner-logo img {
+    max-height: 55px;
+    /* Smaller logos */
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Entrance Animation */
+.partner-logo {
+    animation: simpleEntrance 0.8s ease forwards;
+}
+
+@keyframes simpleEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.partner-logo:nth-child(1) {
+    animation-delay: 100ms;
+}
+
+.partner-logo:nth-child(2) {
+    animation-delay: 200ms;
+}
+
+.partner-logo:nth-child(3) {
+    animation-delay: 300ms;
+}
+
+.partner-logo:nth-child(4) {
+    animation-delay: 400ms;
+}
+
+@media (max-width: 1200px) {
+    .partners-container {
+        gap: 3rem;
+    }
+
+    .partner-logo img {
+        max-height: 45px;
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 992px) {
+    .partners-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-bar {
+        padding: 2rem 0;
+    }
+
+    .partners-container {
+        flex-wrap: wrap;
+        /* Allow wrapping on mobile for space */
+        gap: 2rem;
+        flex-direction: row;
+        /* Keep row if possible */
+        justify-content: center;
+    }
+
+    .partner-logo img {
+        max-height: 40px;
+        max-width: 120px;
+    }
+}

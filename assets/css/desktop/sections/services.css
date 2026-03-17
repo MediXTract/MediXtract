@@ -1,0 +1,98 @@
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.service-card {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(67, 97, 238, 0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    transition: width 0.4s ease;
+}
+
+.service-card:hover::before {
+    width: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(67, 97, 238, 0.02) 100%);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(67, 97, 238, 0.08);
+}
+
+.service-card:hover .service-icon {
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0.05) 100%);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.1);
+}
+
+.service-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.service-card:hover .service-icon::after {
+    opacity: 0.15;
+    transform: scale(1.4);
+}
+
+.service-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

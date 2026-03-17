@@ -1,0 +1,140 @@
+/* Budget/Methodology Section - Legacy Support */
+.budget-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    padding: 5rem;
+    border-radius: var(--border-radius-xl);
+    margin-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(67, 97, 238, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.budget-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    opacity: 0.05;
+    border-radius: 100% 0 0 0;
+}
+
+.budget-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    opacity: 0.05;
+    border-radius: 0 0 100% 0;
+}
+
+.budget-section h3 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    text-align: center;
+}
+
+.budget-section h4 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin: 3rem 0 1.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.budget-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.budget-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.budget-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.2);
+}
+
+.budget-card h4 {
+    color: #1e40af;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-weight: 700;
+}
+
+.budget-card h4 i {
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.budget-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.budget-card li {
+    padding: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+}
+
+.budget-card li:last-child {
+    border-bottom: none;
+}
+
+.budget-card li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.3);
+}

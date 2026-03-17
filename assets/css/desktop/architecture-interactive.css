@@ -1,0 +1,132 @@
+/* Hub-and-Spoke Topology CSS */
+.architecture-container {
+    position: relative;
+    width: 100%;
+    height: 480px; /* Fine-tuned for better vertical balance */
+    background: transparent;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arch-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Base Box Style */
+.arch-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px; /* Reduced from 320px to prevent overlap with buttons */
+    height: 250px; /* Reduced from 320px */
+    margin-top: -125px;
+    margin-left: -125px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    box-shadow: var(--shadow-xl);
+    transition: all 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    background: var(--bg-accent);
+    border: 2px solid var(--primary-light);
+}
+
+.arch-box h4 {
+    font-size: 1.2rem; /* Scaled down with box */
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.arch-box i {
+    font-size: 2.8rem; /* Scaled down with box */
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.arch-box p {
+    font-size: 0.8rem; /* Scaled down with box */
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Mode-Specific Transitions for Boxes */
+
+/* 1. Hub Logic */
+.mode-hub .orchestrator { transform: scale(1.1); opacity: 1; pointer-events: auto; z-index: 10; background: var(--primary); color: white; border-color: var(--accent); }
+.mode-hub .orchestrator i { color: var(--accent); }
+
+.mode-hub .architect { transform: translateY(-200%); }
+.mode-hub .advisory { transform: translateY(200%); }
+.mode-hub .extractor { transform: translateX(-200%); }
+.mode-hub .vertex { transform: translateX(200%); }
+
+/* 2. Architect (Up) Logic */
+.mode-architect .orchestrator { transform: translateY(200%); opacity: 0; }
+.mode-architect .architect { transform: translateY(0) scale(1.1); opacity: 1; pointer-events: auto; z-index: 10; }
+
+/* 3. Advisory (Down) Logic */
+.mode-advisory .orchestrator { transform: translateY(-200%); opacity: 0; }
+.mode-advisory .advisory { transform: translateY(0) scale(1.1); opacity: 1; pointer-events: auto; z-index: 10; }
+
+/* 4. Extractor (Left) Logic */
+.mode-extractor .orchestrator { transform: translateX(200%); opacity: 0; }
+.mode-extractor .extractor { transform: translateX(0) scale(1.1); opacity: 1; pointer-events: auto; z-index: 10; }
+
+/* 5. Vertex (Right) Logic */
+.mode-vertex .orchestrator { transform: translateX(-200%); opacity: 0; }
+.mode-vertex .vertex { transform: translateX(0) scale(1.1); opacity: 1; pointer-events: auto; z-index: 10; }
+
+/* Navigation Buttons */
+.arch-nav {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    display: none; /* Controlled by display: flex via .visible */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 30;
+    box-shadow: 0 0 15px rgba(190, 221, 226, 0.4), var(--shadow-md);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    animation: archNavGlow 2s infinite ease-in-out;
+}
+
+@keyframes archNavGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(190, 221, 226, 0.4), var(--shadow-md); }
+    50% { box-shadow: 0 0 25px rgba(190, 221, 226, 0.8), var(--shadow-md); }
+}
+
+.arch-nav.visible { display: flex; }
+.arch-nav:hover { 
+    background: var(--primary); 
+    color: white; 
+    box-shadow: 0 0 30px rgba(190, 221, 226, 0.9), var(--shadow-lg);
+    animation: none;
+}
+.arch-nav:hover i { transform: scale(1.4); }
+.arch-nav i { transition: transform 0.3s ease; }
+
+.nav-up { top: 20px; left: 50%; transform: translateX(-50%) rotate(-90deg); }
+.nav-down { bottom: 20px; left: 50%; transform: translateX(-50%) rotate(90deg); }
+.nav-left { left: 20px; top: 50%; transform: translateY(-50%) rotate(180deg); }
+.nav-right { right: 20px; top: 50%; transform: translateY(-50%) rotate(0deg); }
+
+.arch-label {
+    display: none;
+}

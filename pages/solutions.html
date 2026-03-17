@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>Solutions | MediXtract - AI-Powered Patient Data Abstraction</title>
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/desktop/base.css">
+    <link rel="stylesheet" href="../assets/css/desktop/navigation.css">
+    <link rel="stylesheet" href="../assets/css/desktop/hero.css">
+    <link rel="stylesheet" href="../assets/css/desktop/sections.css">
+    <link rel="stylesheet" href="../assets/css/desktop/solutions.css">
+    <link rel="stylesheet" href="../assets/css/desktop/cta.css">
+    <link rel="stylesheet" href="../assets/css/desktop/footer.css">
+    <link rel="stylesheet" href="../assets/css/desktop/utilities.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="navbar-logo">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                    alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </a>
+
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="solutions.html" class="nav-link active">Solutions</a>
+                <a href="methodology.html" class="nav-link">Methodology</a>
+                <a href="documentation.html" class="nav-link">Documentation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="solutions.html" class="nav-link active">Solutions</a>
+            <a href="methodology.html" class="nav-link">Methodology</a>
+            <a href="documentation.html" class="nav-link">Documentation</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Solutions Page Cover -->
+    <div class="solutions-cover">
+        <div class="hero-particles" id="particles">
+            <!-- Particles will be added via JavaScript -->
+        </div>
+        <div class="cover-content">
+            <h1 class="fade-in">Our Solutions</h1>
+            <p class="hero-subtitle fade-in delay-1">We provide a modular suite of tools designed to handle the
+                complexity of unstructured medical records, from design to production and secure governance.</p>
+        </div>
+    </div>
+
+    <!-- Solutions Tabs Navigation -->
+    <div class="solutions-tabs-container">
+        <div class="container">
+            <div class="solutions-tabs">
+                <button class="tab-btn active" data-target="architect">
+                    <i class="fas fa-drafting-compass"></i>
+                    <span>Architect</span>
+                </button>
+                <button class="tab-btn" data-target="extractor">
+                    <i class="fas fa-robot"></i>
+                    <span>Extractor</span>
+                </button>
+                <button class="tab-btn" data-target="advisory">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Advisory</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solutions Content Wrapper -->
+    <div class="solutions-display-wrapper">
+        <!-- The Architect -->
+        <section class="feature-breakdown section tab-content active" id="architect">
+            <div class="container section-grid">
+                <div class="section-content">
+                    <h2 class="section-title">1. The Architect</h2>
+                    <h3 class="section-subtitle">The Design & Governance Environment.</h3>
+                    <p>The <strong>Architect</strong> is where the intelligence of the registry is born. It is a
+                        specialized, collaborative workspace designed for the architects of clinical research — medical
+                        experts and data engineers. Clinicians define each variable's meaning, acceptable values,
+                        validation rules, and the decision tree logic used for extraction — through a guided interface
+                        that requires no technical knowledge.</p>
+                </div>
+                <div class="section-image sliders">
+                    <div class="image-display-box" id="architect-slider">
+                        <div class="slider-track">
+                            <img src="../assets/images/illustrations/wallpapers/01-section-home-background.png"
+                                alt="Process View 1" class="slider-img active">
+                            <img src="../assets/images/illustrations/wallpapers/02-section-solutions-background.png"
+                                alt="Process View 2" class="slider-img">
+                            <img src="../assets/images/illustrations/wallpapers/05-section-contact-background.png"
+                                alt="Interface Detail" class="slider-img">
+                        </div>
+                        <div class="slider-nav">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container feature-cards-container">
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-edit"></i></div>
+                            <h4>Schema Field Editor</h4>
+                        </div>
+                        <p>Displays field-level validation status. Side-by-side comparison of AI vs. human outputs
+                            including Chain of Thought reasoning, consistency metrics, and structured discrepancy
+                            classification (Improvements vs. Issues).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                            <h4>Collaborative Decision Tree Design</h4>
+                        </div>
+                        <p>Clinicians co-design classification pathways with mandatory criteria, supporting criteria,
+                            and exclusion rules per variable.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-history"></i></div>
+                            <h4>Version Control & Audit Trail</h4>
+                        </div>
+                        <p>Full history of registry schema changes with rollback and documentation for regulatory
+                            review.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Extractor -->
+        <section class="feature-breakdown section tab-content" id="extractor">
+            <div class="container">
+                <div class="section-content" style="margin-bottom: 4rem;">
+                    <h2 class="section-title">2. The Extractor</h2>
+                    <h3 class="section-subtitle">The User-Facing Production Window.</h3>
+                    <p>The <strong>Extractor</strong> is the interface for day-to-day clinical data abstraction. It
+                        serves as the high-speed bridge between raw, unstructured documents and validated,
+                        research-ready records, surfacing the exact source passage behind every extracted value.</p>
+                </div>
+
+                <div class="feature-cards extractor-grid">
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                            <h4>Two-Phase Extraction Pipeline</h4>
+                        </div>
+                        <p>Processes each record through a two-phase pipeline: first generating a structured case
+                            summary, then extracting variables using that summary as enriched context.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-search-plus"></i></div>
+                            <h4>Contextual Evidence Display</h4>
+                        </div>
+                        <p>Every extracted value is anchored to its exact source passage. Full transparency, zero black
+                            boxes — verify any value in one click.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-vial"></i></div>
+                            <h4>Consistency Testing (n=10)</h4>
+                        </div>
+                        <p>Each variable is run 10 times independently. High consistency = confidence. Low consistency
+                            triggers automatic flagging for expert review.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+                            <h4>Active Learning Loop</h4>
+                        </div>
+                        <p>Expert corrections feed back into the extraction logic, compounding accuracy gains with every
+                            new case processed.</p>
+                    </div>
+                </div>
+
+                <div class="section-image sliders" style="margin-top: 5rem;">
+                    <div class="image-display-box" id="extractor-slider">
+                        <div class="slider-track">
+                            <img src="../assets/images/illustrations/wallpapers/05-section-contact-background.png"
+                                alt="Results View" class="slider-img active">
+                            <img src="../assets/images/illustrations/wallpapers/01-section-home-background.png"
+                                alt="Process View 1" class="slider-img">
+                            <img src="../assets/images/illustrations/wallpapers/02-section-solutions-background.png"
+                                alt="Process View 2" class="slider-img">
+                        </div>
+                        <div class="slider-nav">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Advisory -->
+        <section class="feature-breakdown section tab-content" id="advisory">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">3. The Advisory & Governance (DLP)</h2>
+                    <h3 class="section-subtitle">Strategic Support & Secure Infrastructure.</h3>
+                    <p>Beyond software, MediXtract provides the specialized <strong>Advisory</strong> and the
+                        <strong>Data Lifecycle Platform (DLP)</strong> required to build and maintain the core
+                        intelligence of your registries. We act as your technical partner for the entire data lifecycle.
+                    </p>
+                </div>
+
+                <div class="privacy-layer">
+                    <h3>The Privacy Layer: DLP</h3>
+                    <p>The <strong>DLP</strong> is the privacy and governance layer that sits between raw clinical
+                        records and the extraction engine, ensuring every record is de-identified and compliant before
+                        AI processing.</p>
+
+                    <div class="privacy-grid">
+                        <div class="privacy-item">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <h4>Defense-in-Depth Privacy</h4>
+                                <p>Scans rendered pixels (OCR) and raw content streams to detect and redact residual PII
+                                    (names, dates, record IDs) as an automated fail-safe.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Swiss Regional Infrastructure</h4>
+                                <p>All processing is bound to the Zurich region (europe-west6), ensuring Swiss nFADP and
+                                    EU GDPR compliance.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>AES-256 Encryption</h4>
+                                <p>ISO certified encryption in transit and at rest.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <i class="fas fa-leaf"></i>
+                            <div>
+                                <h4>Sustainability</h4>
+                                <p>98% Carbon-Free processing in one of the world's cleanest cloud regions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-cards-container" style="margin-top: 5rem;">
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <div class="card-icon"><i class="fas fa-code"></i></div>
+                                <h4>End-to-End Development</h4>
+                            </div>
+                            <p>Bespoke design and implementation of extraction workflows.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <div class="card-icon"><i class="fas fa-tools"></i></div>
+                                <h4>Resident Engine Maintenance</h4>
+                            </div>
+                            <p>Ongoing tuning and updates to the hospital-resident extraction engine.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                                <h4>Strategic Audit</h4>
+                            </div>
+                            <p>Periodic performance monitoring and quality reports to maintain scientific integrity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text-side">
+                    <h2 class="cta-title">Ready to implement a precision pipeline?</h2>
+                    <p class="cta-subtitle">Schedule a technical walkthrough of The Architect or The Extractor with our
+                        team.</p>
+                </div>
+                <div class="cta-button-side">
+                    <div class="btn-group">
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Request a Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png"
+                            alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data abstraction for healthcare professionals.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/MediXTract" class="social-icon" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:medixtract.developers@gmail.com" class="social-icon" title="Email"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222"
+                            class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:medixtract.developers@gmail.com">medixtract.developers@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:tomasgonzalezbartomeu@gmail.com">tomasgonzalezbartomeu@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:escatnadal.joan@gmail.com">escatnadal.joan@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MediXtract. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/particles.js"></script>
+    <script src="../assets/js/lightbox.js"></script>
+    <script src="../assets/js/solutions-tabs.js"></script>
+</body>
+
+</html>

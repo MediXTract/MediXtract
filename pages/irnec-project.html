@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <title>IRNEC Project | MediXtract Documentation</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/desktop/base.css">
+    <link rel="stylesheet" href="../assets/css/desktop/navigation.css">
+    <link rel="stylesheet" href="../assets/css/desktop/hero.css">
+    <link rel="stylesheet" href="../assets/css/desktop/documentation.css">
+    <link rel="stylesheet" href="../assets/css/desktop/footer.css">
+    <link rel="stylesheet" href="../assets/css/desktop/utilities.css">
+    <style>
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .article-content h2 {
+            font-size: 2.2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .snapshot-box {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .snapshot-box:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-light);
+        }
+        .snapshot-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .snapshot-value {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        @media (max-width: 992px) {
+            .snapshot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .snapshot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .content-boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-light);
+        }
+        .content-box-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .content-box h3 {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            font-size: 1.4rem;
+        }
+        .content-box .box-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(71, 101, 115, 0.3);
+            flex-shrink: 0;
+        }
+        .content-box p:last-child {
+            margin-bottom: 0 !important;
+            font-size: 1.05rem;
+        }
+        .content-box:nth-child(3) {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+        @media (max-width: 992px) {
+            .content-boxes-grid {
+                grid-template-columns: 1fr;
+            }
+            .content-box:nth-child(3) {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        .institutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        .institution-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        .institution-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-md);
+        }
+        .institution-box img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .institution-box:hover img {
+            transform: scale(1.05);
+        }
+        .institution-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: auto;
+        }
+        @media (max-width: 600px) {
+            .institutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../index.html" class="navbar-logo">
+                <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png" alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </a>
+            
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="solutions.html" class="nav-link">Solutions</a>
+                <a href="methodology.html" class="nav-link">Methodology</a>
+                <a href="documentation.html" class="nav-link active">Documentation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="solutions.html" class="nav-link">Solutions</a>
+            <a href="methodology.html" class="nav-link">Methodology</a>
+            <a href="documentation.html" class="nav-link active">Documentation</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Article Hero -->
+    <div class="documentation-cover" style="height: 50vh;">
+        <div class="hero-particles" id="particles"></div>
+        <div class="cover-content">
+            <h1 class="fade-in">IRNEC Project</h1>
+            <p class="hero-subtitle fade-in delay-1">First Clinical Deployment: Real-World Impact</p>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <section class="section">
+        <div class="container narrow">
+            <div class="article-content">
+                <a href="documentation.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-weight: 500; margin-bottom: 2rem; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i> Back to Documentation
+                </a>
+                
+                <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 2rem; color: var(--primary);">Collaborators</h3>
+                <div class="institutions-grid" style="margin-bottom: 3rem;">
+                    <div class="institution-box">
+                        <img src="../assets/images/logos/institutions/logo-bern-inselspital.png" alt="Inselspital Bern Logo" style="margin-bottom: 0;">
+                    </div>
+                    <div class="institution-box">
+                        <img src="../assets/images/logos/institutions/logo-bern-universitat.png" alt="University of Bern Logo" style="margin-bottom: 0;">
+                    </div>
+                </div>
+                <div class="content-boxes-grid">
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <div class="box-icon"><i class="fas fa-file-medical"></i></div>
+                            <h3>Context</h3>
+                        </div>
+                        <p>Necrotizing enterocolitis (NEC) is a gastrointestinal emergency in premature newborns. Registry data is scarce due to fragmented documentation in unstructured neonatal records.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <div class="box-icon"><i class="fas fa-bullseye"></i></div>
+                            <h3>Objective</h3>
+                        </div>
+                        <p>Building the first automated NEC registry pipeline. We extract structured clinical variables from records to advance research into risk factors, treatment, and prevention.</p>
+                    </div>
+                    
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <div class="box-icon"><i class="fas fa-microscope"></i></div>
+                            <h3>Methodology</h3>
+                        </div>
+                        <p>Co-development with neonatologists using <strong>The Architect</strong>, <strong>The Extractor</strong>, and the <strong>DLP</strong>. Bound to the Zurich region for strict compliance (nFADP/GDPR).</p>
+                    </div>
+                </div>
+                
+                <h3 style="text-align: center; margin-bottom: 2rem; margin-top: 4rem; color: var(--primary);">Project Snapshot</h3>
+                <div class="snapshot-grid">
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Disease</span>
+                        <span class="snapshot-value">Necrotizing Enterocolitis</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Population</span>
+                        <span class="snapshot-value">Premature and neonates in critical care</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Data Source</span>
+                        <span class="snapshot-value">Unstructured neonatal records</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Languages</span>
+                        <span class="snapshot-value">German · French · English</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Variables</span>
+                        <span class="snapshot-value">850 total (159 treated)</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Tools</span>
+                        <span class="snapshot-value">The Architect · Extractor · DLP</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Output</span>
+                        <span class="snapshot-value">Validated research-ready dataset</span>
+                    </div>
+                    <div class="snapshot-box">
+                        <span class="snapshot-label">Status</span>
+                        <span class="snapshot-value">Active — pilot in progress</span>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/MediXTract/MediXtract/refs/heads/main/images/logos/LOGO_MediXtract_Circular.png" alt="MediXtract Logo">
+                        <span>MediXtract</span>
+                    </div>
+                    <p class="footer-about">Intelligent data abstraction for healthcare professionals.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/MediXTract" class="social-icon" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:medixtract.developers@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/tom%C3%A1s-gonz%C3%A1lez-bartomeu-573a98222" class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:medixtract.developers@gmail.com">medixtract.developers@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:tomasgonzalezbartomeu@gmail.com">tomasgonzalezbartomeu@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:escatnadal.joan@gmail.com">escatnadal.joan@gmail.com</a>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sant Cugat del Vallès, Spain</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/particles.js"></script>
+</body>
+</html>

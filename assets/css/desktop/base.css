@@ -1,0 +1,126 @@
+html {
+    font-size: 90%; /* Rescaling the site to match the sleeker 80% zoom feel */
+}
+
+:root {
+    --header-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.25; /* Tighter leading */
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem; /* Slightly smaller text */
+    line-height: 1.65;
+}
+
+/* Container Styles */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 8rem; /* Dramatically increased side padding to "zoom out" central content */
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Enhanced Main Content Styles */
+.section {
+    padding: 5rem 0;
+    /* Reduced from 5rem for tighter vertical rhythm */
+    position: relative;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-size: 2.4rem; /* Reduced from 3rem */
+    color: var(--text-dark);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-align: inherit;
+    /* Allow parent to decide alignment */
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary));
+    border-radius: 2px;
+}
+
+/* Center decoration when text is centered */
+.text-center .section-title::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    display: none;
+    /* Removing redundant bottom line for a cleaner look */
+}
+
+.section-subtitle {
+    margin-bottom: 2rem;
+    max-width: 850px;
+    color: var(--text-light);
+    font-size: 1.15rem; /* Reduced from 1.25rem */
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Tight variation for nested headings */
+.section-title+.section-subtitle {
+    margin-top: -1rem;
+    /* Pull subtitle closer to title */
+}
+
+.text-center .section-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}

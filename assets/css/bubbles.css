@@ -1,0 +1,126 @@
+/* ==========================================================================
+   01. The Aqueous Environment (Background Bubbles)
+   ========================================================================== */
+
+   #aqueous-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.floating-particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    backdrop-filter: blur(2px);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   02. Bioluminescent Glows & Loaders
+   ========================================================================== */
+
+.bubble-loader {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-xl);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border-light);
+    color: var(--clr-primary-blue);
+    font-weight: 600;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px var(--clr-glow);
+    }
+    50% {
+        box-shadow: 0 0 25px var(--clr-glow), 0 0 50px rgba(139, 92, 246, 0.3);
+    }
+}
+
+.error-bubble {
+    padding: 2rem;
+    border-radius: var(--border-radius-xl);
+    background: rgba(255, 50, 50, 0.05);
+    border: 1px solid rgba(255, 50, 50, 0.2);
+    color: #cc0000;
+    text-align: center;
+}
+
+/* ==========================================================================
+   03. Image Placeholders (Rule #1)
+   ========================================================================== */
+
+.image-placeholder {
+    background: rgba(67, 97, 238, 0.05); /* Soft blue glassmorphism */
+    border: 1px dashed rgba(67, 97, 238, 0.3);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.image-placeholder img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    display: block; /* Hidden via JS if not found, but rules say use specific src */
+}
+
+.placeholder-label {
+    position: absolute;
+    color: var(--clr-primary-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Mascot specific */
+.mascot-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Perfect bubble for mascot */
+    margin: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+    box-shadow: 0 0 20px var(--clr-glow);
+    animation: hoverMascot 6s ease-in-out infinite;
+}
+
+@keyframes hoverMascot {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
