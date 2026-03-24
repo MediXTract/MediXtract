@@ -161,7 +161,8 @@
     margin: 0 auto 3rem; /* Reduced from 6rem */
 }
 
-.solution-ecosystem {
+.solution-ecosystem.section-grid {
+    grid-template-columns: 2fr 3fr;
     margin-bottom: 6rem; /* Balanced separation */
 }
 

@@ -122,10 +122,10 @@
 .arch-nav:hover i { transform: scale(1.4); }
 .arch-nav i { transition: transform 0.3s ease; }
 
-.nav-up { top: 20px; left: 50%; transform: translateX(-50%) rotate(-90deg); }
-.nav-down { bottom: 20px; left: 50%; transform: translateX(-50%) rotate(90deg); }
-.nav-left { left: 20px; top: 50%; transform: translateY(-50%) rotate(180deg); }
-.nav-right { right: 20px; top: 50%; transform: translateY(-50%) rotate(0deg); }
+.nav-up { top: calc(50% - 180px); left: 50%; transform: translateX(-50%) rotate(-90deg); }
+.nav-down { bottom: calc(50% - 180px); left: 50%; transform: translateX(-50%) rotate(90deg); }
+.nav-left { left: calc(50% - 180px); top: 50%; transform: translateY(-50%) rotate(180deg); }
+.nav-right { right: calc(50% - 180px); top: 50%; transform: translateY(-50%) rotate(0deg); }
 
 .arch-label {
     display: none;
