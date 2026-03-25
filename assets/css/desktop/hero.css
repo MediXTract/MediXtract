@@ -174,11 +174,7 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.25rem;
-    }
-}
+
 
 .hero-subtitle {
     font-size: 1.25rem; /* Slightly smaller for home fit */
@@ -304,9 +300,15 @@
         padding: 0.6rem 1.2rem;
     }
 
+    .hero-title-group {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero .hero-title-group h1,
     .hero h1 {
-        font-size: 2rem; /* Further reduced from 2.5rem for better fit */
-        margin-bottom: 1.5rem;
+        font-size: 1.8rem; /* Corrected specificity and reduced for perfect fit */
+        margin-bottom: 1rem;
         line-height: 1.1;
     }
 
