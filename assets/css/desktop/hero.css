@@ -293,27 +293,32 @@
     }
 
     .hero-content {
-        align-items: center;
-        text-align: center;
+        align-items: flex-start; /* Aligned to the left as requested */
+        text-align: left;
         padding: 0 1.5rem;
     }
 
     .hero-badge {
         margin-bottom: 1.5rem;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         padding: 0.6rem 1.2rem;
+        align-self: flex-start;
     }
 
     .hero h1 {
-        font-size: 3.2rem;
+        font-size: 2.8rem; /* Adjusted to prevent overflow on small screens */
         margin-bottom: 1.5rem;
         line-height: 1.1;
+        word-break: break-word; /* Safety measure for long brand words */
+        max-width: 100%;
     }
 
     .hero-subtitle {
         font-size: 1.15rem;
+        margin-top: 0;
         margin-bottom: 0;
         line-height: 1.6;
+        text-align: left;
     }
 
     .btn-group {
