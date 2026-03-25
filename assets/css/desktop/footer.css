@@ -66,7 +66,7 @@
     background-clip: text;
 }
 
-.footer-about {
+.footer .footer-about {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2rem;
     line-height: 1.7;
@@ -181,9 +181,9 @@
     text-align: center;
 }
 
-.footer-contact p,
-.footer-contact span,
-.footer-contact a {
+.footer .footer-contact p,
+.footer .footer-contact span,
+.footer .footer-contact a {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-size: 0.95rem;
@@ -196,12 +196,16 @@
     color: white;
 }
 
-.footer-bottom {
+.footer .footer-bottom {
     text-align: center;
     padding-top: 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .footer-bottom p {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
