@@ -26,9 +26,9 @@ function initParticles() {
         // Randomize size, position, and duration
         let size;
         if (isFish) {
-            // Increased fish size for mobile prominence
-            const baseSize = isMobile ? 32 : 30;
-            const variation = isMobile ? 28 : 30;
+            // Home page fish are larger, sub-page fish are smaller for a more subtle feel
+            const baseSize = isSubPage ? (isMobile ? 15 : 20) : (isMobile ? 32 : 30);
+            const variation = isSubPage ? (isMobile ? 15 : 20) : (isMobile ? 28 : 30);
             size = Math.random() * variation + baseSize; 
             
             particle.style.backgroundImage = `url("${fishAsset}")`;
