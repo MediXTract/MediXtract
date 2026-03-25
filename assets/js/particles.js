@@ -26,9 +26,9 @@ function initParticles() {
         // Randomize size, position, and duration
         let size;
         if (isFish) {
-            // Scale down fish on mobile
-            const baseSize = isMobile ? 15 : 30;
-            const variation = isMobile ? 15 : 30;
+            // Increased fish size for mobile prominence
+            const baseSize = isMobile ? 32 : 30;
+            const variation = isMobile ? 28 : 30;
             size = Math.random() * variation + baseSize; 
             
             particle.style.backgroundImage = `url("${fishAsset}")`;
