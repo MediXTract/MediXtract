@@ -1,7 +1,8 @@
 /* Enhanced Hero Section */
 .hero {
     position: relative;
-    padding: 10rem 0 6rem; /* Restored for full-screen feel */
+    padding: 10rem 0 6rem;
+    /* Restored for full-screen feel */
     overflow: hidden;
     background: linear-gradient(0deg, rgba(58, 12, 163, 0.15), rgba(58, 12, 163, 0.15)),
         linear-gradient(135deg, rgba(71, 101, 115, 0.07) 0%, rgba(164, 65, 37, 0.04) 100%),
@@ -10,7 +11,8 @@
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    min-height: 100vh; /* Restored to occupy the whole screen */
+    min-height: 100vh;
+    /* Restored to occupy the whole screen */
     display: flex;
     align-items: center;
 }
@@ -94,9 +96,11 @@
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
-    font-size: 0.85rem; /* Compensated to match previous absolute size */
+    font-size: 0.85rem;
+    /* Compensated to match previous absolute size */
     font-weight: 600;
-    margin-bottom: 2rem; /* Reduced from 2.5rem */
+    margin-bottom: 2rem;
+    /* Reduced from 2.5rem */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     display: inline-flex;
@@ -132,7 +136,8 @@
 .hero-title-group {
     position: relative;
     padding: 0;
-    margin-bottom: 2.5rem; /* Reduced from 3.5rem */
+    margin-bottom: 2.5rem;
+    /* Reduced from 3.5rem */
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -158,13 +163,13 @@
     -webkit-text-stroke: 0;
     color: white;
     /* True Glow: Using multi-layered filters for an organic halo effect like Microsoft Word */
-    filter: drop-shadow(0 0 10px rgba(71, 101, 115, 0.95))
-            drop-shadow(0 0 20px rgba(71, 101, 115, 0.6));
+    filter: drop-shadow(0 0 10px rgba(71, 101, 115, 0.95)) drop-shadow(0 0 20px rgba(71, 101, 115, 0.6));
 }
 
 .hero .hero-title-group h1,
 .hero h1 {
-    font-size: 5rem; /* Increased for greater brand impact */
+    font-size: 5rem;
+    /* Increased for greater brand impact */
     margin-bottom: 2rem;
     line-height: 1.1;
     max-width: 1000px;
@@ -181,7 +186,8 @@
 }
 
 .hero-subtitle {
-    font-size: 1.25rem; /* Slightly smaller for home fit */
+    font-size: 1.25rem;
+    /* Slightly smaller for home fit */
     margin-bottom: 0;
     /* Margin handled by group or reduced */
     opacity: 0.95;
@@ -211,7 +217,8 @@
     gap: 0.75rem;
     min-height: 54px;
     min-width: 160px;
-    font-size: 0.95rem; /* Compensated to match previous absolute size */
+    font-size: 0.95rem;
+    /* Compensated to match previous absolute size */
     letter-spacing: 0.01em;
     position: relative;
     overflow: hidden;
@@ -287,7 +294,8 @@
     .hero {
         padding: 8rem 0 6rem;
         min-height: 100vh;
-        min-height: 100dvh; /* Dynamic viewport height for modern mobile browsers */
+        min-height: 100dvh;
+        /* Dynamic viewport height for modern mobile browsers */
         display: flex;
         align-items: center;
     }
@@ -305,7 +313,8 @@
     }
 
     .hero h1 {
-        font-size: 3.2rem;
+        font-size: 2.rem;
+        /* Adjusted for better fit on small screens */
         margin-bottom: 1.5rem;
         line-height: 1.1;
     }
@@ -337,5 +346,22 @@
     .hero-title-group .hero-subtitle {
         -webkit-text-stroke: 0;
         filter: drop-shadow(0 0 8px rgba(71, 101, 115, 0.95));
+    }
+}
+
+/* Large Desktop Optimizations (Consolidated from utilities) */
+@media (min-width: 1200px) {
+    .hero h1 {
+        font-size: 5.5rem; /* Slightly larger for ultra-wide */
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero {
+        padding: 12rem 0 8rem;
+    }
+    
+    .hero h1 {
+        font-size: 6rem;
     }
 }

@@ -172,9 +172,6 @@
 
 /* Desktop-specific optimizations */
 @media (min-width: 1200px) {
-    .hero h1 {
-        font-size: 5rem;
-    }
     
     .container {
         padding: 0 3rem;
@@ -206,9 +203,6 @@
         margin-bottom: 10rem;
     }
     
-    .hero {
-        padding: 12rem 0 8rem;
-    }
     
     .section-title {
         font-size: 3.5rem;
