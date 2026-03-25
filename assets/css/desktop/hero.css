@@ -293,38 +293,34 @@
     }
 
     .hero-content {
-        align-items: flex-start; /* Aligned to the left as requested */
+        align-items: flex-start;
         text-align: left;
         padding: 0 1.5rem;
     }
 
     .hero-badge {
         margin-bottom: 1.5rem;
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         padding: 0.6rem 1.2rem;
-        align-self: flex-start;
     }
 
     .hero h1 {
-        font-size: clamp(1.8rem, 11vw, 2.5rem); /* Scaled to fit 'MediXtract' on one line */
+        font-size: 2.5rem; /* Reduced to prevent overflow on small screens */
         margin-bottom: 1.5rem;
         line-height: 1.1;
-        white-space: nowrap; /* Prevent splitting the name across lines */
-        max-width: 100%;
     }
 
     .hero-subtitle {
         font-size: 1.15rem;
-        margin-top: 0;
         margin-bottom: 0;
         line-height: 1.6;
-        text-align: left;
     }
 
     .btn-group {
         flex-direction: column;
         width: 100%;
         gap: 1rem;
+        align-items: flex-start;
     }
 
     .btn {
