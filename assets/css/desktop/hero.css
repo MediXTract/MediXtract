@@ -275,7 +275,13 @@
     display: block;
     width: calc(100% + 1.2px);
     height: 80px;
-    transform: scale(1.02); /* Reduced for mobile stability to prevent overflow zooms */
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .curve-divider svg {
+        transform: scale(1); /* Completely removed scaling on mobile for total stability */
+    }
 }
 
 .curve-divider .shape-fill {
@@ -288,10 +294,11 @@
 @media (max-width: 768px) {
     .hero {
         padding: 8rem 0 6rem;
-        min-height: 100vh; /* Reverting to more stable vh for core mobile layout */
-        /* Dynamic viewport height fallback removed for stability during scroll */
+        min-height: 100vh; 
         display: flex;
         align-items: center;
+        transition: none !important; /* Disable transitions to prevent "zoom" jumps during address bar resize */
+        background-attachment: scroll !important; /* Standard scroll behavior to avoid iOS fixed-background bugs */
     }
 
     .hero-content {
