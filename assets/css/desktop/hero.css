@@ -296,8 +296,8 @@
     }
 
     .hero-content {
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         padding: 0 1.5rem;
     }
 
