@@ -4,20 +4,16 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(71, 101, 115, 0.95); /* Deep Slate (#476573) */
+    background: rgba(71, 101, 115, 0.3); /* Gray-Blue semitransparent */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
     height: var(--header-height);
-    box-shadow: 0 1px 3px rgba(34, 52, 64, 0.05);
     transition: var(--transition-normal);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .navbar.scrolled {
-    box-shadow: var(--shadow-lg);
     height: 70px;
-    background: rgba(71, 101, 115, 0.98); 
+    background: rgba(71, 101, 115, 0.6); /* More opaque when scrolled */
 }
 
 .navbar-content {
@@ -60,7 +56,7 @@
 .navbar-logo span {
     font-weight: 800;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.25rem; /* Compensated to match previous absolute size */
     letter-spacing: -0.5px;
 }
 
@@ -81,7 +77,7 @@
     min-height: 48px;
     display: flex;
     align-items: center;
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* Compensated to match previous absolute size */
     letter-spacing: 0.01em;
 }
 
@@ -107,6 +103,33 @@
     color: var(--accent);
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-1px);
+}
+
+.navbar .curve-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Match navbar size */
+    pointer-events: none;
+    z-index: -1;
+    overflow: visible; /* Let the wavy bottom stick out if needed, or we just fit it */
+}
+
+.navbar .curve-divider svg {
+    height: calc(100% + 40px); /* Extend slightly below to show the wave */
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.navbar .curve-divider .shape-fill {
+    fill: rgba(111, 149, 158, 0.45); /* Soft-Blue semitransparent teal */
+    transition: var(--transition-normal);
+}
+
+.navbar.scrolled .curve-divider .shape-fill {
+    fill: rgba(111, 149, 158, 0.75); /* More opaque soft-blue when scrolled */
 }
 
 /* Navigation Responsiveness */

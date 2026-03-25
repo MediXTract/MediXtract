@@ -52,27 +52,8 @@
     transform: scale(1.05);
 }
 
-@media (max-width: 992px) {
-    .partners-container {
-        gap: 4rem;
-    }
-    .partner-logo img {
-        max-height: 50px;
-    }
-}
 
-@media (max-width: 768px) {
-    .partners-bar {
-        padding: 4rem 0;
-    }
-    .partners-container {
-        gap: 3rem;
-    }
-    .partner-logo img {
-        max-height: 40px;
-    }
-}
-
+/* Sections */
 /* Problem Section */
 .problem-section {
     background: var(--primary-light); /* Soft Teal (#6f959e) */
@@ -110,12 +91,42 @@
     align-items: center;
 }
 
+.problem-section .section-grid {
+    grid-template-columns: 3fr 2fr; /* Grabbing a bit more space for image */
+    gap: 6rem;
+}
+
+.problem-section .section-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Center image and button together */
+}
+
+.problem-section .illustration-only {
+    width: 450px !important; /* Increased from 320px */
+    max-width: 100%;
+    box-shadow: none;
+}
+
+.problem-section .illustration-only:hover {
+    transform: none;
+}
+
 .section-image img {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-xl);
     transition: var(--transition-slow);
+}
+
+@media (max-width: 768px) {
+    .problem-section .illustration-only,
+    .solution-ecosystem .illustration-only {
+        width: 100% !important;
+        max-width: 450px;
+    }
 }
 
 .section-image img:hover {
@@ -162,8 +173,37 @@
 }
 
 .solution-ecosystem.section-grid {
-    grid-template-columns: 2fr 3fr;
-    margin-bottom: 6rem; /* Balanced separation */
+    grid-template-columns: 2fr 3fr; /* Balanced more towards image column */
+    gap: 6rem;
+    margin-bottom: 6rem;
+}
+
+.solution-ecosystem .section-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Center the image and the button together */
+}
+
+.solution-ecosystem .btn-outline.small {
+    color: #6F959E;
+    border-color: #6F959E;
+}
+
+.solution-ecosystem .btn-outline.small:hover {
+    background-color: #6F959E;
+    color: white;
+}
+
+.solution-ecosystem .illustration-only {
+    width: 450px !important; /* Increased from 320px */
+    max-width: 100%;
+    height: auto;
+    box-shadow: none;
+}
+
+.solution-ecosystem .illustration-only:hover {
+    transform: none;
 }
 
 .ecosystem-section {
@@ -300,6 +340,28 @@
 
 /* Image styles handled inline in index.html for specific drop shadow */
 
+.case-study-section .section-grid {
+    grid-template-columns: 2.5fr 1fr; /* More space for text, less for logo */
+    gap: 6rem; /* Restored larger gap to separate text and logo better */
+}
+
+.case-study-section .section-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Center logo and button together */
+}
+
+.case-study-section .btn-outline.small {
+    color: #6F959E;
+    border-color: #6F959E;
+}
+
+.case-study-section .btn-outline.small:hover {
+    background-color: #6F959E;
+    color: white;
+}
+
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -329,16 +391,98 @@
 
 /* Responsive Grid Fix */
 @media (max-width: 992px) {
-    .section-grid {
+    .section-grid,
+    .problem-section .section-grid,
+    .solution-ecosystem.section-grid,
+    .case-study-section .section-grid {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
+        gap: 3rem;
+    }
+
+    /* Ensuring buttons remain centered despite parent left alignment */
+    .btn-group,
+    .problem-section .btn-group,
+    .solution-ecosystem .btn-group,
+    .case-study-section .btn-group {
+        display: flex;
+        justify-content: center;
     }
     
+    .ecosystem-section {
+        text-align: left;
+    }
+
+    .ecosystem-section .section-header {
+        margin: 0 0 3rem;
+    }
+
+    .ecosystem-section .section-title::before {
+        left: 0;
+        transform: none;
+    }
+
     .ecosystem-tools {
         grid-template-columns: 1fr;
     }
+
+    .tool-card {
+        text-align: center;
+        align-items: center;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .tool-icon {
+        margin: 0 auto 2rem;
+    }
+
+    .tool-link {
+        margin: 0 auto;
+    }
     
     .section-image {
-        order: -1;
+        order: 1;
+    }
+}
+
+/* Consolidated Media Queries at bottom */
+@media (max-width: 992px) {
+    .partners-container {
+        gap: 4rem;
+    }
+    .partner-logo img {
+        max-height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-bar {
+        padding: 2.5rem 0;
+    }
+    .partners-title {
+        margin-bottom: 2rem;
+    }
+    .partners-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .partner-logo {
+        padding: 1rem 0.5rem;
+    }
+    .partner-logo img {
+        max-height: 35px;
+    }
+
+    /* Fixed: Ensuring mobile sizes are applied correctly */
+    .section-title {
+        font-size: 2.2rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem !important;
     }
 }

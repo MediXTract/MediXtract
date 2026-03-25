@@ -214,6 +214,7 @@
 @media (max-width: 768px) {
     .footer {
         padding: 4rem 0 2rem;
+        text-align: center;
     }
 
     .footer-content {
@@ -222,7 +223,7 @@
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 3rem;
     }
 
     .footer-grid > div:first-child,
@@ -232,9 +233,24 @@
 
     .footer-logo {
         margin-bottom: 1.5rem;
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links a:hover {
+        transform: translateY(-3px); /* Changed from translateX for centered layout */
     }
 
     .footer-contact {
         margin-bottom: 1.2rem;
+        justify-content: center;
     }
 }

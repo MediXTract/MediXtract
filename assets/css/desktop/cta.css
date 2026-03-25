@@ -93,3 +93,28 @@
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 4rem 2rem;
+        text-align: left;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        gap: 2.5rem;
+        align-items: center; /* keep content and button centered together in column */
+    }
+
+    .cta-text-side {
+        text-align: left;
+    }
+
+    .cta-title {
+        font-size: 1.8rem;
+    }
+
+    .demo-notice {
+        padding: 1.25rem 2rem;
+        width: 100%;
+    }
+}

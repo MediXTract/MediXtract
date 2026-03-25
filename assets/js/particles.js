@@ -15,6 +15,8 @@ function initParticles() {
     const assetsPrefix = isSubPage ? '../' : '';
     const fishAsset = `${assetsPrefix}assets/images/illustrations/objects/zebra_fish-white.png`;
     
+    const isMobile = window.innerWidth <= 768;
+    
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         const isFish = Math.random() < 0.2; // 20% chance to be a fish
@@ -24,7 +26,11 @@ function initParticles() {
         // Randomize size, position, and duration
         let size;
         if (isFish) {
-            size = Math.random() * 30 + 30; // Smaller fish (reduced from 50-100 to 30-60)
+            // Scale down fish on mobile
+            const baseSize = isMobile ? 15 : 30;
+            const variation = isMobile ? 15 : 30;
+            size = Math.random() * variation + baseSize; 
+            
             particle.style.backgroundImage = `url("${fishAsset}")`;
             particle.style.backgroundSize = 'contain';
             particle.style.backgroundRepeat = 'no-repeat';

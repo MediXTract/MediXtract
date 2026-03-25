@@ -67,22 +67,6 @@
     border-radius: 0;
 }
 
-
-@media (max-width: 992px) {
-    .methodology-intro .section-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .methodology-intro .section-image img {
-        margin: 0 auto;
-        max-width: 300px;
-    }
-}
-
-
-
-
 /* Roadmap Styles (Moved from common sections for specific page loading) */
 .roadmap-timeline {
     background: white;
@@ -182,8 +166,6 @@
 
 /* Between 03 and 04 */
 
-
-
 .timeline-item {
     position: relative;
     padding-left: 100px;
@@ -218,19 +200,6 @@
 
 .timeline-main {
     flex: 1;
-}
-
-@media (max-width: 992px) {
-    .timeline-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .roadmap-chips {
-        width: 100%;
-        flex-direction: row;
-        /* Let them flow naturally on mobile */
-    }
 }
 
 .timeline-content:hover {
@@ -549,6 +518,7 @@
     grid-template-columns: repeat(2, 1fr) !important;
 }
 
+/* Consolidated Media Queries at bottom */
 @media (max-width: 1200px) {
     .principles .feature-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -556,6 +526,33 @@
 }
 
 @media (max-width: 992px) {
+    .methodology-intro .section-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .methodology-intro .section-image img {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+
+    .timeline-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .roadmap-chips {
+        width: 100%;
+        flex-direction: row;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .methodology-chip {
+        flex: 1;
+        min-width: 200px;
+    }
+
     .cycle-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -563,11 +560,12 @@
 
 @media (max-width: 768px) {
     .methodology-cover {
-        height: 60vh;
+        height: 30vh;
     }
 
     .methodology-cover h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
     }
 
     .methodology-cover .hero-subtitle {
@@ -575,22 +573,49 @@
         padding: 0 1.5rem;
     }
 
-    .timeline-container::before {
-        left: 20px;
-    }
-
+    /* Simplified Roadmap Lifecycle for Mobile */
+    .timeline-container::before,
+    .timeline-arrows,
     .timeline-dot {
-        left: 8px;
+        display: none !important;
     }
 
     .timeline-item {
-        padding-left: 50px;
+        padding-left: 0;
+        margin-bottom: 2.5rem;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+    }
+
+    .timeline-content:hover {
+        transform: none;
+    }
+
+    .section-title {
+        font-size: 2.2rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem !important;
+    }
+
+    .cycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .cycle-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .cycle-number {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 600px) {
-
-    .cycle-grid,
     .principles .feature-grid {
         grid-template-columns: 1fr;
     }

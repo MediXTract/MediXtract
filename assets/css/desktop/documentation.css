@@ -48,8 +48,8 @@
 
 .documentation-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr); /* Reduced to 2 columns for better focus */
+    gap: 4rem; /* Increased gap slightly for better breathing room */
     margin: 4rem 0;
 }
 
@@ -133,20 +133,24 @@
 @media (max-width: 992px) {
     .documentation-grid {
         grid-template-columns: 1fr;
+        padding: 0 1.5rem; /* Added narrow margin */
+        margin: 2rem 0; /* Reduced from 4rem */
     }
 
     .documentation-card {
         text-align: left;
+        margin: 0 0.5rem; /* Narrow but yet existant margin */
     }
 }
 
 @media (max-width: 768px) {
     .documentation-cover {
-        height: 60vh;
+        height: 30vh;
     }
 
     .documentation-cover h1 {
         font-size: 3rem;
+        margin-bottom: 0.5rem;
     }
 
     .documentation-cover .hero-subtitle {

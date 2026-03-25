@@ -334,12 +334,17 @@
 
 @media (max-width: 992px) {
     .section-grid {
-        grid-template-columns: 1fr !important;
-        text-align: center;
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
     }
 
     .section-image {
-        order: -1;
+        order: 1;
     }
 }
 
@@ -393,19 +398,35 @@
 
 @media (max-width: 768px) {
     .partners-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .partner-box {
+        padding: 1.25rem 0.75rem;
+    }
+    .partner-box img {
+        max-height: 35px;
+        margin-bottom: 1rem;
+    }
+    .partner-name {
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 768px) {
     .contact-cover {
-        height: 70vh; /* Keep it substantial */
+        height: 30vh;
         padding-top: calc(var(--header-height, 80px) + 2rem);
     }
 
     .contact-cover h1 {
         font-size: 2.8rem;
         padding: 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 
     .contact-cover .hero-subtitle {
@@ -452,10 +473,6 @@
     .contact-channels {
         flex-direction: column;
         gap: 2.5rem;
-    }
-
-    .partners-grid {
-        grid-template-columns: 1fr;
     }
 
     .mission-quote {

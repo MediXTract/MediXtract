@@ -22,6 +22,10 @@
 }
 
 /* Image Slider Component */
+.section-image.sliders {
+    display: none !important; /* Temporarily hidden per user request */
+}
+
 .image-display-box {
     width: 100%;
     height: 450px;
@@ -366,6 +370,12 @@
     margin-bottom: 6rem;
 }
 
+@media (max-width: 768px) {
+    #extractor {
+        margin-bottom: 3rem;
+    }
+}
+
 #extractor .section-title,
 #extractor .section-subtitle,
 #extractor p,
@@ -597,27 +607,56 @@
 
 /* Mobile Tabs */
 @media (max-width: 768px) {
+    .solutions-cover {
+        height: 30vh;
+    }
+
+    .solutions-cover h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .solutions-cover .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1.5rem;
+    }
+
     .solutions-tabs-container {
         top: 60px;
     }
 
     .solutions-tabs {
-        gap: 1.5rem;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 0 1rem;
-        scrollbar-width: none;
-        /* Firefox */
+        gap: 0;
+        justify-content: space-between;
+        padding: 0;
+        overflow-x: hidden;
     }
 
-    .solutions-tabs::-webkit-scrollbar {
-        display: none;
-        /* Chrome/Safari */
-    }
 
     .tab-btn {
-        padding: 1.5rem 0.5rem;
-        font-size: 0.95rem;
+        padding: 1.25rem 0.25rem;
+        font-size: 0.9rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
         white-space: nowrap;
+    }
+
+    .tab-btn i {
+        font-size: 1.2rem;
+        margin-right: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 2rem;
     }
 }

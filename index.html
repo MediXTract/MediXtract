@@ -42,12 +42,21 @@
                 <a href="pages/documentation.html" class="nav-link">Documentation</a>
                 <a href="pages/contact.html" class="nav-link">Contact</a>
             </div>
-
             <button class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+        </div>
+
+        <!-- Curve Divider within Navbar -->
+        <div class="curve-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
         </div>
     </nav>
 
@@ -90,15 +99,6 @@
                     <span>Contact Us</span>
                 </a>
             </div>
-        </div>
-
-        <div class="curve-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
         </div>
     </section>
 
@@ -143,14 +143,16 @@
                     overwhelming burden that requires years of tedious work. This fragmentation results in "data silos"
                     where critical information remains inaccessible, slowing down life-saving research and limiting the
                     potential for large-scale clinical insights.</p>
-                <a href="pages/methodology.html" class="btn btn-outline small">
-                    <span>Learn more about our methodology</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
             <div class="section-image">
                 <img src="assets/images/illustrations/images/burnout-doctor-poly.png" alt="Clinical Burden"
                     class="illustration-only">
+                <div class="btn-group" style="margin-top: 2rem;">
+                    <a href="pages/methodology.html" class="btn btn-outline small">
+                        <span>Learn more about our methodology</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -160,57 +162,21 @@
         <div class="container">
             <div class="solution-ecosystem section-grid">
                 <div class="section-image">
-                    <!-- Hub-and-Spoke Architecture Box -->
-                    <div class="architecture-container">
-                        <div class="arch-stage mode-hub">
-                            <!-- Navigation Arrows (Dynamic) -->
-                            <button class="arch-nav nav-up visible"><i class="fas fa-chevron-right"></i></button>
-                            <button class="arch-nav nav-down visible"><i class="fas fa-chevron-right"></i></button>
-                            <button class="arch-nav nav-left visible"><i class="fas fa-chevron-right"></i></button>
-                            <button class="arch-nav nav-right visible"><i class="fas fa-chevron-right"></i></button>
-
-                            <!-- Hub: Orchestrator -->
-                            <div class="arch-box orchestrator active" data-type="orchestrator">
-                                <i class="fas fa-microchip"></i>
-                                <h4>Core Orchestrator</h4>
-                                <p>The central system managing data flow and logic execution.</p>
-                            </div>
-
-                            <!-- Spoke Top: The Architect -->
-                            <div class="arch-box architect to-top" data-type="architect">
-                                <i class="fas fa-compass-drafting"></i>
-                                <h4>The Architect</h4>
-                                <p>Registry design, variable mapping & logic definition.</p>
-                            </div>
-
-                            <!-- Spoke Left: The Extractor (Editor) -->
-                            <div class="arch-box extractor to-left" data-type="extractor">
-                                <i class="fas fa-robot"></i>
-                                <h4>The Extractor</h4>
-                                <p>Human-validated AI extraction interface for clinicians.</p>
-                            </div>
-
-                            <!-- Spoke Right: Vertex AI -->
-                            <div class="arch-box vertex to-right" data-type="vertex">
-                                <i class="fas fa-cloud"></i>
-                                <h4>Vertex AI</h4>
-                                <p>Secure enterprise AI infrastructure and patient data protection.</p>
-                            </div>
-
-                            <!-- Spoke Bottom: The Advisory -->
-                            <div class="arch-box advisory to-bottom" data-type="advisory">
-                                <i class="fas fa-graduation-cap"></i>
-                                <h4>The Advisory</h4>
-                                <p>Specialist support for auditing and clinical workflows.</p>
-                            </div>
-
-                        </div>
+                    <div class="illustration-container">
+                        <img src="assets/images/illustrations/images/hospital-cloud-circle.png"
+                            alt="Data Solution Pipeline" class="illustration-only">
+                    </div>
+                    <div class="btn-group" style="margin-top: 2rem;">
+                        <a href="pages/solutions.html" class="btn btn-outline small">
+                            <span>Explore our set of tools</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
                 <div class="section-content">
                     <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
-                        <h2 class="section-title">The Solution: Bridging the Gap between Data and Science</h2>
+                        <h2 class="section-title">The Solution: Bridging Data and Science</h2>
                         <p class="section-subtitle">Intelligent systems that live where your data resides.</p>
                     </div>
                     <p>We deploy a custom-built intelligence layer directly within your hospital’s secure
@@ -276,15 +242,16 @@
                     <li><strong>Impact:</strong> Transforming years of manual abstraction into a scalable,
                         research-ready dataset.</li>
                 </ul>
-                <div class="btn-group">
-                    <a href="pages/documentation.html" class="btn btn-primary">
-                        <span>View Documentation</span>
-                    </a>
-                </div>
             </div>
             <div class="section-image">
                 <img src="assets/images/logos/institutions/logo-IRNEC.png" alt="IRNEC Logo"
-                    style="box-shadow: none; filter: drop-shadow(0 10px 20px rgba(34, 52, 64, 0.1)); border-radius: 0; width: auto; max-width: 100%;">
+                    style="box-shadow: none; filter: drop-shadow(0 10px 20px rgba(34, 52, 64, 0.1)); border-radius: 0; width: auto; max-width: 300px;">
+                <div class="btn-group" style="margin-top: 2rem;">
+                    <a href="pages/documentation.html" class="btn btn-outline small">
+                        <span>View Documentation</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
