@@ -174,7 +174,11 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+}
 
 .hero-subtitle {
     font-size: 1.25rem; /* Slightly smaller for home fit */
@@ -289,8 +293,8 @@
     }
 
     .hero-content {
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
         padding: 0 1.5rem;
     }
 
@@ -300,16 +304,10 @@
         padding: 0.6rem 1.2rem;
     }
 
-    .hero-title-group {
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .hero .hero-title-group h1,
     .hero h1 {
-        font-size: clamp(2.8rem, 16vw, 4.5rem); /* Dynamic and significantly larger while preventing overflow */
-        margin-bottom: 1.2rem;
-        line-height: 1.05;
+        font-size: 3.2rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
     }
 
     .hero-subtitle {
@@ -322,7 +320,6 @@
         flex-direction: column;
         width: 100%;
         gap: 1rem;
-        align-items: flex-start;
     }
 
     .btn {
