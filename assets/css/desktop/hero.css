@@ -179,11 +179,6 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.25rem;
-    }
-}
 
 .hero-subtitle {
     font-size: 1.25rem;
@@ -312,9 +307,8 @@
         padding: 0.6rem 1.2rem;
     }
 
-    .hero h1 {
-        font-size: 2.rem;
-        /* Adjusted for better fit on small screens */
+    .hero .hero-title-group h1 {
+        font-size: 2.8rem; /* Corrected syntax and increased specificity */
         margin-bottom: 1.5rem;
         line-height: 1.1;
     }
@@ -351,7 +345,7 @@
 
 /* Large Desktop Optimizations (Consolidated from utilities) */
 @media (min-width: 1200px) {
-    .hero h1 {
+    .hero .hero-title-group h1 {
         font-size: 5.5rem; /* Slightly larger for ultra-wide */
     }
 }
@@ -361,7 +355,7 @@
         padding: 12rem 0 8rem;
     }
     
-    .hero h1 {
+    .hero .hero-title-group h1 {
         font-size: 6rem;
     }
 }
