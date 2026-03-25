@@ -305,7 +305,7 @@
     }
 
     .hero h1 {
-        font-size: 2.5rem; /* Reduced to prevent overflow on small screens */
+        font-size: 2rem; /* Further reduced from 2.5rem for better fit */
         margin-bottom: 1.5rem;
         line-height: 1.1;
     }
