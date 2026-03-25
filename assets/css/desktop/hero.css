@@ -286,7 +286,8 @@
 @media (max-width: 768px) {
     .hero {
         padding: 8rem 0 6rem;
-        min-height: 80vh;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for modern mobile browsers */
         display: flex;
         align-items: center;
     }
@@ -304,10 +305,9 @@
     }
 
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         margin-bottom: 1.5rem;
         line-height: 1.1;
-        overflow-wrap: break-word; /* Ensure the long brand name doesn't overflow */
     }
 
     .hero-subtitle {
