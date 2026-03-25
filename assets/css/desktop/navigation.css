@@ -134,6 +134,20 @@
 
 /* Navigation Responsiveness */
 @media (max-width: 768px) {
+    .navbar {
+        background: rgba(71, 101, 115, 0.85); /* More opaque background to allow reduced blur */
+        backdrop-filter: blur(8px); /* Significantly reduced from 20px for mobile performance */
+        -webkit-backdrop-filter: blur(8px);
+    }
+    
+    .navbar.scrolled {
+        background: rgba(71, 101, 115, 0.95);
+    }
+
+    .navbar .curve-divider .shape-fill {
+        fill: rgba(111, 149, 158, 0.8); /* Slightly more opaque divider for mobile */
+    }
+
     .navbar-content {
         padding: 0 1.5rem;
     }

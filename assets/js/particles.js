@@ -55,6 +55,7 @@ function initParticles() {
         particle.style.position = 'absolute';
         particle.style.pointerEvents = 'none';
         particle.style.opacity = isFish ? '0.45' : '0.15'; // Polished visibility levels
+        particle.style.willChange = 'transform, opacity'; // Hint for hardware acceleration
         
         // Use CSS Animation
         const animationName = isFish ? 'swim' : 'float';

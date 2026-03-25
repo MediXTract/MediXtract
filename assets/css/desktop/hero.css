@@ -273,9 +273,9 @@
 .curve-divider svg {
     position: relative;
     display: block;
-    width: calc(100% + 1.3px);
+    width: calc(100% + 1.2px);
     height: 80px;
-    transform: scale(1.1);
+    transform: scale(1.02); /* Reduced for mobile stability to prevent overflow zooms */
 }
 
 .curve-divider .shape-fill {
@@ -288,9 +288,8 @@
 @media (max-width: 768px) {
     .hero {
         padding: 8rem 0 6rem;
-        min-height: 100vh;
-        min-height: 100dvh;
-        /* Dynamic viewport height for modern mobile browsers */
+        min-height: 100vh; /* Reverting to more stable vh for core mobile layout */
+        /* Dynamic viewport height fallback removed for stability during scroll */
         display: flex;
         align-items: center;
     }
