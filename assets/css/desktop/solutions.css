@@ -4,7 +4,8 @@
 .solutions-cover {
     width: 100%;
     height: 70vh;
-    background: url('../../images/illustrations/wallpapers/02-section-solutions-background.png');
+    background: linear-gradient(0deg, rgba(58, 12, 163, 0.15), rgba(58, 12, 163, 0.15)),
+        url('../../images/illustrations/wallpapers/02-section-solutions-background.png');
     background-size: cover;
     background-position: center;
     position: relative;

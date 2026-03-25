@@ -3,7 +3,8 @@
     position: relative;
     padding: 10rem 0 6rem;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(71, 101, 115, 0.07) 0%, rgba(164, 65, 37, 0.04) 100%),
+    background: linear-gradient(0deg, rgba(58, 12, 163, 0.15), rgba(58, 12, 163, 0.15)),
+        linear-gradient(135deg, rgba(71, 101, 115, 0.07) 0%, rgba(164, 65, 37, 0.04) 100%),
         url('../../images/illustrations/wallpapers/01-section-home-background.png');
     background-size: cover;
     background-position: center;
@@ -130,22 +131,15 @@
 /* Title Background Bubble Wrapper */
 .hero-title-group {
     position: relative;
-    padding: 3rem;
+    padding: 0;
     margin-bottom: 3.5rem;
     z-index: 1;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: fit-content;
-    min-width: 300px;
-    aspect-ratio: 1 / 1;
-    max-width: 100%;
-    background-image: url('../../images/illustrations/objects/bubble.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 100%;
 }
 
 /* Home hero specifically layout should be normal */
